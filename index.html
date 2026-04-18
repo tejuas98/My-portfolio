@@ -618,6 +618,21 @@
                 if(container) {
                     container.style.opacity = '1';
                 }
+
+                // ONE-TIME LOCK: Animate and remove the intro section
+                const intro = document.getElementById("intro-overlay");
+                if(intro) {
+                    gsap.to(intro, {
+                        y: "-100%",
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power2.inOut",
+                        onComplete: () => {
+                            intro.remove();
+                            ScrollTrigger.refresh(); // Recalculate snap points
+                        }
+                    });
+                }
             }
         });
     </script>
