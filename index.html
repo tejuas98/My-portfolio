@@ -139,8 +139,8 @@
         /* Custom Cursor Styles */
         html, body, a, button { cursor: none !important; }
         #custom-cursor {
-            width: 45px;
-            height: 45px;
+            width: 42px;
+            height: 54px; /* Proportional to 54x69 source */
             position: fixed;
             top: 0;
             left: 0;
@@ -149,8 +149,8 @@
             background-repeat: no-repeat;
             pointer-events: none;
             z-index: 9999;
-            /* Pointing hand hotspot is the tip of the finger (Top-Left area) */
-            transform: translate(-10%, -10%); 
+            /* Hotspot at the tip of the index finger */
+            transform: translate(-18%, -14%); 
             transition: width 0.2s ease, height 0.2s ease;
             display: none;
         }
@@ -686,7 +686,7 @@
             rotation += (targetRotation - rotation) * 0.1;
 
             // Using transform-origin to rotate around the pointing finger tip
-            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-15%, -15%) rotate(${rotation}deg)`;
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-18%, -14%) rotate(${rotation}deg)`;
 
             lastMouseX = mouseX;
             lastMouseY = mouseY;
