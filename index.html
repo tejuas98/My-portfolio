@@ -135,10 +135,36 @@
             #main-content { padding-top: 55px !important; }
             .section-padding { padding: 80px 20px; }
         }
+
+        /* Custom Cursor Styles */
+        html, body, a, button { cursor: none !important; }
+        #custom-cursor {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-image: url('assets/custom_cursor.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease;
+            display: none;
+        }
+        @media (pointer: fine) {
+            #custom-cursor { display: block; }
+        }
+        .cursor-hover {
+            width: 60px !important;
+            height: 60px !important;
+        }
     </style>
 </head>
 
 <body class="relative bg-[#e4dfd6] overflow-x-hidden selection:bg-[#1a1a1a] selection:text-[#e4dfd6]">
+    <div id="custom-cursor"></div>
 
     <!-- SPLIT-ALIGNMENT TOP NAV -->
     <nav id="top-nav" class="fixed left-0 top-0 w-full">
@@ -635,6 +661,47 @@
                 }
             }
         });
+
+        // --- CUSTOM CURSOR LOGIC ---
+        const cursor = document.getElementById('custom-cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let lastMouseX = 0, lastMouseY = 0;
+        let rotation = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            // Smooth lerp (lerp factor 0.15)
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+
+            // Calculate rotation based on velocity
+            const deltaX = mouseX - lastMouseX;
+            const targetRotation = deltaX * 0.5;
+            rotation += (targetRotation - rotation) * 0.1;
+
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%) rotate(${rotation}deg)`;
+
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effects for all interactive elements
+        const interactives = 'a, button, .nav-link, .bento-card, .giant-email';
+        document.querySelectorAll(interactives).forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+        });
+
+        // Hide cursor when leaving window
+        document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
+        document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
     </script>
 
     <!-- Three.js Library -->
