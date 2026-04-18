@@ -138,7 +138,7 @@
     </style>
 </head>
 
-<body class="relative min-h-screen bg-[#e4dfd6] overflow-hidden selection:bg-[#1a1a1a] selection:text-[#e4dfd6]">
+<body class="relative bg-[#e4dfd6] overflow-x-hidden selection:bg-[#1a1a1a] selection:text-[#e4dfd6]">
 
     <!-- SPLIT-ALIGNMENT TOP NAV -->
     <nav id="top-nav" class="fixed left-0 top-0 w-full">
@@ -153,8 +153,8 @@
         </div>
     </nav>
 
-    <!-- INTRO OVERLAY -->
-    <div id="intro-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#e4dfd6] px-4">
+    <!-- INTRO WARNING SECTION (PAGE 1) -->
+    <section id="intro-overlay" class="relative min-h-screen flex flex-col items-center justify-center bg-[#e4dfd6] px-4">
         <!-- noise background -->
         <div class="absolute inset-0 opacity-[1] pointer-events-none" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E&quot;);"></div>
         
@@ -222,12 +222,12 @@
             </div>
 
             <!-- Scroll Indicator -->
-            <p class="text-xs font-sans font-black text-[#222] mt-8 uppercase tracking-[0.3em] text-center animate-bounce cursor-pointer hover:text-[#ffb600] transition-colors" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.5);" onclick="unlockPortfolio()">
+            <p class="text-xs font-sans font-black text-[#222] mt-8 uppercase tracking-[0.3em] text-center animate-bounce cursor-default" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.5);">
                 &darr; SCROLL DOWN &darr;
             </p>
 
         </div>
-    </div>
+    </section>
 
     <section id="home" class="relative">
         <!-- WebGL Container for Retro Computer -->
@@ -590,65 +590,36 @@
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script>
-        const overlay = document.getElementById("intro-overlay");
+    </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP Initialization
+        gsap.registerPlugin(ScrollTrigger);
 
         // Setup initial hidden state for portfolio content
         gsap.set(".hero-element", { y: 50, opacity: 0 });
 
-        let isUnlocked = false;
-
-        function unlockPortfolio() {
-            if (isUnlocked) return;
-            isUnlocked = true;
-
-            // Remove listeners
-            window.removeEventListener('wheel', handleScroll);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchmove', handleTouchMove);
-
-            // Animate overlay out
-            gsap.to(overlay, {
-                y: "-100%",
-                duration: 1.2,
-                ease: "power4.inOut",
-                onComplete: () => {
-                    // Completely removes the first screen so the user cannot enter it again
-                    overlay.remove();
-                    // Animate portfolio items in
-                    gsap.to(".hero-element", {
-                        y: 0,
-                        opacity: 1,
-                        duration: 1.2,
-                        stagger: 0.15,
-                        ease: "power4.out"
-                    });
+        // Hero Entrance Animation Trigger
+        ScrollTrigger.create({
+            trigger: "#home",
+            start: "top center",
+            onEnter: () => {
+                gsap.to(".hero-element", {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
+                    stagger: 0.15,
+                    ease: "power4.out"
+                });
+                
+                // Also trigger computer reveal if it's hidden
+                if(container) {
+                    container.style.opacity = '1';
                 }
-            });
-        }
-
-        // Scroll / Swipe Up logic
-        function handleScroll(e) {
-            if (e.deltaY > 0) unlockPortfolio();
-        }
-
-        let touchStartY = 0;
-        function handleTouchStart(e) {
-            touchStartY = e.touches[0].clientY;
-        }
-        function handleTouchMove(e) {
-            const touchY = e.touches[0].clientY;
-            if (touchStartY - touchY > 30) unlockPortfolio(); 
-        }
-
-        window.addEventListener('wheel', handleScroll, {passive: true});
-        window.addEventListener('touchstart', handleTouchStart, {passive: true});
-        window.addEventListener('touchmove', handleTouchMove, {passive: true});
-
-
-
+            }
+        });
     </script>
 
     <!-- Three.js Library -->
