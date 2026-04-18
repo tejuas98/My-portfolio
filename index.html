@@ -30,6 +30,10 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
             color: #1a1a1a; 
         }
+        @keyframes swing {
+            0%, 100% { transform: rotate(1deg); }
+            50% { transform: rotate(-1.5deg); }
+        }
     </style>
 </head>
 
@@ -103,33 +107,19 @@
                 <div class="absolute inset-[4px] sm:inset-[5px] border-[2.5px] border-dashed border-[#f7cd4a] rounded-[20px] sm:rounded-[27px] pointer-events-none opacity-80 z-30"></div>
             </div>
 
-            <!-- Fabric Swipe Slider -->
-            <div id="swipe-container" class="mt-8 relative w-[300px] h-[72px] bg-[#f0e4c6] border-[6px] border-[#151515] rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.3),inset_0_0_12px_rgba(0,0,0,0.15)] flex items-center justify-start cursor-pointer select-none">
-                
-                <!-- Fabric Texture Overlay -->
-                <div class="absolute inset-0 opacity-[0.3] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
-                
-                <!-- Text -->
-                <div class="absolute inset-0 flex items-center justify-center text-[#151515] font-sans font-black text-xl md:text-2xl tracking-widest pl-8 pointer-events-none z-20 uppercase" style="text-shadow: 0.5px 1px 0px rgba(0,0,0,0.4), -0.5px -0.5px 1px rgba(255,255,255,0.8);">
-                    SWIPE RIGHT
-                    <svg class="ml-2 w-7 h-7 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
-                </div>
-                
-                <!-- Fake stitching outline -->
-                <div class="absolute inset-[3px] border-[2px] border-dashed border-[#151515] opacity-40 rounded-full pointer-events-none z-30"></div>
-
-                <!-- Knob (Fabric Button) -->
-                <div id="swipe-knob" class="absolute left-[6px] w-[48px] h-[48px] bg-[#151515] rounded-full z-40 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_0_6px_rgba(255,255,255,0.2)] border-2 border-[#151515]">
-                    <!-- inner stitched detail -->
-                    <div class="w-[36px] h-[36px] rounded-full border border-dashed border-[#f0e4c6] opacity-60"></div>
-                </div>
-            </div>
-            <p class="text-xs font-sans font-bold text-[#555] mt-4 uppercase tracking-[0.2em] text-center animate-pulse" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.3);">Or simply scroll down</p>
+            <!-- Scroll Indicator -->
+            <p class="text-xs font-sans font-black text-[#222] mt-8 uppercase tracking-[0.3em] text-center animate-bounce cursor-pointer hover:text-[#ffb600] transition-colors" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.5);" onclick="unlockPortfolio()">
+                &darr; SCROLL DOWN &darr;
+            </p>
 
         </div>
     </div>
 
-    <div class="relative z-10 max-w-4xl">
+    <!-- WebGL Container for Retro Computer -->
+    <div id="webgl-container" class="absolute right-[0%] top-1/2 -translate-y-1/2 w-[50%] h-full z-0 pointer-events-none hidden md:block opacity-0 transition-opacity duration-1000"></div>
+
+    <div class="relative z-10 max-w-4xl w-full">
+
         <div class="hero-element flex mb-5 relative ml-[-4px]">
             <!-- Fabric Badge for Username -->
             <div class="relative bg-[#151515] rounded-[6px] border-[3px] border-[#151515] overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_0_4px_rgba(255,255,255,0.1)] inline-flex tracking-widest cursor-default">
@@ -142,13 +132,13 @@
             </div>
         </div>
 
-        <h1 class="hero-element text-5xl md:text-6xl font-serif font-black mb-4 text-[#1a1a1a] tracking-tight">
+        <h1 class="hero-element text-5xl md:text-6xl font-serif font-black mb-2 text-[#1a1a1a] tracking-tight">
             Tejas Jaware
         </h1>
 
-        <div class="hero-element mb-8 flex flex-wrap items-center gap-4 md:gap-5">
+        <div class="hero-element mb-3 flex flex-wrap items-center gap-2 md:gap-3">
             <!-- Part 1: Eng ineer Fabric Badge -->
-            <div class="inline-flex items-center tracking-tighter transform -rotate-[2deg] cursor-default">
+            <div class="inline-flex items-center tracking-tighter cursor-default">
                 <div class="relative flex items-stretch bg-[#ffcc00] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.2)] pb-[1px]">
                     <!-- Fabric Texture -->
                     <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
@@ -168,7 +158,7 @@
             </div>
 
             <!-- Part 2: I DESIGN STUFF Fabric Badge -->
-            <div class="relative inline-flex items-center transform rotate-2 cursor-default ml-1 md:ml-3">
+            <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3">
                 <div class="relative rounded-[8px] overflow-visible">
                     
                     <!-- Blue Back Fabric (acts as drop shadow) -->
@@ -194,31 +184,21 @@
                 </div>
             </div>
 
-            <!-- Part 3: DaVinci Resolve 3D Keycap -->
-            <div class="relative inline-flex items-center transform rotate-[1deg] cursor-default ml-1 md:ml-3 mt-1">
-                <!-- The thick base of the keycap -->
-                <div class="bg-[#b4540a] rounded-[10px] p-[2px] pb-[8px] pr-[5px] shadow-[4px_10px_16px_rgba(0,0,0,0.3)]">
-                    <!-- The top face of the keycap -->
-                    <div class="relative bg-gradient-to-br from-[#fd8d33] to-[#e66c14] rounded-[8px] px-3 py-[6px] md:px-4 md:py-[8px] flex items-center justify-center gap-2 shadow-[inset_1px_2px_4px_rgba(255,255,255,0.7),inset_-2px_-3px_5px_rgba(0,0,0,0.4)] min-w-[min-content] overflow-hidden border border-[#fc9e50]/30 h-full">
-                        
-                        <!-- Very subtle noise on plastic keycap -->
-                        <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-overlay z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
-
-                        <!-- DaVinci Logo SVG -->
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.4)] z-20">
-                            <defs>
-                                <linearGradient id="davinci-blue" x1="12" y1="2" x2="12" y2="12"><stop stop-color="#2de3ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
-                                <linearGradient id="davinci-yellow" x1="4" y1="21" x2="11" y2="13"><stop stop-color="#ccff00"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
-                                <linearGradient id="davinci-red" x1="20" y1="21" x2="13" y2="13"><stop stop-color="#ff4735"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
-                            </defs>
-                            <path d="M12 12C8 8 9 3 12 3C15 3 16 8 12 12Z" fill="url(#davinci-blue)"/>
-                            <path d="M11.5 13C7 13 3 16 5 20C7 22 10 20 11.5 13Z" fill="url(#davinci-yellow)"/>
-                            <path d="M12.5 13C17 13 21 16 19 20C17 22 14 20 12.5 13Z" fill="url(#davinci-red)"/>
-                        </svg>
-
-                        <!-- Text -->
-                        <span class="font-sans font-medium text-[#2d1200] text-[0.95rem] md:text-[1.1rem] tracking-wide relative z-20 pt-[2px]" style="text-shadow: 0.5px 1px 0 rgba(255,255,255,0.4);">DaVinci</span>
-
+            <!-- Tag 3: DaVinci Resolve (Sleek Dark Badge) -->
+            <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3 mr-1">
+                <div class="flex items-stretch bg-[#151515] rounded-[6px] border-[3px] border-[#151515] shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(255,255,255,0.1)] overflow-hidden relative pb-[1px]">
+                    <!-- Fabric Texture -->
+                    <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-overlay z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                    <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#f8f8f8] mix-blend-difference opacity-50 rounded-[4px] pointer-events-none z-30"></div>
+                    
+                    <!-- Left Photo area -->
+                    <div class="bg-[#1a1a1a] px-3 py-1.5 flex items-center justify-center relative z-20">
+                        <img src="davinci_logo.jpg" alt="DaVinci" class="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-[5px] object-cover border-[1px] border-[#333] shadow-sm">
+                    </div>
+                    
+                    <!-- Right Text Area -->
+                    <div class="flex flex-col justify-center px-4 pt-[3px] relative z-20 bg-[#f8f8f8]">
+                        <span class="font-sans font-black text-[#151515] text-[1.1rem] md:text-[1.2rem] leading-none uppercase tracking-widest pl-[1px]" style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);">EDITING</span>
                     </div>
                 </div>
             </div>
@@ -226,10 +206,10 @@
         </div>
 
         <!-- NEW ROW OF TAGS -->
-        <div class="hero-element mb-10 mt-[-10px] flex flex-wrap items-center gap-6 md:gap-8">
+        <div class="hero-element mb-6 flex flex-wrap items-center gap-3 md:gap-4 mt-1">
             
             <!-- Tag 4: Creator & Director (Kodak Retro Style) -->
-            <div class="relative inline-flex items-center transform rotate-[2deg] cursor-default">
+            <div class="relative inline-flex items-center cursor-default">
                 <div class="bg-[#fbf8f1] p-[4px] rounded-[6px] shadow-[0_4px_10px_rgba(0,0,0,0.2),0_1px_3px_rgba(0,0,0,0.1)]">
                     <div class="bg-[#ffb600] w-[180px] md:w-[200px] h-[58px] rounded-[3px] relative overflow-hidden flex flex-col border-[1px] border-[#ffb600]/80 shadow-[inset_0_0_8px_rgba(0,0,0,0.05)]">
                         <!-- Top Yellow section -->
@@ -243,7 +223,7 @@
                             <!-- Stripes mask -->
                             <div class="absolute inset-0" style="background: repeating-linear-gradient(0deg, #d31818, #d31818 2.5px, #ffb600 2.5px, #ffb600 5px);"></div>
                             <div class="absolute inset-y-0 right-0 bg-[#d31818] w-[75%] border-l-[1.5px] border-[#d31818]"></div>
-                            <span class="font-sans font-black italic text-[1.1rem] md:text-[1.2rem] tracking-wider text-[#fbf8f1] leading-none relative z-10 pl-6">&amp; DIRECTOR</span>
+                            <span class="font-sans font-black italic text-[1.1rem] md:text-[1.2rem] tracking-wider text-[#fbf8f1] leading-none relative z-10 pl-6">&amp; ARCHITECT</span>
                             
                             <!-- Kodak style side cut illusion -->
                             <div class="absolute left-[-2px] bottom-0 w-0 h-0 border-t-[30px] border-t-transparent border-b-[0px] border-b-transparent border-l-[45px] border-l-[#ffb600] z-20"></div>
@@ -254,31 +234,58 @@
                 </div>
             </div>
 
-            <!-- Tag 5: Status Ledger (INTЯOVERT Textstyle) -->
-            <div class="relative inline-flex flex-col items-center transform -rotate-1 cursor-default">
-                <div class="bg-[#fcfcfc] p-[6px] pb-[8px] rounded-[6px] shadow-[0_6px_15px_rgba(0,0,0,0.15)] border border-[#e5e5e5] flex flex-col gap-[5px] w-max">
-                    <!-- Main Black Box -->
-                    <div class="bg-[#111] px-5 py-2.5 flex items-center justify-center">
-                        <span class="font-sans font-black text-[#fcfcfc] text-[1.1rem] md:text-[1.3rem] tracking-[0.2em] uppercase">
-                            STATU<span class="inline-block transform -scale-x-100">S</span> L<span class="inline-block transform -scale-x-100">E</span>DGE<span class="inline-block transform -scale-x-100">R</span>
-                        </span>
+            <!-- Tag 5: Status Ledger (Minimalist Sticker) -->
+            <div class="relative inline-flex items-center cursor-default ml-1 md:ml-2">
+                <!-- Outer white sticker trim -->
+                <div class="bg-[#fdfdfd] p-[4px] rounded-[4px] shadow-[0_2px_8px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.08)] relative">
+                    <!-- Black box -->
+                    <div class="bg-[#1a1a1a] w-full pt-[2px] px-[2px] pb-[7px] rounded-[2px]">
+                        <!-- Inner white box -->
+                        <div class="bg-[#fdfdfd] px-4 py-1 flex items-center justify-center">
+                            <span class="font-serif text-[1rem] md:text-[1.15rem] text-[#1a1a1a] tracking-[0.03em]">Status Ledger</span>
+                        </div>
                     </div>
-                    <!-- Thin Black Line -->
-                    <div class="h-[2.5px] bg-[#111] w-full rounded-[1px]"></div>
+                    
+                    <!-- Very subtle noise over the sticker -->
+                    <div class="absolute inset-0 opacity-[0.15] pointer-events-none mix-blend-multiply rounded-[4px]" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
                 </div>
             </div>
 
-            <!-- Tag 6: UI & UX (Yellow Comic Panels) -->
-            <div class="relative inline-flex flex-col gap-[6px] transform rotate-3 cursor-default ml-1 md:ml-2">
-                <!-- Top Box -->
-                <div class="relative bg-[#ffd93d] border-[3px] border-[#111] px-3 py-0.5 self-start z-20 shadow-[3px_3px_0_#111]">
-                    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-multiply" style="background-image: radial-gradient(#111 1.5px, transparent 1.5px); background-size: 5px 5px;"></div>
-                    <span class="relative font-bold font-mono text-[0.85rem] md:text-[1rem] tracking-tight text-[#111] z-10 uppercase">UI DESIGN!</span>
-                </div>
-                <!-- Bottom Box -->
-                <div class="relative bg-[#ffd93d] border-[3px] border-[#111] px-3 py-0.5 self-end ml-10 z-10 shadow-[3px_3px_0_#111]">
-                    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-multiply" style="background-image: radial-gradient(#111 1.5px, transparent 1.5px); background-size: 5px 5px;"></div>
-                    <span class="relative font-bold font-mono text-[0.85rem] md:text-[1rem] tracking-tight text-[#111] z-10 uppercase">&amp; UX TOO!</span>
+            <!-- Tag 6: CREATIVE (Magazine Cutout Style) -->
+            <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3">
+                <div class="flex items-center justify-center gap-[2px]">
+                    <!-- c -->
+                    <div class="bg-[#d3272d] px-[3px] py-[3px] transform -rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)]" style="clip-path: polygon(5% 0%, 95% 4%, 100% 98%, 0% 100%);">
+                        <span class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[18px] text-center inline-block">c</span>
+                    </div>
+                    <!-- r -->
+                    <div class="bg-[#2978c4] px-[3px] py-[3px] transform rotate-[2deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[2px]" style="clip-path: polygon(0% 5%, 100% 0%, 95% 100%, 5% 95%);">
+                        <span class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[16px] text-center inline-block">r</span>
+                    </div>
+                    <!-- e -->
+                    <div class="bg-[#288450] px-[3.5px] py-[3px] transform rotate-[4deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[-1px]" style="clip-path: polygon(0% 0%, 98% 5%, 100% 95%, 2% 100%);">
+                        <span class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[16px] text-center inline-block">e</span>
+                    </div>
+                    <!-- a -->
+                    <div class="bg-[#de6097] px-[4px] py-[4px] transform -rotate-[2deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[1px]" style="clip-path: polygon(5% 0%, 100% 2%, 95% 100%, 0% 95%);">
+                        <span class="font-serif font-black text-[#de6097] text-[1.3rem] leading-none w-[18px] text-center inline-block" style="-webkit-text-stroke: 1px #f8f8f8;">a</span>
+                    </div>
+                    <!-- t -->
+                    <div class="bg-[#f8f8f8] px-[4px] py-[4px] transform -rotate-[4deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[-1px]" style="clip-path: polygon(0% 5%, 95% 0%, 100% 95%, 5% 100%);">
+                        <span class="font-sans font-black text-[#111] text-[1.4rem] leading-none w-[16px] text-center inline-block pb-[1px]">t</span>
+                    </div>
+                    <!-- i -->
+                    <div class="bg-[#e96627] px-[3.5px] py-[4px] transform rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)]" style="clip-path: polygon(5% 0%, 95% 0%, 100% 95%, 0% 90%);">
+                        <span class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[12px] text-center inline-block">i</span>
+                    </div>
+                    <!-- v -->
+                    <div class="bg-[#191919] px-[3px] py-[3px] transform rotate-[1deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[2px]" style="clip-path: polygon(0% 5%, 100% 0%, 95% 95%, 5% 100%);">
+                        <span class="font-sans font-black text-[#44915b] text-[1.3rem] leading-none w-[18px] text-center inline-block">v</span>
+                    </div>
+                    <!-- e -->
+                    <div class="bg-[#eec131] px-[4px] py-[4px] transform -rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[-1px]" style="clip-path: polygon(5% 0%, 95% 4%, 100% 98%, 0% 95%);">
+                        <span class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[16px] text-center inline-block">e</span>
+                    </div>
                 </div>
             </div>
 
@@ -310,8 +317,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script>
         const overlay = document.getElementById("intro-overlay");
-        const swipeContainer = document.getElementById("swipe-container");
-        const swipeKnob = document.getElementById("swipe-knob");
+
 
         // Setup initial hidden state for portfolio content
         gsap.set(".hero-element", { y: 50, opacity: 0 });
@@ -365,57 +371,249 @@
         window.addEventListener('touchstart', handleTouchStart, {passive: true});
         window.addEventListener('touchmove', handleTouchMove, {passive: true});
 
-        // Swipe slider drag logic
-        let isDragging = false;
-        let startX = 0;
-        let currentX = 0;
-        let maxScroll = 0;
 
-        function initDrag() {
-            maxScroll = swipeContainer.offsetWidth - swipeKnob.offsetWidth - 12; // 6px padding on left/right
-        }
 
-        function dragStart(e) {
-            if (isUnlocked) return;
-            isDragging = true;
-            initDrag();
-            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            swipeKnob.style.transition = 'none';
-        }
+    </script>
 
-        function dragMove(e) {
-            if (!isDragging || isUnlocked) return;
-            const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            currentX = x - startX;
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Setup Three.js WebGL Scene
+        const container = document.getElementById('webgl-container');
+        if(container) {
+            const scene = new THREE.Scene();
             
-            if (currentX < 0) currentX = 0;
-            if (currentX > maxScroll) currentX = maxScroll;
-            
-            swipeKnob.style.transform = `translateX(${currentX}px)`;
-        }
+            // Camera
+            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(0, 2.5, 6.5);
+            camera.lookAt(0, 0, 0);
 
-        function dragEnd() {
-            if (!isDragging || isUnlocked) return;
-            isDragging = false;
+            // Renderer
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            container.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
             
-            if (currentX > maxScroll * 0.7) {
-                swipeKnob.style.transition = 'transform 0.3s ease';
-                swipeKnob.style.transform = `translateX(${maxScroll}px)`;
-                unlockPortfolio();
-            } else {
-                swipeKnob.style.transition = 'transform 0.3s ease';
-                swipeKnob.style.transform = `translateX(0px)`;
-                currentX = 0;
+            const dirLight = new THREE.DirectionalLight(0xfff5e6, 0.8);
+            dirLight.position.set(5, 5, 2);
+            dirLight.castShadow = true;
+            dirLight.shadow.mapSize.width = 1024;
+            dirLight.shadow.mapSize.height = 1024;
+            scene.add(dirLight);
+
+            const fillLight = new THREE.DirectionalLight(0xaaccff, 0.3);
+            fillLight.position.set(-5, 0, 2);
+            scene.add(fillLight);
+
+            // Materials
+            const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x111111, linewidth: 2 });
+            const beigeMaterial = new THREE.MeshToonMaterial({ color: 0xe8e4d9 });
+            const screenMaterial = new THREE.MeshToonMaterial({ color: 0x151515, roughness: 0.2 });
+            const darkMaterial = new THREE.MeshToonMaterial({ color: 0x222222 });
+            const accentMaterial = new THREE.MeshToonMaterial({ color: 0xffb600 });
+
+            // Create Computer Group
+            const computerGroup = new THREE.Group();
+
+            // Helper to add thick comic outlines to geometry
+            function createComicMesh(geometry, material, castShadow = true) {
+                const mesh = new THREE.Mesh(geometry, material);
+                mesh.castShadow = castShadow;
+                mesh.receiveShadow = true;
+                
+                // Add Edges
+                const edges = new THREE.EdgesGeometry(geometry);
+                const line = new THREE.LineSegments(edges, outlineMaterial);
+                mesh.add(line);
+                
+                return mesh;
             }
+
+            // 1. PC Tower (Base)
+            const towerGeo = new THREE.BoxGeometry(2.4, 0.6, 2.4);
+            const tower = createComicMesh(towerGeo, beigeMaterial);
+            tower.position.y = -0.3;
+            computerGroup.add(tower);
+
+            // Floppy drive slot
+            const driveGeo = new THREE.BoxGeometry(0.6, 0.05, 0.1);
+            const drive = createComicMesh(driveGeo, darkMaterial, false);
+            drive.position.set(0.5, -0.2, 1.25);
+            computerGroup.add(drive);
+
+            // Power button
+            const btnGeo = new THREE.BoxGeometry(0.15, 0.1, 0.1);
+            const btn = createComicMesh(btnGeo, accentMaterial, false);
+            btn.position.set(0.9, -0.3, 1.25);
+            computerGroup.add(btn);
+
+            // 2. Monitor Base/Neck
+            const neckGeo = new THREE.BoxGeometry(0.4, 0.4, 0.4);
+            const neck = createComicMesh(neckGeo, beigeMaterial);
+            neck.position.y = 0.2;
+            computerGroup.add(neck);
+
+            // 3. Monitor Body
+            const monitorBodyGeo = new THREE.BoxGeometry(1.8, 1.6, 1.4);
+            const monitorBody = createComicMesh(monitorBodyGeo, beigeMaterial);
+            monitorBody.position.y = 1.1;
+            monitorBody.rotation.x = -0.05; // Tilted slightly up
+            computerGroup.add(monitorBody);
+
+            // Monitor Bezel Frame
+            const bezelGeo = new THREE.BoxGeometry(1.6, 1.4, 0.1);
+            const bezel = createComicMesh(bezelGeo, beigeMaterial, false);
+            bezel.position.set(0, 1.1, 0.75);
+            bezel.rotation.x = -0.05;
+            computerGroup.add(bezel);
+
+            // Monitor Screen (Black)
+            const screenGeo = new THREE.PlaneGeometry(1.3, 1.1);
+            const screen = new THREE.Mesh(screenGeo, screenMaterial);
+            screen.position.set(0, 1.12, 0.81);
+            screen.rotation.x = -0.05;
+            computerGroup.add(screen);
+
+            // 4. Keyboard
+            const kbGeo = new THREE.BoxGeometry(2.0, 0.15, 0.8);
+            const keyboard = createComicMesh(kbGeo, beigeMaterial);
+            keyboard.position.set(0, -0.8, 1.8);
+            keyboard.rotation.x = 0.1; // Tilted towards user
+            computerGroup.add(keyboard);
+
+            // Mechanical Keyboard Keys Loop
+            const keysGroup = new THREE.Group();
+            keysGroup.position.set(0, -0.71, 1.8);
+            keysGroup.rotation.x = 0.1;
+            
+            // Main typing block
+            for(let r = 0; r < 5; r++) {
+                // skip bottom middle for spacebar
+                let cols = (r === 4) ? 4 : 12;
+                for(let c = 0; c < cols; c++) {
+                    const keyGeo = new THREE.BoxGeometry(0.08, 0.04, 0.08);
+                    const key = createComicMesh(keyGeo, beigeMaterial, false);
+                    let xOffset = (r === 4) ? (c < 2 ? -0.6 : 0.25) : -0.6; // space for spacebar
+                    key.position.set(xOffset + (c * 0.095), 0, -0.2 + (r * 0.095));
+                    keysGroup.add(key);
+                }
+            }
+            // Spacebar
+            const spaceGeo = new THREE.BoxGeometry(0.6, 0.04, 0.08);
+            const spaceKey = createComicMesh(spaceGeo, beigeMaterial, false);
+            spaceKey.position.set(-0.15, 0, 0.18);
+            keysGroup.add(spaceKey);
+
+            // Numpad block
+            for(let r = 0; r < 5; r++) {
+                for(let c = 0; c < 3; c++) {
+                    const keyGeo = new THREE.BoxGeometry(0.08, 0.04, 0.08);
+                    const key = createComicMesh(keyGeo, beigeMaterial, false);
+                    key.position.set(0.65 + (c * 0.095), 0, -0.2 + (r * 0.095));
+                    keysGroup.add(key);
+                }
+            }
+            computerGroup.add(keysGroup);
+
+            // 5. Mouse Details
+            const mouseGroup = new THREE.Group();
+            mouseGroup.position.set(1.4, -0.8, 1.8);
+            mouseGroup.rotation.y = -0.2;
+            
+            const mouseBaseGeo = new THREE.BoxGeometry(0.3, 0.12, 0.5);
+            const mouseBase = createComicMesh(mouseBaseGeo, beigeMaterial);
+            mouseGroup.add(mouseBase);
+
+
+
+            const wheelGeo = new THREE.BoxGeometry(0.04, 0.04, 0.08);
+            const wheel = createComicMesh(wheelGeo, darkMaterial, false);
+            wheel.position.set(0, 0.07, -0.14);
+            mouseGroup.add(wheel);
+            
+            computerGroup.add(mouseGroup);
+
+
+
+            // Center group
+            computerGroup.position.y = -0.7; // shift slightly down
+            scene.add(computerGroup);
+
+            // Floating Animation variables
+            let clock = new THREE.Clock();
+
+            // Mouse tracking variables
+            let targetRotationX = 0;
+            let targetRotationY = 0;
+            let currentRotationX = 0;
+            let currentRotationY = 0;
+            
+            // Listeners
+            window.addEventListener('mousemove', (e) => {
+                // Normalize mouse coords (-1 to +1)
+                const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+                
+                targetRotationY = mouseX * 0.5; // Max horizontal tilt
+                targetRotationX = -mouseY * 0.3; // Max vertical tilt
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            // Reveal Animation once loaded
+            setTimeout(() => {
+                container.style.opacity = '1';
+                // Trigger an entrance pop
+                let scale = 0;
+                gsap.to({s:0}, {
+                    s: 1, duration: 1.5, ease: 'elastic.out(1, 0.5)',
+                    onUpdate: function() {
+                        computerGroup.scale.set(this.targets()[0].s, this.targets()[0].s, this.targets()[0].s);
+                    }
+                });
+            }, 500);
+
+            // Render loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                const time = clock.getElapsedTime();
+
+                // 1. Water floating bob (Sine wave on Y axis)
+                const floatY = Math.sin(time * 1.5) * 0.15;
+                computerGroup.position.y = -0.7 + floatY;
+
+
+                
+                // 2. Water floating tilt (Very slow rocking)
+                const floatRotZ = Math.sin(time * 0.8) * 0.05;
+                
+                // 3. Smooth Lerp towards mouse target
+                currentRotationX += (targetRotationX - currentRotationX) * 0.05;
+                currentRotationY += (targetRotationY - currentRotationY) * 0.05;
+
+                // Combine rotation
+                computerGroup.rotation.x = currentRotationX;
+                computerGroup.rotation.y = currentRotationY - 0.5; // -0.5 offsets it slightly to the left so it looks at center
+                computerGroup.rotation.z = floatRotZ;
+
+                renderer.render(scene, camera);
+            }
+            
+            // Start very small for pop-in
+            computerGroup.scale.set(0,0,0);
+            animate();
         }
-
-        swipeKnob.addEventListener('mousedown', dragStart);
-        swipeKnob.addEventListener('touchstart', dragStart, {passive: true});
-        window.addEventListener('mousemove', dragMove);
-        window.addEventListener('touchmove', dragMove, {passive: true});
-        window.addEventListener('mouseup', dragEnd);
-        window.addEventListener('touchend', dragEnd);
-
     </script>
 </body>
 </html>
