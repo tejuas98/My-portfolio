@@ -40,53 +40,248 @@
         <!-- noise background -->
         <div class="absolute inset-0 opacity-[1] pointer-events-none" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E&quot;);"></div>
         
+        <!-- Parental Advisory Fabric Patch Corner -->
+        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20">
+            <div class="relative bg-[#f8f8f8] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.1)] w-[100px] sm:w-[124px]">
+                <!-- Fabric Texture -->
+                <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                
+                <!-- Inner Advisory Content -->
+                <div class="relative text-center font-sans flex flex-col justify-between p-[3px] z-20">
+                    <div class="bg-[#151515] text-[#f8f8f8] font-bold text-[0.4em] sm:text-[0.5em] tracking-[0.2em] py-[1px] rounded-[2px]" style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.8);">PARENTAL</div>
+                    <div class="text-[#151515] font-black text-[1.1rem] sm:text-[1.4rem] leading-none py-[3px] tracking-tighter uppercase" style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.3), -0.5px -0.5px 0 rgba(255,255,255,0.8);">ADVISORY</div>
+                    <div class="bg-[#151515] text-[#f8f8f8] font-bold text-[0.35em] sm:text-[0.4em] tracking-[0.1em] py-[1px] rounded-[2px]" style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.8);">EXPLICIT CONTENT</div>
+                </div>
+
+                <!-- Fake stitching outline -->
+                <div class="absolute inset-[2px] border-[1px] border-dashed border-[#151515] rounded-[3px] pointer-events-none opacity-40 z-30"></div>
+            </div>
+        </div>
+
         <div class="relative z-10 flex flex-col items-center px-4 w-full max-w-md">
             
-            <!-- Warning Sticker -->
-            <div class="bg-white p-2 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.15)] w-full mb-8 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div class="bg-[#ffcc00] rounded-xl overflow-hidden border-[3px] border-[#ffcc00] flex flex-col">
-                    <div class="bg-black text-[#ffcc00] font-black text-4xl sm:text-5xl py-4 flex justify-center items-center gap-3 tracking-wide uppercase">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                        WARNING
+            <!-- Fabric Patch Warning -->
+            <div class="w-full sm:w-[400px] mb-8 relative transform -rotate-[3deg] hover:-rotate-1 transition-transform duration-300">
+                <!-- Patch base with thick threaded border -->
+                <div class="relative bg-[#f0e4c6] rounded-[24px] sm:rounded-[32px] border-[8px] sm:border-[10px] border-[#e1a100] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.3),inset_0_0_15px_rgba(0,0,0,0.15)]">
+                    
+                    <!-- Fabric texture overlay -->
+                    <div class="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply z-20" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                    
+                    <!-- Top section: Black angled block & Warning -->
+                    <div class="relative h-[80px] sm:h-[100px] w-full flex">
+                        <!-- Left beige triangle area -->
+                        <div class="w-[35%] flex items-center justify-center pt-3 pl-2 z-10">
+                            <!-- Embroidered Triangle -->
+                            <div class="relative text-[#e1a100] drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.5)] transform -rotate-[5deg]">
+                                <svg width="50" height="50" viewBox="0 0 24 24" fill="#e1a100" stroke="#111" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13" stroke="#111" stroke-width="2.5"></line><line x1="12" y1="17" x2="12.01" y2="17" stroke="#111" stroke-width="3"></line></svg>
+                            </div>
+                        </div>
+                        <!-- Right black area with angled clip-path -->
+                        <div class="absolute right-0 top-0 h-[105%] w-[72%] bg-[#151515] text-[#e1a100]" style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);">
+                            <div class="h-full flex items-center justify-center pl-4 pt-1">
+                                <span class="font-sans font-black text-[2.4rem] sm:text-[2.8rem] tracking-widest uppercase" style="text-shadow: 1px 1.5px 0px #000, -0.5px -0.5px 0px rgba(255,255,255,0.1);">WARNING</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="px-4 py-8 text-center">
-                        <h2 class="text-black font-black text-4xl sm:text-[2.75rem] leading-[1.1] uppercase tracking-tight">A Very Tired<br>College Student</h2>
+
+                    <!-- Main Text Area -->
+                    <div class="relative p-5 sm:p-6 text-center z-10 pb-6 sm:pb-10 pt-2">
+                        <h2 class="text-[#1a1a1a] font-sans font-black text-[1.5rem] sm:text-[1.85rem] leading-[1.3] uppercase tracking-wide" style="text-shadow: 0.5px 1px 0px rgba(0,0,0,0.4), -0.5px -0.5px 1px rgba(255,255,255,0.8);">
+                            I have no<br>idea what I<br>am doing
+                        </h2>
+
+                        <!-- Sparkles -->
+                        <div class="absolute bottom-5 right-6 flex gap-1.5 transform rotate-12">
+                            <div class="w-3.5 h-3.5 bg-[#1a1a1a] transform rotate-45 shadow-[0_0_2px_rgba(0,0,0,0.5)] rounded-[2px]" style="box-shadow: inset 0 0 2px rgba(255,255,255,0.3);"></div>
+                            <div class="w-2 h-2 bg-[#1a1a1a] transform -translate-y-3 rotate-45 shadow-[0_0_2px_rgba(0,0,0,0.5)] rounded-[1.5px]" style="box-shadow: inset 0 0 1px rgba(255,255,255,0.3);"></div>
+                            <div class="w-2.5 h-2.5 bg-[#1a1a1a] transform translate-y-3 -translate-x-1.5 rotate-45 shadow-[0_0_2px_rgba(0,0,0,0.5)] rounded-[1.5px]" style="box-shadow: inset 0 0 1px rgba(255,255,255,0.3);"></div>
+                        </div>
                     </div>
                 </div>
+                <!-- Fake stitching outline on the border -->
+                <div class="absolute inset-[4px] sm:inset-[5px] border-[2.5px] border-dashed border-[#f7cd4a] rounded-[20px] sm:rounded-[27px] pointer-events-none opacity-80 z-30"></div>
             </div>
 
-            <!-- Parental Advisory Sticker -->
-            <div class="bg-white p-1 rounded shadow-xl mb-12 transform rotate-3 hover:-rotate-1 transition-transform duration-300">
-                <div class="border-[3px] border-black bg-white w-48 text-center font-sans flex flex-col justify-between">
-                    <div class="bg-black text-white font-bold text-[0.65rem] tracking-[0.2em] py-0.5 mt-1 mx-1">PARENTAL</div>
-                    <div class="text-black font-black text-[2.25rem] leading-none py-1.5 px-2 tracking-tighter">ADVISORY</div>
-                    <div class="bg-black text-white font-bold text-[0.55rem] tracking-[0.1em] py-0.5 mb-1 mx-1">EXPLICIT CONTENT</div>
+            <!-- Fabric Swipe Slider -->
+            <div id="swipe-container" class="mt-8 relative w-[300px] h-[72px] bg-[#f0e4c6] border-[6px] border-[#151515] rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.3),inset_0_0_12px_rgba(0,0,0,0.15)] flex items-center justify-start cursor-pointer select-none">
+                
+                <!-- Fabric Texture Overlay -->
+                <div class="absolute inset-0 opacity-[0.3] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                
+                <!-- Text -->
+                <div class="absolute inset-0 flex items-center justify-center text-[#151515] font-sans font-black text-xl md:text-2xl tracking-widest pl-8 pointer-events-none z-20 uppercase" style="text-shadow: 0.5px 1px 0px rgba(0,0,0,0.4), -0.5px -0.5px 1px rgba(255,255,255,0.8);">
+                    SWIPE RIGHT
+                    <svg class="ml-2 w-7 h-7 drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
+                </div>
+                
+                <!-- Fake stitching outline -->
+                <div class="absolute inset-[3px] border-[2px] border-dashed border-[#151515] opacity-40 rounded-full pointer-events-none z-30"></div>
+
+                <!-- Knob (Fabric Button) -->
+                <div id="swipe-knob" class="absolute left-[6px] w-[48px] h-[48px] bg-[#151515] rounded-full z-40 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_0_6px_rgba(255,255,255,0.2)] border-2 border-[#151515]">
+                    <!-- inner stitched detail -->
+                    <div class="w-[36px] h-[36px] rounded-full border border-dashed border-[#f0e4c6] opacity-60"></div>
                 </div>
             </div>
-
-            <!-- Start Button -->
-            <button id="start-btn" class="bg-black text-white font-sans font-bold text-xl uppercase tracking-widest px-12 py-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:scale-105 hover:bg-[#ff9900] hover:text-black hover:shadow-[#ff9900]/40 transition-all duration-300">
-                START
-            </button>
+            <p class="text-xs font-sans font-bold text-[#555] mt-4 uppercase tracking-[0.2em] text-center animate-pulse" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.3);">Or simply scroll down</p>
 
         </div>
     </div>
 
     <div class="relative z-10 max-w-4xl">
-        <div class="hero-element flex mb-4 relative ml-[-4px]">
-            <!-- Kept the username font sans-serif via default, mapped to Space Grotesk -->
-            <span class="bg-[#1a1a1a] text-[#e4dfd6] px-3 py-1 font-bold text-sm tracking-widest uppercase rounded-sm shadow-sm font-sans">
-                - @RUDRAUO
-            </span>
+        <div class="hero-element flex mb-5 relative ml-[-4px]">
+            <!-- Fabric Badge for Username -->
+            <div class="relative bg-[#151515] rounded-[6px] border-[3px] border-[#151515] overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_0_4px_rgba(255,255,255,0.1)] inline-flex tracking-widest cursor-default">
+                <div class="absolute inset-0 opacity-[0.25] pointer-events-none z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                <div class="relative text-[#f8f8f8] px-3 py-1 font-bold text-sm uppercase font-sans z-20" style="text-shadow: 0.5px 0.5px 0px rgba(0,0,0,1);">
+                    - @RUDRAUO
+                </div>
+                <!-- Inner Stitching -->
+                <div class="absolute inset-[2px] border border-dashed border-[#f8f8f8] rounded-[4px] pointer-events-none opacity-30 z-30"></div>
+            </div>
         </div>
 
         <h1 class="hero-element text-5xl md:text-6xl font-serif font-black mb-4 text-[#1a1a1a] tracking-tight">
             Tejas Jaware
         </h1>
 
-        <div class="hero-element mb-8 inline-flex items-center font-sans font-bold text-xl md:text-2xl tracking-tighter bg-[#000000] p-1.5 rounded-md shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300 cursor-default">
-            <span class="text-white px-2">Software</span>
-            <span class="bg-[#ff9900] text-black px-2 py-0.5 rounded-sm ml-0.5">Engineer</span>
+        <div class="hero-element mb-8 flex flex-wrap items-center gap-4 md:gap-5">
+            <!-- Part 1: Eng ineer Fabric Badge -->
+            <div class="inline-flex items-center tracking-tighter transform -rotate-[2deg] cursor-default">
+                <div class="relative flex items-stretch bg-[#ffcc00] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.2)] pb-[1px]">
+                    <!-- Fabric Texture -->
+                    <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                    
+                    <div class="relative bg-[#151515] flex items-center justify-center px-2 py-[2px] z-20">
+                        <span class="text-[#f8f8f8] font-sans font-black text-[1.4rem] md:text-[1.8rem] leading-none tracking-tight pt-[2px]" style="text-shadow: 0.5px 0.5px 0px rgba(0,0,0,1);">Eng</span>
+                        <!-- Left split stitching -->
+                        <div class="absolute right-[2px] top-0 bottom-0 border-r-[2.5px] border-dashed border-[#ffcc00] opacity-50"></div>
+                    </div>
+                    <div class="relative flex items-center justify-center px-1.5 py-[2px] z-20">
+                        <span class="text-[#151515] font-sans font-black text-[1.4rem] md:text-[1.8rem] leading-none tracking-tight top-[1px] pr-1 relative" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.8), -0.5px -0.5px 0 rgba(0,0,0,0.2);">ineer</span>
+                    </div>
+
+                    <!-- Outer Fake stitching outline -->
+                    <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#f8f8f8] mix-blend-difference opacity-50 rounded-[2px] pointer-events-none z-30"></div>
+                </div>
+            </div>
+
+            <!-- Part 2: I DESIGN STUFF Fabric Badge -->
+            <div class="relative inline-flex items-center transform rotate-2 cursor-default ml-1 md:ml-3">
+                <div class="relative rounded-[8px] overflow-visible">
+                    
+                    <!-- Blue Back Fabric (acts as drop shadow) -->
+                    <div class="absolute inset-0 bg-[#3eb0ff] rounded-[8px] border-[3px] border-[#151515] overflow-hidden translate-x-[5px] translate-y-[5px] md:translate-x-[6px] md:translate-y-[6px]">
+                        <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                        <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#151515] opacity-50 rounded-[4px] pointer-events-none z-30"></div>
+                        <div class="px-3 py-[6px] md:px-4 md:py-[8px] invisible">
+                            <span class="font-mono font-bold text-[0.95rem] md:text-[1.1rem] tracking-widest uppercase">I DESIGN STUFF</span>
+                        </div>
+                    </div>
+
+                    <!-- White Front Fabric -->
+                    <div class="relative bg-[#f8f8f8] rounded-[8px] border-[3px] border-[#151515] overflow-hidden flex items-center justify-center shadow-[inset_0_0_8px_rgba(0,0,0,0.15)] z-20">
+                        <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                        
+                        <div class="px-3 py-[6px] md:px-4 md:py-[8px] relative z-20 flex items-center justify-center">
+                            <span class="font-mono font-bold text-[0.95rem] md:text-[1.1rem] text-[#151515] tracking-widest uppercase pt-[2px]" style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.4), -0.5px -0.5px 0 rgba(255,255,255,0.8);">I DESIGN STUFF</span>
+                        </div>
+                        
+                        <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#151515] opacity-50 rounded-[4px] pointer-events-none z-30"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Part 3: DaVinci Resolve 3D Keycap -->
+            <div class="relative inline-flex items-center transform rotate-[1deg] cursor-default ml-1 md:ml-3 mt-1">
+                <!-- The thick base of the keycap -->
+                <div class="bg-[#b4540a] rounded-[10px] p-[2px] pb-[8px] pr-[5px] shadow-[4px_10px_16px_rgba(0,0,0,0.3)]">
+                    <!-- The top face of the keycap -->
+                    <div class="relative bg-gradient-to-br from-[#fd8d33] to-[#e66c14] rounded-[8px] px-3 py-[6px] md:px-4 md:py-[8px] flex items-center justify-center gap-2 shadow-[inset_1px_2px_4px_rgba(255,255,255,0.7),inset_-2px_-3px_5px_rgba(0,0,0,0.4)] min-w-[min-content] overflow-hidden border border-[#fc9e50]/30 h-full">
+                        
+                        <!-- Very subtle noise on plastic keycap -->
+                        <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-overlay z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+
+                        <!-- DaVinci Logo SVG -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.4)] z-20">
+                            <defs>
+                                <linearGradient id="davinci-blue" x1="12" y1="2" x2="12" y2="12"><stop stop-color="#2de3ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+                                <linearGradient id="davinci-yellow" x1="4" y1="21" x2="11" y2="13"><stop stop-color="#ccff00"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+                                <linearGradient id="davinci-red" x1="20" y1="21" x2="13" y2="13"><stop stop-color="#ff4735"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+                            </defs>
+                            <path d="M12 12C8 8 9 3 12 3C15 3 16 8 12 12Z" fill="url(#davinci-blue)"/>
+                            <path d="M11.5 13C7 13 3 16 5 20C7 22 10 20 11.5 13Z" fill="url(#davinci-yellow)"/>
+                            <path d="M12.5 13C17 13 21 16 19 20C17 22 14 20 12.5 13Z" fill="url(#davinci-red)"/>
+                        </svg>
+
+                        <!-- Text -->
+                        <span class="font-sans font-medium text-[#2d1200] text-[0.95rem] md:text-[1.1rem] tracking-wide relative z-20 pt-[2px]" style="text-shadow: 0.5px 1px 0 rgba(255,255,255,0.4);">DaVinci</span>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- NEW ROW OF TAGS -->
+        <div class="hero-element mb-10 mt-[-10px] flex flex-wrap items-center gap-6 md:gap-8">
+            
+            <!-- Tag 4: Creator & Director (Kodak Retro Style) -->
+            <div class="relative inline-flex items-center transform rotate-[2deg] cursor-default">
+                <div class="bg-[#fbf8f1] p-[4px] rounded-[6px] shadow-[0_4px_10px_rgba(0,0,0,0.2),0_1px_3px_rgba(0,0,0,0.1)]">
+                    <div class="bg-[#ffb600] w-[180px] md:w-[200px] h-[58px] rounded-[3px] relative overflow-hidden flex flex-col border-[1px] border-[#ffb600]/80 shadow-[inset_0_0_8px_rgba(0,0,0,0.05)]">
+                        <!-- Top Yellow section -->
+                        <div class="flex-1 flex items-end justify-center pb-0.5 z-20">
+                            <span class="font-sans font-black text-[1.4rem] md:text-[1.6rem] tracking-tighter text-[#111] leading-none mb-0.5">CREATOR</span>
+                        </div>
+                        <!-- Middle white thin gap -->
+                        <div class="w-full h-[2.5px] bg-[#fbf8f1] z-30 relative shadow-[0_1px_2px_rgba(0,0,0,0.2)]"></div>
+                        <!-- Bottom Red section with stripes -->
+                        <div class="flex-1 flex items-center justify-center pt-0.5 relative z-20 bg-[#ffb600]">
+                            <!-- Stripes mask -->
+                            <div class="absolute inset-0" style="background: repeating-linear-gradient(0deg, #d31818, #d31818 2.5px, #ffb600 2.5px, #ffb600 5px);"></div>
+                            <div class="absolute inset-y-0 right-0 bg-[#d31818] w-[75%] border-l-[1.5px] border-[#d31818]"></div>
+                            <span class="font-sans font-black italic text-[1.1rem] md:text-[1.2rem] tracking-wider text-[#fbf8f1] leading-none relative z-10 pl-6">&amp; DIRECTOR</span>
+                            
+                            <!-- Kodak style side cut illusion -->
+                            <div class="absolute left-[-2px] bottom-0 w-0 h-0 border-t-[30px] border-t-transparent border-b-[0px] border-b-transparent border-l-[45px] border-l-[#ffb600] z-20"></div>
+                        </div>
+                        <!-- Distressed Texture -->
+                        <div class="absolute inset-0 opacity-[0.4] pointer-events-none mix-blend-multiply z-40" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tag 5: Status Ledger (INTЯOVERT Textstyle) -->
+            <div class="relative inline-flex flex-col items-center transform -rotate-1 cursor-default">
+                <div class="bg-[#fcfcfc] p-[6px] pb-[8px] rounded-[6px] shadow-[0_6px_15px_rgba(0,0,0,0.15)] border border-[#e5e5e5] flex flex-col gap-[5px] w-max">
+                    <!-- Main Black Box -->
+                    <div class="bg-[#111] px-5 py-2.5 flex items-center justify-center">
+                        <span class="font-sans font-black text-[#fcfcfc] text-[1.1rem] md:text-[1.3rem] tracking-[0.2em] uppercase">
+                            STATU<span class="inline-block transform -scale-x-100">S</span> L<span class="inline-block transform -scale-x-100">E</span>DGE<span class="inline-block transform -scale-x-100">R</span>
+                        </span>
+                    </div>
+                    <!-- Thin Black Line -->
+                    <div class="h-[2.5px] bg-[#111] w-full rounded-[1px]"></div>
+                </div>
+            </div>
+
+            <!-- Tag 6: UI & UX (Yellow Comic Panels) -->
+            <div class="relative inline-flex flex-col gap-[6px] transform rotate-3 cursor-default ml-1 md:ml-2">
+                <!-- Top Box -->
+                <div class="relative bg-[#ffd93d] border-[3px] border-[#111] px-3 py-0.5 self-start z-20 shadow-[3px_3px_0_#111]">
+                    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-multiply" style="background-image: radial-gradient(#111 1.5px, transparent 1.5px); background-size: 5px 5px;"></div>
+                    <span class="relative font-bold font-mono text-[0.85rem] md:text-[1rem] tracking-tight text-[#111] z-10 uppercase">UI DESIGN!</span>
+                </div>
+                <!-- Bottom Box -->
+                <div class="relative bg-[#ffd93d] border-[3px] border-[#111] px-3 py-0.5 self-end ml-10 z-10 shadow-[3px_3px_0_#111]">
+                    <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-multiply" style="background-image: radial-gradient(#111 1.5px, transparent 1.5px); background-size: 5px 5px;"></div>
+                    <span class="relative font-bold font-mono text-[0.85rem] md:text-[1rem] tracking-tight text-[#111] z-10 uppercase">&amp; UX TOO!</span>
+                </div>
+            </div>
+
         </div>
 
         <p class="hero-element font-serif text-[#3a3a3a] text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 italic">
@@ -114,19 +309,31 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script>
-        const startBtn = document.getElementById("start-btn");
         const overlay = document.getElementById("intro-overlay");
+        const swipeContainer = document.getElementById("swipe-container");
+        const swipeKnob = document.getElementById("swipe-knob");
 
         // Setup initial hidden state for portfolio content
         gsap.set(".hero-element", { y: 50, opacity: 0 });
 
-        startBtn.addEventListener("click", () => {
+        let isUnlocked = false;
+
+        function unlockPortfolio() {
+            if (isUnlocked) return;
+            isUnlocked = true;
+
+            // Remove listeners
+            window.removeEventListener('wheel', handleScroll);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
+
             // Animate overlay out
             gsap.to(overlay, {
                 y: "-100%",
-                duration: 1,
+                duration: 1.2,
                 ease: "power4.inOut",
                 onComplete: () => {
+                    // Completely removes the first screen so the user cannot enter it again
                     overlay.remove();
                     // Animate portfolio items in
                     gsap.to(".hero-element", {
@@ -138,7 +345,77 @@
                     });
                 }
             });
-        });
+        }
+
+        // Scroll / Swipe Up logic
+        function handleScroll(e) {
+            if (e.deltaY > 0) unlockPortfolio();
+        }
+
+        let touchStartY = 0;
+        function handleTouchStart(e) {
+            touchStartY = e.touches[0].clientY;
+        }
+        function handleTouchMove(e) {
+            const touchY = e.touches[0].clientY;
+            if (touchStartY - touchY > 30) unlockPortfolio(); 
+        }
+
+        window.addEventListener('wheel', handleScroll, {passive: true});
+        window.addEventListener('touchstart', handleTouchStart, {passive: true});
+        window.addEventListener('touchmove', handleTouchMove, {passive: true});
+
+        // Swipe slider drag logic
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        let maxScroll = 0;
+
+        function initDrag() {
+            maxScroll = swipeContainer.offsetWidth - swipeKnob.offsetWidth - 12; // 6px padding on left/right
+        }
+
+        function dragStart(e) {
+            if (isUnlocked) return;
+            isDragging = true;
+            initDrag();
+            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            swipeKnob.style.transition = 'none';
+        }
+
+        function dragMove(e) {
+            if (!isDragging || isUnlocked) return;
+            const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            currentX = x - startX;
+            
+            if (currentX < 0) currentX = 0;
+            if (currentX > maxScroll) currentX = maxScroll;
+            
+            swipeKnob.style.transform = `translateX(${currentX}px)`;
+        }
+
+        function dragEnd() {
+            if (!isDragging || isUnlocked) return;
+            isDragging = false;
+            
+            if (currentX > maxScroll * 0.7) {
+                swipeKnob.style.transition = 'transform 0.3s ease';
+                swipeKnob.style.transform = `translateX(${maxScroll}px)`;
+                unlockPortfolio();
+            } else {
+                swipeKnob.style.transition = 'transform 0.3s ease';
+                swipeKnob.style.transform = `translateX(0px)`;
+                currentX = 0;
+            }
+        }
+
+        swipeKnob.addEventListener('mousedown', dragStart);
+        swipeKnob.addEventListener('touchstart', dragStart, {passive: true});
+        window.addEventListener('mousemove', dragMove);
+        window.addEventListener('touchmove', dragMove, {passive: true});
+        window.addEventListener('mouseup', dragEnd);
+        window.addEventListener('touchend', dragEnd);
+
     </script>
 </body>
 </html>
