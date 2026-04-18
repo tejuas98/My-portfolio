@@ -34,10 +34,81 @@
             0%, 100% { transform: rotate(1deg); }
             50% { transform: rotate(-1.5deg); }
         }
+
+        /* Refined Split-Alignment Nav Styles */
+        #top-nav {
+            width: 100%;
+            height: 65px;
+            background-color: #e4dfd6;
+            border-bottom: 2px solid #1a1a1a;
+            z-index: 100;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        .nav-group-right {
+            display: flex;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            font-family: "Space Mono", monospace;
+            font-weight: 900;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: background-color 0.1s steps(2), color 0.1s steps(2);
+            white-space: nowrap;
+        }
+        .nav-header {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            font-family: "Space Mono", monospace;
+            font-weight: 900;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            color: #5a5a5a;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: default;
+        }
+        .nav-link:hover {
+            background-color: #1a1a1a;
+            color: #e4dfd6;
+        }
+
+        @media (max-width: 768px) {
+            #top-nav { height: 55px; padding: 0 20px; }
+            .nav-group-right { gap: 0.75rem; }
+            .nav-link, .nav-header { 
+                padding: 0 8px;
+                font-size: 0.6rem;
+            }
+            #main-content { padding-top: 55px !important; }
+        }
     </style>
 </head>
 
-<body class="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-32 overflow-hidden selection:bg-[#1a1a1a] selection:text-[#e4dfd6]">
+<body class="relative min-h-screen bg-[#e4dfd6] overflow-hidden selection:bg-[#1a1a1a] selection:text-[#e4dfd6]">
+
+    <!-- SPLIT-ALIGNMENT TOP NAV -->
+    <nav id="top-nav" class="fixed left-0 top-0 w-full">
+        <a href="#" class="nav-link">HOME</a>
+        
+        <div class="nav-group-right">
+            <div class="nav-header">OUR STUFF</div>
+            <a href="#" class="nav-link">SELECTED WORK</a>
+            <a href="#" class="nav-link">DEPLOYMENTS</a>
+            <a href="#" class="nav-link">THE ARSENAL</a>
+            <a href="#" class="nav-link">PING</a>
+        </div>
+    </nav>
 
     <!-- INTRO OVERLAY -->
     <div id="intro-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#e4dfd6] px-4">
@@ -58,7 +129,7 @@
                 </div>
 
                 <!-- Fake stitching outline -->
-                <div class="absolute inset-[2px] border-[1px] border-dashed border-[#151515] rounded-[3px] pointer-events-none opacity-40 z-30"></div>
+
             </div>
         </div>
 
@@ -78,7 +149,7 @@
                         <div class="w-[35%] flex items-center justify-center pt-3 pl-2 z-10">
                             <!-- Embroidered Triangle -->
                             <div class="relative text-[#e1a100] drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.5)] transform -rotate-[5deg]">
-                                <svg width="50" height="50" viewBox="0 0 24 24" fill="#e1a100" stroke="#111" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13" stroke="#111" stroke-width="2.5"></line><line x1="12" y1="17" x2="12.01" y2="17" stroke="#111" stroke-width="3"></line></svg>
+                                <svg width="50" height="50" viewBox="0 0 24 24" fill="#e1a100" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13" stroke="#111" stroke-width="3"></line><line x1="12" y1="17" x2="12.01" y2="17" stroke="#111" stroke-width="3"></line></svg>
                             </div>
                         </div>
                         <!-- Right black area with angled clip-path -->
@@ -104,7 +175,7 @@
                     </div>
                 </div>
                 <!-- Fake stitching outline on the border -->
-                <div class="absolute inset-[4px] sm:inset-[5px] border-[2.5px] border-dashed border-[#f7cd4a] rounded-[20px] sm:rounded-[27px] pointer-events-none opacity-80 z-30"></div>
+
             </div>
 
             <!-- Scroll Indicator -->
@@ -118,8 +189,7 @@
     <!-- WebGL Container for Retro Computer -->
     <div id="webgl-container" class="absolute right-[0%] top-1/2 -translate-y-1/2 w-[50%] h-full z-0 pointer-events-none hidden md:block opacity-0 transition-opacity duration-1000"></div>
 
-    <div class="relative z-10 max-w-4xl w-full">
-
+    <main id="main-content" class="relative min-h-screen flex flex-col justify-center pt-[65px] px-6 md:px-16 lg:px-32">
         <div class="hero-element flex mb-5 relative ml-[-4px]">
             <!-- Fabric Badge for Username -->
             <div class="relative bg-[#151515] rounded-[6px] border-[3px] border-[#151515] overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_0_4px_rgba(255,255,255,0.1)] inline-flex tracking-widest cursor-default">
@@ -128,32 +198,34 @@
                     - @RUDRAUO
                 </div>
                 <!-- Inner Stitching -->
-                <div class="absolute inset-[2px] border border-dashed border-[#f8f8f8] rounded-[4px] pointer-events-none opacity-30 z-30"></div>
+
             </div>
         </div>
 
-        <h1 class="hero-element text-5xl md:text-6xl font-serif font-black mb-2 text-[#1a1a1a] tracking-tight">
-            Tejas Jaware
-        </h1>
+        <div class="hero-element relative inline-block mb-2 group">
+            <h1 class="text-5xl md:text-6xl font-serif font-black text-[#1a1a1a] tracking-tight">
+                Tejas Jaware
+            </h1>
+        </div>
 
         <div class="hero-element mb-3 flex flex-wrap items-center gap-2 md:gap-3">
             <!-- Part 1: Eng ineer Fabric Badge -->
             <div class="inline-flex items-center tracking-tighter cursor-default">
-                <div class="relative flex items-stretch bg-[#ffcc00] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.2)] pb-[1px]">
+                <div class="relative flex items-stretch bg-[#ffcc00] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.2)]">
                     <!-- Fabric Texture -->
                     <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
                     
                     <div class="relative bg-[#151515] flex items-center justify-center px-2 py-[2px] z-20">
                         <span class="text-[#f8f8f8] font-sans font-black text-[1.4rem] md:text-[1.8rem] leading-none tracking-tight pt-[2px]" style="text-shadow: 0.5px 0.5px 0px rgba(0,0,0,1);">Eng</span>
                         <!-- Left split stitching -->
-                        <div class="absolute right-[2px] top-0 bottom-0 border-r-[2.5px] border-dashed border-[#ffcc00] opacity-50"></div>
+
                     </div>
                     <div class="relative flex items-center justify-center px-1.5 py-[2px] z-20">
                         <span class="text-[#151515] font-sans font-black text-[1.4rem] md:text-[1.8rem] leading-none tracking-tight top-[1px] pr-1 relative" style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.8), -0.5px -0.5px 0 rgba(0,0,0,0.2);">ineer</span>
                     </div>
 
                     <!-- Outer Fake stitching outline -->
-                    <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#f8f8f8] mix-blend-difference opacity-50 rounded-[2px] pointer-events-none z-30"></div>
+
                 </div>
             </div>
 
@@ -164,7 +236,7 @@
                     <!-- Blue Back Fabric (acts as drop shadow) -->
                     <div class="absolute inset-0 bg-[#3eb0ff] rounded-[8px] border-[3px] border-[#151515] overflow-hidden translate-x-[5px] translate-y-[5px] md:translate-x-[6px] md:translate-y-[6px]">
                         <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
-                        <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#151515] opacity-50 rounded-[4px] pointer-events-none z-30"></div>
+
                         <div class="px-3 py-[6px] md:px-4 md:py-[8px] invisible">
                             <span class="font-mono font-bold text-[0.95rem] md:text-[1.1rem] tracking-widest uppercase">I DESIGN STUFF</span>
                         </div>
@@ -178,7 +250,7 @@
                             <span class="font-mono font-bold text-[0.95rem] md:text-[1.1rem] text-[#151515] tracking-widest uppercase pt-[2px]" style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.4), -0.5px -0.5px 0 rgba(255,255,255,0.8);">I DESIGN STUFF</span>
                         </div>
                         
-                        <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#151515] opacity-50 rounded-[4px] pointer-events-none z-30"></div>
+
                     </div>
 
                 </div>
@@ -186,10 +258,12 @@
 
             <!-- Tag 3: DaVinci Resolve (Sleek Dark Badge) -->
             <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3 mr-1">
-                <div class="flex items-stretch bg-[#151515] rounded-[6px] border-[3px] border-[#151515] shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(255,255,255,0.1)] overflow-hidden relative pb-[1px]">
+                <!-- 3D Camera Container perched on DaVinci tag -->
+                <div id="name-camera-container" class="absolute -right-16 -top-16 w-32 h-32 z-30 pointer-events-none"></div>
+                <div class="flex items-stretch bg-[#151515] rounded-[6px] border-[3px] border-[#151515] shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(255,255,255,0.1)] overflow-hidden relative">
                     <!-- Fabric Texture -->
                     <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-overlay z-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
-                    <div class="absolute inset-[2px] border-[1.5px] border-dashed border-[#f8f8f8] mix-blend-difference opacity-50 rounded-[4px] pointer-events-none z-30"></div>
+
                     
                     <!-- Left Photo area -->
                     <div class="bg-[#1a1a1a] px-3 py-1.5 flex items-center justify-center relative z-20">
@@ -297,22 +371,22 @@
 
         <div class="hero-element flex flex-wrap gap-5 text-[#5a5a5a]">
             <a href="https://github.com/tejuas98" target="_blank" rel="noopener noreferrer" class="hover:text-[#1a1a1a] transition-colors duration-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"></path></svg>
             </a>
             <a href="https://www.linkedin.com/in/tejus98" target="_blank" rel="noopener noreferrer" class="hover:text-[#1a1a1a] transition-colors duration-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
             <a href="https://x.com/tejus_98" target="_blank" rel="noopener noreferrer" class="hover:text-[#1a1a1a] transition-colors duration-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
             </a>
             <a href="https://www.instagram.com/tejus.98/" target="_blank" rel="noopener noreferrer" class="hover:text-[#1a1a1a] transition-colors duration-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
             <a href="https://www.youtube.com/@tejus_98" target="_blank" rel="noopener noreferrer" class="hover:text-[#1a1a1a] transition-colors duration-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
             </a>
         </div>
-    </div>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script>
@@ -378,17 +452,40 @@
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Setup Three.js WebGL Scene
+        // Shared Materials & Helper
+        const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x111111, linewidth: 2 });
+        const beigeMaterial = new THREE.MeshToonMaterial({ color: 0xe8e4d9 });
+        const screenMaterial = new THREE.MeshToonMaterial({ color: 0x151515, roughness: 0.2 });
+        const darkMaterial = new THREE.MeshToonMaterial({ color: 0x222222 });
+        const accentMaterial = new THREE.MeshToonMaterial({ color: 0xffb600 });
+
+        function createComicMesh(geometry, material, castShadow = true) {
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.castShadow = castShadow;
+            mesh.receiveShadow = true;
+            const edges = new THREE.EdgesGeometry(geometry);
+            const line = new THREE.LineSegments(edges, outlineMaterial);
+            mesh.add(line);
+            return mesh;
+        }
+
+        // Tracking Variables (Shared)
+        let targetRotationX = 0;
+        let targetRotationY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            targetRotationY = (e.clientX / window.innerWidth) * 2 - 1;
+            targetRotationX = (e.clientY / window.innerHeight) * 2 - 1;
+        });
+
+        // --- MAIN COMPUTER SCENE ---
         const container = document.getElementById('webgl-container');
         if(container) {
             const scene = new THREE.Scene();
-            
-            // Camera
             const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
             camera.position.set(0, 2.5, 6.5);
             camera.lookAt(0, 0, 0);
 
-            // Renderer
             const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -396,44 +493,17 @@
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             container.appendChild(renderer.domElement);
 
-            // Lighting
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
             scene.add(ambientLight);
-            
             const dirLight = new THREE.DirectionalLight(0xfff5e6, 0.8);
             dirLight.position.set(5, 5, 2);
             dirLight.castShadow = true;
-            dirLight.shadow.mapSize.width = 1024;
-            dirLight.shadow.mapSize.height = 1024;
             scene.add(dirLight);
-
             const fillLight = new THREE.DirectionalLight(0xaaccff, 0.3);
             fillLight.position.set(-5, 0, 2);
             scene.add(fillLight);
 
-            // Materials
-            const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x111111, linewidth: 2 });
-            const beigeMaterial = new THREE.MeshToonMaterial({ color: 0xe8e4d9 });
-            const screenMaterial = new THREE.MeshToonMaterial({ color: 0x151515, roughness: 0.2 });
-            const darkMaterial = new THREE.MeshToonMaterial({ color: 0x222222 });
-            const accentMaterial = new THREE.MeshToonMaterial({ color: 0xffb600 });
-
-            // Create Computer Group
             const computerGroup = new THREE.Group();
-
-            // Helper to add thick comic outlines to geometry
-            function createComicMesh(geometry, material, castShadow = true) {
-                const mesh = new THREE.Mesh(geometry, material);
-                mesh.castShadow = castShadow;
-                mesh.receiveShadow = true;
-                
-                // Add Edges
-                const edges = new THREE.EdgesGeometry(geometry);
-                const line = new THREE.LineSegments(edges, outlineMaterial);
-                mesh.add(line);
-                
-                return mesh;
-            }
 
             // 1. PC Tower (Base)
             const towerGeo = new THREE.BoxGeometry(2.4, 0.6, 2.4);
@@ -548,21 +618,9 @@
             // Floating Animation variables
             let clock = new THREE.Clock();
 
-            // Mouse tracking variables
-            let targetRotationX = 0;
-            let targetRotationY = 0;
+            // Internal tracking
             let currentRotationX = 0;
             let currentRotationY = 0;
-            
-            // Listeners
-            window.addEventListener('mousemove', (e) => {
-                // Normalize mouse coords (-1 to +1)
-                const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-                const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-                
-                targetRotationY = mouseX * 0.5; // Max horizontal tilt
-                targetRotationX = -mouseY * 0.3; // Max vertical tilt
-            });
 
             window.addEventListener('resize', () => {
                 camera.aspect = container.clientWidth / container.clientHeight;
@@ -599,8 +657,8 @@
                 const floatRotZ = Math.sin(time * 0.8) * 0.05;
                 
                 // 3. Smooth Lerp towards mouse target
-                currentRotationX += (targetRotationX - currentRotationX) * 0.05;
-                currentRotationY += (targetRotationY - currentRotationY) * 0.05;
+                currentRotationX += ((targetRotationX * 0.3) - currentRotationX) * 0.05;
+                currentRotationY += ((targetRotationY * 0.5) - currentRotationY) * 0.05;
 
                 // Combine rotation
                 computerGroup.rotation.x = currentRotationX;
@@ -613,6 +671,83 @@
             // Start very small for pop-in
             computerGroup.scale.set(0,0,0);
             animate();
+        }
+
+        // --- SECONDARY CAMERA STICKER SCENE ---
+        const camContainer = document.getElementById('name-camera-container');
+        if(camContainer) {
+            const camScene = new THREE.Scene();
+            const camCamera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+            camCamera.position.set(0, 0, 2.5);
+
+            const camRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            camRenderer.setSize(128, 128); 
+            camRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            camContainer.appendChild(camRenderer.domElement);
+
+            camScene.add(new THREE.AmbientLight(0xffffff, 0.9));
+            const camDir = new THREE.DirectionalLight(0xffffff, 0.6);
+            camDir.position.set(2, 2, 2);
+            camScene.add(camDir);
+
+            // Camera Sticker Model
+            const cameraSticker = new THREE.Group();
+            
+            // Body
+            const body = createComicMesh(new THREE.BoxGeometry(0.8, 0.5, 0.4), beigeMaterial);
+            cameraSticker.add(body);
+            
+            // Top Plate
+            const topPlate = createComicMesh(new THREE.BoxGeometry(0.8, 0.1, 0.35), darkMaterial);
+            topPlate.position.y = 0.25;
+            cameraSticker.add(topPlate);
+            
+            // Lens
+            const lensOuter = createComicMesh(new THREE.CylinderGeometry(0.22, 0.22, 0.1, 16), darkMaterial);
+            lensOuter.rotation.x = Math.PI / 2;
+            lensOuter.position.z = 0.25;
+            cameraSticker.add(lensOuter);
+            
+            const lensInner = createComicMesh(new THREE.CylinderGeometry(0.15, 0.15, 0.05, 16), screenMaterial);
+            lensInner.rotation.x = Math.PI / 2;
+            lensInner.position.z = 0.31;
+            cameraSticker.add(lensInner);
+            
+            // Shutter Button
+            const shutter = createComicMesh(new THREE.CylinderGeometry(0.05, 0.05, 0.05, 12), accentMaterial);
+            shutter.position.set(0.25, 0.33, 0.05);
+            cameraSticker.add(shutter);
+            
+            // Viewfinder
+            const vf = createComicMesh(new THREE.BoxGeometry(0.15, 0.12, 0.15), darkMaterial);
+            vf.position.set(-0.15, 0.28, 0.15);
+            cameraSticker.add(vf);
+
+            cameraSticker.rotation.set(0.2, -0.4, 0);
+            camScene.add(cameraSticker);
+
+            let camCurrentRotX = 0;
+            let camCurrentRotY = 0;
+
+            let camClock = new THREE.Clock();
+            function animateCam() {
+                requestAnimationFrame(animateCam);
+                const t = camClock.getElapsedTime();
+                
+                // Bobbing & Floating
+                cameraSticker.position.y = Math.sin(t * 2) * 0.05;
+                
+                // Mouse tracking
+                camCurrentRotX += ((-targetRotationX * 0.4) - camCurrentRotX) * 0.1;
+                camCurrentRotY += ((-targetRotationY * 0.6) - camCurrentRotY) * 0.1;
+
+                cameraSticker.rotation.x = 0.2 + camCurrentRotX;
+                cameraSticker.rotation.y = -0.4 + camCurrentRotY + Math.sin(t * 1.5) * 0.05;
+                cameraSticker.rotation.z = Math.cos(t * 1.2) * 0.05;
+                
+                camRenderer.render(camScene, camCamera);
+            }
+            animateCam();
         }
     </script>
 </body>
