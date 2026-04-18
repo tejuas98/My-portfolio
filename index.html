@@ -25,7 +25,10 @@
     </script>
 
     <style>
-        html { scroll-behavior: smooth; }
+        html { 
+            scroll-behavior: smooth; 
+            scroll-snap-type: y mandatory;
+        }
         body { 
             background-color: #e4dfd6;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
@@ -86,6 +89,11 @@
         }
 
         /* SECTION STYLES */
+        section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            scroll-margin-top: 65px;
+        }
         .section-padding { padding: 120px 40px; }
         .bento-card {
             background-color: #f0e4c6;
@@ -425,7 +433,7 @@
     </section>
 
     <!-- SECTION: SELECTED WORK -->
-    <section id="selected-work" class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6]">
+    <section id="selected-work" class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-center">
         <div class="section-padding max-w-7xl mx-auto">
             <div class="mb-20">
                 <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">SELECTED WORK // THE LEDGER</h2>
@@ -483,7 +491,7 @@
     </section>
 
     <!-- SECTION: DEPLOYMENTS -->
-    <section id="deployments" class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6]">
+    <section id="deployments" class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-center">
         <div class="section-padding max-w-7xl mx-auto">
             <div class="mb-16">
                 <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">FIELD WORK & SPRINTS</h2>
@@ -517,7 +525,7 @@
     </section>
 
     <!-- SECTION: THE ARSENAL -->
-    <section id="the-arsenal" class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6]">
+    <section id="the-arsenal" class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-center">
         <div class="section-padding max-w-7xl mx-auto">
             <div class="mb-16">
                 <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">CAPABILITIES & HARDWARE</h2>
