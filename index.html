@@ -158,8 +158,10 @@
             #custom-cursor { display: block; }
         }
         .cursor-hover {
-            width: 60px !important;
-            height: 60px !important;
+            width: 52px !important;
+            height: 43px !important; /* Proportional to 64x53 source */
+            background-image: url('assets/custom_cursor_hover.png') !important;
+            transform: translate(-50%, -50%) !important; /* Center for grab/stomp state */
         }
     </style>
 </head>
