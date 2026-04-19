@@ -9,6 +9,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@400;700;900&family=Space+Mono&display=swap"
         rel="stylesheet">
+    
+    <!-- Lenis Smooth Scroll CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -29,10 +32,30 @@
 
     <style>
         html, body {
-            overflow: hidden !important;
-            height: 100%;
             margin: 0;
             padding: 0;
+            background-color: #e4dfd6;
+        }
+
+        /* Lenis setup */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
         }
 
         body {
@@ -42,25 +65,15 @@
         }
 
         .section-page {
-            position: fixed;
-            top: 65px;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: calc(100vh - 65px);
-            overflow-y: auto;
-            overflow-x: hidden;
             background-color: #e4dfd6;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 5;
-        }
-
-        .active-page {
-            display: flex !important;
+            display: flex;
             flex-direction: column;
             opacity: 1;
-            z-index: 50;
+            padding-top: 65px;
+            scroll-margin-top: 65px;
+            min-height: 100vh;
         }
 
         @keyframes swing {
@@ -232,7 +245,7 @@
     </nav>
 
 
-    <section id="home" class="section-page active-page overflow-hidden">
+    <section id="home" class="section-page min-h-screen">
         <!-- WebGL Container for Retro Computer -->
         <div id="webgl-container"
             class="absolute right-[0%] top-1/2 -translate-y-1/2 w-[50%] h-full z-10 pointer-events-none hidden md:block opacity-0 transition-opacity duration-1000">
@@ -843,7 +856,7 @@
     </section>
 
     <!-- SECTION: PING (FOOTER) -->
-    <section id="ping" class="section-page overflow-hidden">
+    <section id="ping" class="section-page min-h-screen">
         <div class="flex-grow flex flex-col items-center justify-center px-4 stagger-element py-20">
             <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase">Let's build
                 something.</h2>
@@ -895,16 +908,46 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <!-- Lenis Smooth Scroll JS -->
+    <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+
     <script>
-        // Standardize staggered entrance animations
+        // --- 1. INITIALIZE LENIS (MOMENTUM SCROLL) ---
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Luxurious ease-out
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        // Use requestAnimationFrame to update Lenis
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Connect GSAP ScrollTrigger to Lenis
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // --- 2. NAVIGATION & SMOOTH GLIDE ---
         function navigateTo(targetId, instant = false) {
             const targetPage = document.querySelector(targetId);
             if (!targetPage) return;
 
-            const currentPage = document.querySelector('.active-page');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            // 1. Update Navigation Highlight
+            // Update Navigation Highlight
             navLinks.forEach(link => {
                 if (link.getAttribute('href') === targetId) {
                     link.classList.add('active');
@@ -913,50 +956,90 @@
                 }
             });
 
-            // 2. Strict Section Switch (Isolation)
-            if (currentPage) {
-                currentPage.classList.remove('active-page');
-            }
-
-            targetPage.classList.add('active-page');
-            targetPage.scrollTop = 0;
-
-            const elements = targetPage.querySelectorAll('.stagger-element');
-            if (elements.length > 0) {
-                // Force reveal parent just in case opacity transition is slow
-                targetPage.style.opacity = '1';
-                
-                // Reset to hidden state before animation
-                gsap.set(elements, { 
-                    x: -30, 
-                    opacity: 0,
-                    visibility: 'visible'
+            if (instant) {
+                lenis.scrollTo(targetId, {
+                    offset: -85,
+                    immediate: true
                 });
-
-                // Animate in
-                gsap.to(elements, {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.6,
-                    stagger: 0.08,
-                    ease: "power3.out",
-                    delay: instant ? 0.05 : 0.02
+            } else {
+                lenis.scrollTo(targetId, {
+                    offset: -85,
+                    duration: 1.5,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
                 });
             }
 
-            // Special Case: 3D Computer on Home
-            if (targetId === '#home') {
-                const container = document.getElementById('webgl-container');
-                if (container) container.style.opacity = '1';
-            }
-
-            // Update URL hash without scrolling
+            // Update URL hash without jumping
             if (window.location.hash !== targetId && !instant) {
                 history.pushState(null, null, targetId);
             }
         }
 
-        // Event Listeners
+        // --- 3. SCROLL-TRIGGERED ANIMATIONS ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        function initAnimations() {
+            // Target all sections that have elements to stagger
+            const sections = document.querySelectorAll('.section-page');
+            
+            sections.forEach(section => {
+                const elements = section.querySelectorAll('.stagger-element');
+                if (elements.length > 0) {
+                    // Set initial state
+                    gsap.set(elements, { 
+                        x: -30, 
+                        opacity: 0,
+                        visibility: 'visible'
+                    });
+
+                    // Create ScrollTrigger for each section
+                    gsap.to(elements, {
+                        x: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 80%", // Trigger when section top reaches 80% scroll
+                            toggleActions: "play none none none" // Only play once
+                        }
+                    });
+                }
+            });
+
+            // Handle Active States on Scroll
+            sections.forEach(section => {
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "top center",
+                    end: "bottom center",
+                    onEnter: () => updateActiveNav(`#${section.id}`),
+                    onEnterBack: () => updateActiveNav(`#${section.id}`)
+                });
+            });
+        }
+
+        function updateActiveNav(id) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === id) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initAnimations();
+            
+            const hash = window.location.hash || '#home';
+            navigateTo(hash, true);
+        });
+
+        // Event Listeners for links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 const targetId = link.getAttribute('href');
@@ -972,14 +1055,17 @@
             navigateTo(hash, true);
         });
 
-        // Initial Load Landing
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash || '#home';
-            navigateTo(hash, true);
-        });
-
-        // If the user clicks anywhere on intro or wait for button
-        // Looking for existing intro trigger logic
+        // 3D Computer special reveal (now just opacity)
+        const homeSection = document.getElementById('home');
+        if (homeSection) {
+            ScrollTrigger.create({
+                trigger: homeSection,
+                onEnter: () => {
+                    const container = document.getElementById('webgl-container');
+                    if (container) container.style.opacity = '1';
+                }
+            });
+        }
 
     </script>
 
