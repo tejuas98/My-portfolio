@@ -247,7 +247,6 @@
         <a href="#home" class="nav-link">HOME</a>
 
         <div class="nav-group-right">
-            <div class="nav-header">OUR STUFF</div>
             <a href="#selected-work" class="nav-link">SELECTED WORK</a>
             <a href="#deployments" class="nav-link">DEPLOYMENTS</a>
             <a href="#the-arsenal" class="nav-link">THE ARSENAL</a>
@@ -547,6 +546,13 @@
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
+                <a href="https://discord.gg/qVpaPcNzxx" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-[#1a1a1a] transition-colors duration-200">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 13H15M10 17H14M11 21H13M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.65 15C17.65 15 16.5 16.5 15 16.5H9C7.5 16.5 6.35 15 6.35 15V9C6.35 9 7.5 7.5 9 7.5H15C16.5 7.5 17.65 9 17.65 9V15Z"/>
+                    </svg>
+                </a>
                 <a href="https://www.youtube.com/@tejus_98" target="_blank" rel="noopener noreferrer"
                     class="hover:text-[#1a1a1a] transition-colors duration-200">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
@@ -561,7 +567,8 @@
         </main>
     </section>
     <!-- SECTION: SELECTED WORK -->
-    <section id="selected-work" class="section-page">
+    <section id="selected-work" class="section-page relative">
+
         <div class="px-6 md:px-12 lg:px-24">
             <div class="mb-20 stagger-element">
                 <h2 class="font-mono font-black text-lg mb-4 tracking-[0.2em] uppercase opacity-40">SELECTED WORK // THE LEDGER</h2>
@@ -569,7 +576,7 @@
             </div>
 
             <!-- Project 1: SCRIPTIFY (Editorial Scene) -->
-            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
+            <div id="project-scriptify" class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
                 <div class="w-full lg:w-[60%] relative">
                     <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ SIH25155 // HERITAGE & CULTURE ]</span>
                     
@@ -624,7 +631,7 @@
             </div>
 
             <!-- Project 2: PLAN KARO (The Flip) -->
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
+            <div id="project-plankaro" class="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
                 <div class="w-full lg:w-[60%] relative">
                     <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ IDE BOOTCAMP // VENTURE ARCHITECTURE ]</span>
                     
@@ -784,11 +791,11 @@
                             </div>
 
                             <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a] mb-6">
-                                Competed in the Software Edition Grand Finale. Engineered and shipped <span class="border-b-2 border-[#1a1a1a]">SCRIPTIFY</span>—an offline transliteration mobile app—under a strict 24-hour timeline.
+                                Competed in the Software Edition Grand Finale. Engineered and shipped <a href="#project-scriptify" class="border-b-2 border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition-colors">SCRIPTIFY</a>—an offline transliteration mobile app—under a strict 24-hour timeline.
                             </p>
 
                             <!-- Side-Pinned Arrow -->
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 brutalist-btn group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                            <a href="https://www.linkedin.com/posts/tejus98_sih2025-smartindiahackathon-reactnative-activity-7412184654000234496-hKTA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 brutalist-btn group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white">
                                     <line x1="7" y1="17" x2="17" y2="7"></line>
                                     <polyline points="7 7 17 7 17 17"></polyline>
@@ -808,11 +815,11 @@
                             </div>
 
                             <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a] mb-6">
-                                Formal training in lean design, product strategy, and finding actual product-market fit. Architected <span class="border-b-2 border-[#1a1a1a]">PLAN KARO</span>, a B2B event vendor marketplace.
+                                Formal training in lean design, product strategy, and finding actual product-market fit. Architected <a href="#project-plankaro" class="border-b-2 border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition-colors">PLAN KARO</a>, a B2B event vendor marketplace.
                             </p>
 
                             <!-- Side-Pinned Arrow -->
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                            <a href="https://www.linkedin.com/posts/tejus98_idebootcamp-moeinnovationcell-wadhwanifoundation-activity-7450046618025836544-xQKm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
                                     <line x1="7" y1="17" x2="17" y2="7"></line>
                                     <polyline points="7 7 17 7 17 17"></polyline>
@@ -826,7 +833,13 @@
     </section>
 
     <!-- SECTION: THE ARSENAL -->
-    <section id="the-arsenal" class="section-page">
+    <section id="the-arsenal" class="section-page relative">
+        <!-- Stickers & Assets -->
+        <div class="absolute right-4 md:right-24 top-12 z-50 stagger-element">
+            <img src="assets/headphones.png" alt="Headphones Sticker" 
+                 class="w-48 md:w-56 rotate-12 transition-transform duration-500 ease-out hover:-translate-y-16 cursor-pointer drop-shadow-[8px_8px_0_rgba(0,0,0,1)]">
+        </div>
+
         <div class="section-padding max-w-7xl mx-auto">
             <div class="mb-16 stagger-element">
                 <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">CAPABILITIES & HARDWARE</h2>
@@ -867,10 +880,16 @@
     </section>
 
     <!-- SECTION: PING (FOOTER) -->
-    <section id="ping" class="section-page min-h-screen">
+    <section id="ping" class="section-page min-h-screen relative">
+             
         <div class="flex-grow flex flex-col items-center justify-center px-4 stagger-element py-20">
-            <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase">Let's build
-                something.</h2>
+            <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase">
+                Let's build <span class="relative">something.
+                    <!-- Zoro Sticker Tucked Inward -->
+                    <img src="assets/zoro.png" alt="Zoro Sticker" 
+                         class="absolute -right-16 md:-right-24 -top-8 md:-top-12 w-24 md:w-32 ml-6 drop-shadow-[6px_6px_0_rgba(0,0,0,1)] z-50 pointer-events-none">
+                </span>
+            </h2>
             <a href="mailto:tejusj98@gmail.com" class="giant-email overflow-hidden border-y-[3px] border-[#1a1a1a]">
                 TEJUSJ98@GMAIL.COM
             </a>
@@ -902,6 +921,20 @@
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/tejus.98/" target="_blank"
+                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://discord.gg/qVpaPcNzxx" target="_blank"
+                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 13H15M10 17H14M11 21H13M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.65 15C17.65 15 16.5 16.5 15 16.5H9C7.5 16.5 6.35 15 6.35 15V9C6.35 9 7.5 7.5 9 7.5H15C16.5 7.5 17.65 9 17.65 9V15Z"/>
                     </svg>
                 </a>
                 <a href="https://www.youtube.com/@tejus_98" target="_blank"
