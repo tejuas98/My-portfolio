@@ -1181,7 +1181,7 @@
 
 
             // Center group
-            computerGroup.position.y = -0.7; // shift slightly down
+            computerGroup.position.y = -0.1; // lifted up to avoid clipping
             scene.add(computerGroup);
 
             // Floating Animation variables
@@ -1218,7 +1218,7 @@
 
                 // 1. Water floating bob (Sine wave on Y axis)
                 const floatY = Math.sin(time * 1.5) * 0.15;
-                computerGroup.position.y = -0.7 + floatY;
+                computerGroup.position.y = -0.1 + floatY;
 
 
 
