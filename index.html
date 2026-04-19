@@ -72,8 +72,19 @@
             flex-direction: column;
             opacity: 1;
             padding-top: 65px;
-            scroll-margin-top: 65px;
+            scroll-margin-top: 100px;
             min-height: 100vh;
+        }
+
+        /* Brutalist Animation Classes */
+        .brutalist-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .brutalist-btn:hover {
+            filter: invert(1);
+            transform: translate(4px, 4px);
+            box-shadow: none !important;
         }
 
         @keyframes swing {
@@ -563,7 +574,7 @@
                     <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ SIH25155 // HERITAGE & CULTURE ]</span>
                     
                     <!-- Competition Badge -->
-                    <div class="absolute -top-14 left-0 bg-[#3eb0ff] border-[3px] border-[#151515] px-4 py-1 -rotate-2 shadow-[4px_4px_0_#151515] z-20">
+                    <div class="absolute -top-10 left-0 bg-[#3eb0ff] border-[3px] border-[#151515] px-4 py-1 -rotate-2 shadow-[4px_4px_0_#151515] z-20">
                         <span class="font-sans font-black text-xs text-white uppercase tracking-tighter">SIH 2025 GRAND FINALIST</span>
                     </div>
 
@@ -572,7 +583,7 @@
                     </h3>
                     
                     <!-- Sticker Description Panel -->
-                    <div class="relative inline-block -rotate-1 transform transition-transform duration-300 hover:rotate-0 mb-8">
+                    <div class="relative inline-block -rotate-1 transform transition-transform duration-300 hover:rotate-0 mb-12">
                         <div class="bg-[#ffcc00] border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] max-w-lg">
                             <p class="font-sans font-bold text-lg md:text-xl leading-snug text-[#1a1a1a]">
                                 Engineered a mobile OCR pipeline to bridge language barriers for travelers at Indian heritage sites. Processes raw camera input, extracts regional text via cloud-based inference, and instantly transliterates it into the user's native script.
@@ -580,7 +591,7 @@
                         </div>
                         
                         <!-- Tactical Receipt Link -->
-                        <a href="https://github.com/tejuas98/scriptify" target="_blank" rel="noopener noreferrer" class="absolute -right-6 -bottom-10 bg-white border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#151515] hover:-translate-y-1 transition-transform group">
+                        <a href="https://github.com/tejuas98/scriptify" target="_blank" rel="noopener noreferrer" class="absolute -right-6 -bottom-10 bg-white border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#151515] brutalist-btn group">
                             <span class="font-mono font-black text-xs uppercase text-[#1a1a1a]">GITHUB // SOURCE</span>
                             <div class="w-8 h-8 bg-[#151515] flex items-center justify-center">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -635,7 +646,7 @@
                         </div>
                         
                         <!-- Tactical Receipt Link -->
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -left-6 -bottom-10 bg-white border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#151515] hover:-translate-y-1 transition-transform group opacity-60">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -left-6 -bottom-10 bg-white border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#151515] brutalist-btn group opacity-60">
                             <span class="font-mono font-black text-xs uppercase">BETA // PREVIEW</span>
                             <div class="w-8 h-8 bg-[#151515] flex items-center justify-center">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -777,8 +788,8 @@
                             </p>
 
                             <!-- Side-Pinned Arrow -->
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 brutalist-btn group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white">
                                     <line x1="7" y1="17" x2="17" y2="7"></line>
                                     <polyline points="7 7 17 7 17 17"></polyline>
                                 </svg>
@@ -958,12 +969,12 @@
 
             if (instant) {
                 lenis.scrollTo(targetId, {
-                    offset: -85,
+                    offset: -100,
                     immediate: true
                 });
             } else {
                 lenis.scrollTo(targetId, {
-                    offset: -85,
+                    offset: -100,
                     duration: 1.5,
                     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
                 });
