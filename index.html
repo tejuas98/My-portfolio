@@ -710,44 +710,104 @@
         </div>
     </section>
 
-    <!-- SECTION: DEPLOYMENTS -->
-    <section id="deployments"
-        class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-center">
-        <div class="section-padding max-w-7xl mx-auto">
-            <div class="mb-24">
-                <h2 class="font-serif font-black text-5xl md:text-7xl mb-4 tracking-tighter uppercase">FIELD WORK // & SPRINTS</h2>
-                <p class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a]">I DON'T JUST WRITE CODE; I DEPLOY UNDER PRESSURE.</p>
-            </div>
+    <!-- SECTION: FIELD WORK & SPRINTS -->
+    <section id="deployments" class="relative bg-[#e4dfd6] py-32 md:py-56 overflow-hidden">
+        <!-- Floating Stickers (Illustrative) -->
+        <div class="absolute left-[5%] top-[10%] -rotate-12 opacity-80 pointer-events-none hidden lg:block">
+            <svg width="120" height="120" viewBox="0 0 100 100" class="drop-shadow-[5px_5px_0_#1a1a1a]">
+                <path d="M10 50 Q50 10 90 50 L90 70 L10 70 Z" fill="#ffcc00" stroke="#1a1a1a" stroke-width="4"></path>
+                <rect x="10" y="70" width="80" height="8" fill="#ffcc00" stroke="#1a1a1a" stroke-width="4"></rect>
+                <path d="M20 50 L80 50" stroke="#1a1a1a" stroke-width="1" opacity="0.3"></path>
+            </svg>
+        </div>
+        <div class="absolute right-[8%] top-[5%] rotate-12 opacity-80 pointer-events-none hidden lg:block">
+            <svg width="80" height="80" viewBox="0 0 100 100" class="drop-shadow-[5px_5px_0_#151515]">
+                <circle cx="50" cy="55" r="35" fill="white" stroke="#1a1a1a" stroke-width="4"></circle>
+                <circle cx="50" cy="55" r="30" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="2 4"></circle>
+                <rect x="47" y="10" width="6" height="10" fill="#1a1a1a"></rect>
+                <path d="M50 55 L50 30" stroke="#ff4c4c" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+        </div>
 
-            <div class="border-t-[3px] border-[#1a1a1a]">
-                <div class="ledger-line group py-10">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                        <span class="font-mono font-black text-lg uppercase tracking-tight">SIH 2025 // GRAND FINALIST (GUNTUR)</span>
-                        <span class="font-mono text-xs font-bold text-[#5a5a5a] mt-1 md:mt-0">[ SOFTWARE EDITION ]</span>
+        <div class="section-padding max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+                
+                <!-- Left Column: Editorial Title -->
+                <div class="w-full lg:w-1/2 relative">
+                    <h2 class="font-serif font-black text-7xl md:text-8xl lg:text-[9rem] leading-[0.85] tracking-tight uppercase mb-12">
+                        FIELD WORK<br>
+                        <span class="flex items-center gap-4">// & SPRINTS</span>
+                    </h2>
+                    
+                    <!-- Angled Subtext Banner -->
+                    <div class="relative inline-block -rotate-2 transform hover:rotate-0 transition-transform duration-300">
+                        <div class="bg-[#ffcc00] border-[4px] border-[#1a1a1a] p-6 shadow-[12px_12px_0_#1a1a1a] max-w-lg">
+                            <p class="font-sans font-bold text-xl md:text-2xl leading-tight text-[#1a1a1a]">
+                                I don't just write code; I deploy under pressure, from 24-hour hackathons to <span class="bg-[#1a1a1a] text-white px-1">strategic product validation.</span>
+                            </p>
+                        </div>
                     </div>
-                    <div class="flex justify-between items-end gap-12">
-                        <p class="font-sans text-[#1a1a1a] text-lg leading-relaxed max-w-3xl">Competed in the Software Edition Grand Finale. Engineered and shipped SCRIPTIFY—an offline-first transliteration mobile app—under a strict 24-hour timeline.</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-12 h-12 border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-[#1a1a1a] hover:text-white transform hover:-translate-y-1 hover:translate-x-1 group/arrow">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-[#1a1a1a] group-hover/arrow:text-white">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
+
+                    <!-- Floating Gear -->
+                    <div class="absolute -right-12 -bottom-24 rotate-12 opacity-60 hidden lg:block">
+                        <svg width="100" height="100" viewBox="0 0 100 100" class="fill-[#3eb0ff] stroke-[#1a1a1a] stroke-[4px]">
+                            <path d="M50 20 L55 5 L45 5 L50 20 M80 50 L95 55 L95 45 L80 50 M50 80 L55 95 L45 95 L50 80 M20 50 L5 55 L5 45 L20 50" />
+                            <circle cx="50" cy="50" r="25" />
+                        </svg>
                     </div>
                 </div>
-                <div class="ledger-line border-b-0 group py-10">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                        <span class="font-mono font-black text-lg uppercase tracking-tight">IDE BOOTCAMP // EDITION 3 PHASE 2</span>
-                        <span class="font-mono text-xs font-bold text-[#5a5a5a] mt-1 md:mt-0">[ BY AICTE ]</span>
+
+                <!-- Right Column: The Floating List -->
+                <div class="w-full lg:w-1/2 flex flex-col gap-12 lg:gap-8 relative">
+                    <!-- Graph Paper Grid Texture -->
+                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                    <!-- Sticker Card 1: SIH 2025 -->
+                    <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-300 lg:ml-12">
+                        <div class="bg-[#ffcc00] border-[4px] border-[#1a1a1a] p-8 shadow-[15px_15px_0_#1a1a1a] relative">
+                            <h3 class="font-sans font-black text-3xl md:text-4xl uppercase tracking-tighter mb-4 pr-12">SIH 2025 // GRAND FINALIST (GUNTUR)</h3>
+                            
+                            <!-- Intersecting Tag -->
+                            <div class="inline-block bg-[#1a1a1a] px-4 py-1.5 -ml-12 mb-6">
+                                <span class="text-white font-mono font-black text-sm uppercase tracking-widest">[ SOFTWARE EDITION ]</span>
+                            </div>
+
+                            <p class="font-sans font-bold text-lg leading-relaxed text-[#1a1a1a] mb-6">
+                                Competed in the Software Edition Grand Finale. Engineered and shipped <span class="border-b-2 border-[#1a1a1a]">SCRIPTIFY</span>—an offline-first transliteration mobile app—under a strict 24-hour timeline.
+                            </p>
+
+                            <!-- Side-Pinned Arrow -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <div class="flex justify-between items-end gap-12">
-                        <p class="font-sans text-[#1a1a1a] text-lg leading-relaxed max-w-3xl">Formal training in lean design, product strategy, and finding actual product-market fit. Architected PLAN KARO, a B2B event vendor marketplace.</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-12 h-12 border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-[#1a1a1a] hover:text-white transform hover:-translate-y-1 hover:translate-x-1 group/arrow">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-[#1a1a1a] group-hover/arrow:text-white">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
+
+                    <!-- Sticker Card 2: IDE Bootcamp -->
+                    <div class="relative group -rotate-1 hover:rotate-0 transition-transform duration-300 lg:mr-12">
+                        <div class="bg-[#3eb0ff] border-[4px] border-[#1a1a1a] p-8 shadow-[15px_15px_0_#1a1a1a] relative">
+                            <h3 class="font-sans font-black text-3xl md:text-4xl uppercase tracking-tighter mb-4 pr-12 text-[#1a1a1a]">IDE BOOTCAMP // EDITION 3 PHASE 2</h3>
+                            
+                            <!-- Intersecting Tag -->
+                            <div class="inline-block bg-white border-2 border-[#1a1a1a] px-4 py-1.5 -ml-12 mb-6">
+                                <span class="text-[#1a1a1a] font-mono font-black text-sm uppercase tracking-widest">[ BY AICTE ]</span>
+                            </div>
+
+                            <p class="font-sans font-bold text-lg leading-relaxed text-[#1a1a1a] mb-6">
+                                Formal training in lean design, product strategy, and finding actual product-market fit. Architected <span class="border-b-2 border-[#1a1a1a]">PLAN KARO</span>, a B2B event vendor marketplace.
+                            </p>
+
+                            <!-- Side-Pinned Arrow -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
