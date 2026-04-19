@@ -29,8 +29,7 @@
 
     <style>
         html {
-            scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
+            scroll-behavior: auto;
         }
 
         body {
@@ -106,9 +105,7 @@
 
         /* SECTION STYLES */
         section {
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
-            scroll-margin-top: 65px;
+            position: relative;
         }
 
         .section-padding {
@@ -948,7 +945,7 @@ v>
                         ease: "power2.inOut",
                         onComplete: () => {
                             intro.remove();
-                            ScrollTrigger.refresh(); // Recalculate snap points
+                            ScrollTrigger.refresh();
                         }
                     });
                 }
