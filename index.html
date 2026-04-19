@@ -774,92 +774,78 @@
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
             </div>
-
         </div>
     </section>
-v>
 
     <!-- SECTION: FIELD WORK & SPRINTS -->
-    <section id="deployments" class="relative bg-[#e4dfd6] py-12 md:py-16 lg:py-20 overflow-hidden min-h-screen flex flex-col justify-center">
-        <!-- Technical Dot Texture -->
-        <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 25px 25px;"></div>
-
-        <!-- Floating Illustrative Stickers -->
-        <!-- Hard Hat Sticker -->
-        <div class="absolute left-[4%] top-[12%] rotate-[-12deg] z-20 pointer-events-none sticker-float">
-            <svg width="60" height="60" viewBox="0 0 120 120" class="drop-shadow-[6px_6px_0_rgba(0,0,0,0.15)]">
-                <path d="M20 70 Q20 20 60 20 Q100 20 100 70" fill="#ffcc00" stroke="#151515" stroke-width="6" />
-                <rect x="15" y="70" width="90" height="10" rx="3" fill="#ffcc00" stroke="#151515" stroke-width="6" />
-                <path d="M60 20 L60 10" stroke="#151515" stroke-width="6" stroke-linecap="round" />
+    <section id="deployments" class="relative bg-[#e4dfd6] py-24 md:py-32 overflow-hidden">
+        <!-- Floating Stickers (Illustrative) -->
+        <div class="absolute left-[8%] top-[10%] -rotate-12 opacity-80 pointer-events-none hidden lg:block">
+            <svg width="80" height="80" viewBox="0 0 100 100" class="drop-shadow-[5px_5px_0_#1a1a1a]">
+                <path d="M10 50 Q50 10 90 50 L90 70 L10 70 Z" fill="#ffcc00" stroke="#1a1a1a" stroke-width="4"></path>
+                <rect x="10" y="70" width="80" height="8" fill="#ffcc00" stroke="#1a1a1a" stroke-width="4"></rect>
+                <path d="M20 50 L80 50" stroke="#1a1a1a" stroke-width="1" opacity="0.3"></path>
             </svg>
         </div>
-
-        <!-- Stopwatch Sticker -->
-        <div class="absolute left-[28%] top-[18%] rotate-[8deg] z-20 pointer-events-none sticker-swing">
-            <svg width="50" height="50" viewBox="0 0 100 100" class="drop-shadow-[5px_5px_0_rgba(0,0,0,0.15)]">
-                <circle cx="50" cy="55" r="35" fill="white" stroke="#151515" stroke-width="6"></circle>
-                <circle cx="50" cy="55" r="28" fill="none" stroke="#151515" stroke-width="2" stroke-dasharray="2 4"></circle>
-                <rect x="47" y="10" width="6" height="12" rx="2" fill="#151515"></rect>
-                <path d="M50 55 L50 35" stroke="#ff4c4c" stroke-width="5" stroke-linecap="round"></path>
+        <div class="absolute right-[12%] top-[8%] rotate-12 opacity-80 pointer-events-none hidden lg:block">
+            <svg width="60" height="60" viewBox="0 0 100 100" class="drop-shadow-[5px_5px_0_#151515]">
+                <circle cx="50" cy="55" r="35" fill="white" stroke="#1a1a1a" stroke-width="4"></circle>
+                <circle cx="50" cy="55" r="30" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="2 4"></circle>
+                <rect x="47" y="10" width="6" height="10" fill="#1a1a1a"></rect>
+                <path d="M50 55 L50 30" stroke="#ff4c4c" stroke-width="4" stroke-linecap="round"></path>
             </svg>
         </div>
 
         <div class="section-padding max-w-7xl mx-auto relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                 
-                <!-- Left Column: Editorial Side -->
-                <div class="w-full lg:w-1/2">
-                    <h2 class="font-serif font-black text-4xl md:text-5xl lg:text-7xl leading-[0.85] tracking-tighter uppercase mb-8 drop-shadow-[3px_3px_0_rgba(0,0,0,0.05)]">
+                <!-- Left Column: Editorial Title -->
+                <div class="w-full lg:w-1/2 relative">
+                    <h2 class="font-serif font-black text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight uppercase mb-8">
                         FIELD WORK<br>
-                        <span class="inline-block translate-x-4 md:translate-x-6">// & SPRINTS</span>
+                        <span class="flex items-center gap-4 text-4xl md:text-5xl lg:text-6xl">// & SPRINTS</span>
                     </h2>
                     
-                    <!-- Subtext Sticker Box -->
-                    <div class="relative inline-block -rotate-1 transform transition-transform duration-300 hover:rotate-0">
-                        <div class="bg-[#ffcc00] border-[4px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] max-w-sm">
-                            <p class="font-sans font-bold text-base md:text-lg leading-tight text-[#1a1a1a]">
-                                I don't just write code; I deploy under pressure, from 24-hour hackathons to strategic product validation.
+                    <!-- Angled Subtext Banner -->
+                    <div class="relative inline-block -rotate-2 transform hover:rotate-0 transition-transform duration-300">
+                        <div class="bg-[#ffcc00] border-[3px] border-[#1a1a1a] p-5 shadow-[8px_8px_0_#1a1a1a] max-w-md">
+                            <p class="font-sans font-bold text-lg md:text-xl leading-tight text-[#1a1a1a]">
+                                I don't just write code; I deploy under pressure, from 24-hour hackathons to <span class="bg-[#1a1a1a] text-white px-1">strategic product validation.</span>
                             </p>
                         </div>
                     </div>
 
                     <!-- Floating Gear -->
-                    <div class="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2 rotate-[15deg] z-20 pointer-events-none sticker-float">
-                        <svg width="60" height="60" viewBox="0 0 100 100" class="drop-shadow-[6px_6px_0_rgba(0,0,0,0.1)]">
-                            <path d="M50 20 L55 5 L45 5 L50 20 M80 50 L95 55 L95 45 L80 50 M50 80 L55 95 L45 95 L50 80 M20 50 L5 55 L5 45 L20 50" stroke="#151515" stroke-width="6" fill="#3eb0ff" />
-                            <circle cx="50" cy="50" r="25" fill="#3eb0ff" stroke="#151515" stroke-width="6" />
-                            <circle cx="50" cy="50" r="8" fill="#e4dfd6" stroke="#151515" stroke-width="3" />
+                    <div class="absolute -right-12 -bottom-24 rotate-12 opacity-60 hidden lg:block">
+                        <svg width="100" height="100" viewBox="0 0 100 100" class="fill-[#3eb0ff] stroke-[#1a1a1a] stroke-[4px]">
+                            <path d="M50 20 L55 5 L45 5 L50 20 M80 50 L95 55 L95 45 L80 50 M50 80 L55 95 L45 95 L50 80 M20 50 L5 55 L5 45 L20 50" />
+                            <circle cx="50" cy="50" r="25" />
                         </svg>
                     </div>
                 </div>
 
-                <!-- Right Column: The Sticker Cards -->
-                <div class="w-full lg:w-1/2 flex flex-col gap-12 relative">
-                    
-                    <!-- Graph Paper Grid Texture background -->
-                    <div class="absolute inset-0 opacity-[0.1] -z-10" style="background-image: repeating-linear-gradient(45deg, #1a1a1a 0, #1a1a1a 1px, transparent 0, transparent 40px);"></div>
-                    
+                <!-- Right Column: The Floating List -->
+                <div class="w-full lg:w-1/2 flex flex-col gap-12 lg:gap-8 relative">
+                    <!-- Graph Paper Grid Texture -->
+                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 20px 20px;"></div>
+
                     <!-- Sticker Card 1: SIH 2025 -->
-                    <div class="relative group mt-4">
-                        <div class="bg-[#ffcc00] border-[3px] border-[#151515] p-5 lg:p-8 relative transition-all duration-300 shadow-[10px_10px_0_#151515] group-hover:-translate-y-1.5 group-hover:-translate-x-1">
-                            <!-- Inner Mesh Pattern -->
-                            <div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(#151515 1px, transparent 1px); background-size: 15px 15px;"></div>
+                    <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-300 lg:ml-12">
+                        <div class="bg-[#ffcc00] border-[3px] border-[#1a1a1a] p-6 shadow-[10px_10px_0_#1a1a1a] relative">
+                            <h3 class="font-sans font-black text-2xl md:text-3xl uppercase tracking-tighter mb-4 pr-10">SIH 2025 // GRAND FINALIST (GUNTUR)</h3>
                             
-                            <!-- Intersecting Black Pill Tag -->
-                            <div class="absolute top-0 left-6 -translate-y-1/2 bg-[#151515] text-white font-mono font-bold text-[9px] uppercase px-3 py-1 border-[2px] border-[#151515] tracking-[0.1em] z-20">
-                                [ SOFTWARE EDITION ]
+                            <!-- Intersecting Tag -->
+                            <div class="inline-block bg-[#1a1a1a] px-3 py-1 -ml-10 mb-4">
+                                <span class="text-white font-mono font-black text-xs uppercase tracking-widest">[ SOFTWARE EDITION ]</span>
                             </div>
 
-                            <h3 class="font-sans font-black text-xl md:text-2xl lg:text-3xl uppercase leading-none mb-4 text-[#1a1a1a] pr-8 relative z-10">
-                                SIH 2025 // GRAND FINALIST (GUNTUR)
-                            </h3>
-                            <p class="font-sans font-bold text-sm md:text-base leading-snug text-[#1a1a1a] relative z-10 max-w-lg mb-2">
-                                Competed in the Software Edition Grand Finale. Engineered and shipped <span class="border-b-2 border-[#151515]">SCRIPTIFY</span>—an offline-first transliteration mobile app—under a strict 24-hour timeline.
+                            <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a] mb-6">
+                                Competed in the Software Edition Grand Finale. Engineered and shipped <span class="border-b-2 border-[#1a1a1a]">SCRIPTIFY</span>—an offline-first transliteration mobile app—under a strict 24-hour timeline.
                             </p>
 
-                            <!-- Side-Pinned Square Arrow Button -->
-                            <a href="#" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-[#151515] w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-[3px] border-[#151515] shadow-[4px_4px_0_rgba(0,0,0,0.3)] hover:scale-110 active:scale-95 transition-transform z-30 group/btn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
+                            <!-- Side-Pinned Arrow -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
                                     <line x1="7" y1="17" x2="17" y2="7"></line>
                                     <polyline points="7 7 17 7 17 17"></polyline>
                                 </svg>
@@ -868,26 +854,22 @@ v>
                     </div>
 
                     <!-- Sticker Card 2: IDE Bootcamp -->
-                    <div class="relative group lg:-ml-12">
-                        <div class="bg-[#3eb0ff] border-[3px] border-[#151515] p-5 lg:p-8 relative transition-all duration-300 shadow-[10px_10px_0_#151515] group-hover:-translate-y-1.5 group-hover:-translate-x-1">
-                             <!-- Inner Mesh Pattern -->
-                             <div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(#151515 1px, transparent 1px); background-size: 15px 15px;"></div>
-
-                            <!-- Intersecting White Pill Tag -->
-                            <div class="absolute top-0 left-6 -translate-y-1/2 bg-white text-[#151515] font-mono font-bold text-[9px] uppercase px-3 py-1 border-[2px] border-[#151515] tracking-[0.1em] z-20">
-                                [ BY AICTE ]
+                    <div class="relative group -rotate-1 hover:rotate-0 transition-transform duration-300 lg:mr-12">
+                        <div class="bg-[#3eb0ff] border-[3px] border-[#1a1a1a] p-6 shadow-[10px_10px_0_#1a1a1a] relative">
+                            <h3 class="font-sans font-black text-2xl md:text-3xl uppercase tracking-tighter mb-4 pr-10 text-[#1a1a1a]">IDE BOOTCAMP // EDITION 3 PHASE 2 (NASHIK)</h3>
+                            
+                            <!-- Intersecting Tag -->
+                            <div class="inline-block bg-white border-2 border-[#1a1a1a] px-3 py-1 -ml-10 mb-4">
+                                <span class="text-[#1a1a1a] font-mono font-black text-xs uppercase tracking-widest">[ BY AICTE ]</span>
                             </div>
 
-                            <h3 class="font-sans font-black text-xl md:text-2xl lg:text-3xl uppercase leading-none mb-4 text-[#1a1a1a] pr-8 relative z-10">
-                                IDE BOOTCAMP // EDITION 3 PHASE 2
-                            </h3>
-                            <p class="font-sans font-bold text-sm md:text-base leading-snug text-[#1a1a1a] relative z-10 max-w-lg mb-2">
-                                Formal training in lean design, product strategy, and finding actual product-market fit. Architected PLAN KARO, a B2B event vendor marketplace.
+                            <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a] mb-6">
+                                Formal training in lean design, product strategy, and finding actual product-market fit. Architected <span class="border-b-2 border-[#1a1a1a]">PLAN KARO</span>, a B2B event vendor marketplace.
                             </p>
 
-                            <!-- Side-Pinned Square Arrow Button -->
-                            <a href="#" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-[#151515] w-10 h-10 md:w-14 md:h-14 flex items-center justify-center border-[3px] border-[#151515] shadow-[4px_4px_0_rgba(0,0,0,0.3)] hover:scale-110 active:scale-95 transition-transform z-30 group/btn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1">
+                            <!-- Side-Pinned Arrow -->
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
                                     <line x1="7" y1="17" x2="17" y2="7"></line>
                                     <polyline points="7 7 17 7 17 17"></polyline>
                                 </svg>
