@@ -236,112 +236,6 @@
         </div>
     </nav>
 
-    <!-- INTRO WARNING SECTION (PAGE 1) -->
-    <section id="intro-overlay"
-        class="relative min-h-screen flex flex-col items-center justify-center bg-[#e4dfd6] px-4 snap-item cursor-pointer"
-        onclick="handleIntroClose()">
-        <!-- noise background -->
-        <div class="absolute inset-0 opacity-[1] pointer-events-none"
-            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E&quot;);">
-        </div>
-
-        <!-- Parental Advisory Fabric Patch Corner -->
-        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20">
-            <div
-                class="relative bg-[#f8f8f8] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.1)] w-[100px] sm:w-[124px]">
-                <!-- Fabric Texture -->
-                <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10"
-                    style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                </div>
-
-                <!-- Inner Advisory Content -->
-                <div class="relative text-center font-sans flex flex-col justify-between p-[3px] z-20">
-                    <div class="bg-[#151515] text-[#f8f8f8] font-bold text-[0.4em] sm:text-[0.5em] tracking-[0.2em] py-[1px] rounded-[2px]"
-                        style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.8);">PARENTAL</div>
-                    <div class="text-[#151515] font-black text-[1.1rem] sm:text-[1.4rem] leading-none py-[3px] tracking-tighter uppercase"
-                        style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.3), -0.5px -0.5px 0 rgba(255,255,255,0.8);">
-                        ADVISORY</div>
-                    <div class="bg-[#151515] text-[#f8f8f8] font-bold text-[0.35em] sm:text-[0.4em] tracking-[0.1em] py-[1px] rounded-[2px]"
-                        style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.8);">EXPLICIT CONTENT</div>
-                </div>
-
-                <!-- Fake stitching outline -->
-
-            </div>
-        </div>
-
-        <div class="relative z-10 flex flex-col items-center px-4 w-full max-w-md">
-
-            <!-- Fabric Patch Warning -->
-            <div
-                class="w-full sm:w-[400px] mb-8 relative transform -rotate-[3deg] hover:-rotate-1 transition-transform duration-300">
-                <!-- Patch base with thick threaded border -->
-                <div
-                    class="relative bg-[#f0e4c6] rounded-[24px] sm:rounded-[32px] border-[8px] sm:border-[10px] border-[#e1a100] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.3),inset_0_0_15px_rgba(0,0,0,0.15)]">
-
-                    <!-- Fabric texture overlay -->
-                    <div class="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply z-20"
-                        style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                    </div>
-
-                    <!-- Top section: Black angled block & Warning -->
-                    <div class="relative h-[80px] sm:h-[100px] w-full flex">
-                        <!-- Left beige triangle area -->
-                        <div class="w-[35%] flex items-center justify-center pt-3 pl-2 z-10">
-                            <!-- Embroidered Triangle -->
-                            <div
-                                class="relative text-[#e1a100] drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.5)] transform -rotate-[5deg]">
-                                <svg width="50" height="50" viewBox="0 0 24 24" fill="#e1a100" stroke="#111"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                                    </path>
-                                    <line x1="12" y1="9" x2="12" y2="13" stroke="#111" stroke-width="3"></line>
-                                    <line x1="12" y1="17" x2="12.01" y2="17" stroke="#111" stroke-width="3"></line>
-                                </svg>
-                            </div>
-                        </div>
-                        <!-- Right black area with angled clip-path -->
-                        <div class="absolute right-0 top-0 h-[105%] w-[72%] bg-[#151515] text-[#e1a100]"
-                            style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);">
-                            <div class="h-full flex items-center justify-center pl-4 pt-1">
-                                <span
-                                    class="font-sans font-black text-[2.4rem] sm:text-[2.8rem] tracking-widest uppercase"
-                                    style="text-shadow: 1px 1.5px 0px #000, -0.5px -0.5px 0px rgba(255,255,255,0.1);">WARNING</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Main Text Area -->
-                    <div class="relative p-5 sm:p-6 text-center z-10 pb-6 sm:pb-10 pt-2">
-                        <h2 class="text-[#1a1a1a] font-sans font-black text-[1.5rem] sm:text-[1.85rem] leading-[1.3] uppercase tracking-wide"
-                            style="text-shadow: 0.5px 1px 0px rgba(0,0,0,0.4), -0.5px -0.5px 1px rgba(255,255,255,0.8);">
-                            I have no<br>idea what I<br>am doing
-                        </h2>
-
-                        <!-- Sparkles -->
-                        <div class="absolute bottom-5 right-6 flex gap-1.5 transform rotate-12">
-                            <div class="w-3.5 h-3.5 bg-[#1a1a1a] transform rotate-45 shadow-[0_0_2px_rgba(0,0,0,0.5)] rounded-[2px]"
-                                style="box-shadow: inset 0 0 2px rgba(255,255,255,0.3);"></div>
-                            <div class="w-2 h-2 bg-[#1a1a1a] transform -translate-y-3 rotate-45 shadow-[0_0_2px_rgba(0,0,0,0.5)] rounded-[1.5px]"
-                                style="box-shadow: inset 0 0 1px rgba(255,255,255,0.3);"></div>
-                            <div class="w-2.5 h-2.5 bg-[#1a1a1a] transform translate-y-3 -translate-x-1.5 rotate-45 shadow-[0_0_2px_rgba(0,0,0,0.5)] rounded-[1.5px]"
-                                style="box-shadow: inset 0 0 1px rgba(255,255,255,0.3);"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fake stitching outline on the border -->
-
-            </div>
-
-            <!-- Scroll Indicator -->
-            <p class="text-xs font-sans font-black text-[#222] mt-8 uppercase tracking-[0.3em] text-center animate-bounce cursor-default"
-                style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.5);">
-                &darr; CLICK TO PROCEED / ENTER &darr;
-            </p>
-
-        </div>
-    </section>
 
     <section id="home" class="section-page active-page">
         <!-- WebGL Container for Retro Computer -->
@@ -350,7 +244,7 @@
         </div>
         <main id="main-content"
             class="relative min-h-screen flex flex-col justify-center pt-[65px] px-6 md:px-16 lg:px-32">
-            <div class="hero-element flex mb-5 relative ml-[-4px]">
+            <div class="stagger-element flex mb-5 relative ml-[-4px]">
                 <!-- Fabric Badge for Username -->
                 <div
                     class="hero-badge-group relative bg-[#151515] rounded-[6px] border-[3px] border-[#151515] overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_0_4px_rgba(255,255,255,0.1)] inline-flex tracking-widest cursor-default transition-transform duration-300 hover:-translate-y-1">
@@ -366,13 +260,13 @@
                 </div>
             </div>
 
-            <div class="hero-element relative inline-block mb-2 group">
+            <div class="stagger-element relative inline-block mb-2 group">
                 <h1 class="text-5xl md:text-6xl font-serif font-black text-[#1a1a1a] tracking-tight">
                     Tejas Jaware
                 </h1>
             </div>
 
-            <div class="hero-element mb-3 flex flex-wrap items-center gap-2 md:gap-3">
+            <div class="stagger-element mb-3 flex flex-wrap items-center gap-2 md:gap-3">
                 <!-- Part 1: Eng ineer Fabric Badge -->
                 <div class="inline-flex items-center tracking-tighter cursor-default group">
                     <div
@@ -470,7 +364,7 @@
             </div>
 
             <!-- NEW ROW OF TAGS -->
-            <div class="hero-element mb-6 flex flex-wrap items-center gap-3 md:gap-4 mt-1">
+            <div class="stagger-element mb-6 flex flex-wrap items-center gap-3 md:gap-4 mt-1">
 
                 <!-- Tag 4: Creator & Director (Kodak Retro Style) -->
                 <div class="relative inline-flex items-center cursor-default group">
@@ -592,12 +486,12 @@
             </div>
 
             <p
-                class="hero-element font-serif text-[#3a3a3a] text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 italic">
+                class="stagger-element font-serif text-[#3a3a3a] text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 italic">
                 "Hey, I'm Tejas Jaware. Here, you can check out what I'm working on. I try my best to create things with
                 🖤"
             </p>
 
-            <div class="hero-element flex flex-wrap gap-5 text-[#5a5a5a]">
+            <div class="stagger-element flex flex-wrap gap-5 text-[#5a5a5a]">
                 <a href="https://github.com/tejuas98" target="_blank" rel="noopener noreferrer"
                     class="hover:text-[#1a1a1a] transition-colors duration-200">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
@@ -650,13 +544,13 @@
     <!-- SECTION: SELECTED WORK -->
     <section id="selected-work" class="section-page">
         <div class="px-6 md:px-12 lg:px-24">
-            <div class="mb-20">
+            <div class="mb-20 stagger-element">
                 <h2 class="font-mono font-black text-lg mb-4 tracking-[0.2em] uppercase opacity-40">SELECTED WORK // THE LEDGER</h2>
                 <div class="w-12 h-1 bg-[#1a1a1a]"></div>
             </div>
 
             <!-- Project 1: SCRIPTIFY (Editorial Scene) -->
-            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
                 <div class="w-full lg:w-[60%] relative">
                     <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ SIH25155 // HERITAGE & CULTURE ]</span>
                     
@@ -711,7 +605,7 @@
             </div>
 
             <!-- Project 2: PLAN KARO (The Flip) -->
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
                 <div class="w-full lg:w-[60%] relative">
                     <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ IDE BOOTCAMP // VENTURE ARCHITECTURE ]</span>
                     
@@ -773,7 +667,7 @@
             </div>
 
             <!-- Project 3: IKS WEATHER REPORT BUILDER (Final Scene) -->
-            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16 snap-item">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16 snap-item stagger-element">
                 <div class="w-full lg:w-[60%] relative">
                     <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ DATA VISUALIZATION // REPORT ENGINE ]</span>
                     <h3 class="font-serif font-black text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[0.9] mb-8 uppercase">
@@ -831,7 +725,7 @@
             <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                 
                 <!-- Left Column: Editorial Title -->
-                <div class="w-full lg:w-1/2 relative mt-[-100px] lg:mt-[-180px]">
+                <div class="w-full lg:w-1/2 relative mt-[-100px] lg:mt-[-180px] stagger-element">
                     <h2 class="font-serif font-black text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight uppercase mb-8">
                         FIELD WORK<br>
                         <span class="flex items-center gap-4 text-4xl md:text-5xl lg:text-6xl">// & SPRINTS</span>
@@ -861,7 +755,7 @@
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 20px 20px;"></div>
 
                     <!-- Sticker Card 1: SIH 2025 -->
-                    <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-300 lg:ml-12">
+                    <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-300 lg:ml-12 stagger-element">
                         <div class="bg-[#ffcc00] border-[3px] border-[#1a1a1a] p-5 shadow-[8px_8px_0_#1a1a1a] relative">
                             <h3 class="font-sans font-black text-xl md:text-2xl uppercase tracking-tighter mb-4 pr-10">SIH 2025 // GRAND FINALIST (GUNTUR)</h3>
                             
@@ -885,7 +779,7 @@
                     </div>
 
                     <!-- Sticker Card 2: IDE Bootcamp -->
-                    <div class="relative group -rotate-1 hover:rotate-0 transition-transform duration-300 lg:mr-12">
+                    <div class="relative group -rotate-1 hover:rotate-0 transition-transform duration-300 lg:mr-12 stagger-element">
                         <div class="bg-[#3eb0ff] border-[3px] border-[#1a1a1a] p-5 shadow-[8px_8px_0_#1a1a1a] relative">
                             <h3 class="font-sans font-black text-xl md:text-2xl uppercase tracking-tighter mb-4 pr-10 text-[#1a1a1a]">IDE BOOTCAMP // EDITION 3 PHASE 2 (NASHIK)</h3>
                             
@@ -915,11 +809,11 @@
     <!-- SECTION: THE ARSENAL -->
     <section id="the-arsenal" class="section-page">
         <div class="section-padding max-w-7xl mx-auto">
-            <div class="mb-16">
+            <div class="mb-16 stagger-element">
                 <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">CAPABILITIES & HARDWARE</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 stagger-element">
                 <div>
                     <h3 class="font-mono font-black text-xs tracking-[0.4em] mb-8 text-[#5a5a5a] uppercase">01. Frontend
                         & UI</h3>
@@ -955,7 +849,7 @@
 
     <!-- SECTION: PING (FOOTER) -->
     <section id="ping" class="section-page">
-        <div class="flex-grow flex flex-col items-center justify-center px-4">
+        <div class="flex-grow flex flex-col items-center justify-center px-4 stagger-element">
             <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase">Let's build
                 something.</h2>
             <a href="mailto:tejusj98@gmail.com" class="giant-email overflow-hidden border-y-[3px] border-[#1a1a1a]">
@@ -1007,9 +901,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        // Setup initial hidden state for portfolio content
-        gsap.set(".hero-element", { y: 50, opacity: 0 });
-
+        // Standardize staggered entrance animations
         function navigateTo(targetId, instant = false) {
             const targetPage = document.querySelector(targetId);
             if (!targetPage) return;
@@ -1026,46 +918,46 @@
                 }
             });
 
-            // 2. Handle Transitions
-            if (currentPage && currentPage !== targetPage) {
-                gsap.to(currentPage, {
-                    opacity: 0,
-                    duration: instant ? 0 : 0.4,
-                    onComplete: () => {
-                        currentPage.classList.remove('active-page');
-                        showNewPage(targetPage, targetId, instant);
-                    }
-                });
-            } else {
-                showNewPage(targetPage, targetId, instant);
+            // 2. Direct Section Switch (No Fades)
+            if (currentPage) {
+                currentPage.classList.remove('active-page');
+                currentPage.style.opacity = '0';
+                currentPage.style.visibility = 'hidden';
             }
-        }
 
-        function showNewPage(targetPage, targetId, instant) {
             targetPage.classList.add('active-page');
-            targetPage.scrollTop = 0; // Reset internal scroll
-            
-            gsap.to(targetPage, {
-                opacity: 1,
-                duration: instant ? 0 : 0.4,
-                onComplete: () => {
-                    // 3. Trigger Section Specific Animations
-                    if (targetId === '#home') {
-                        gsap.to(".hero-element", {
-                            y: 0,
-                            opacity: 1,
-                            duration: 1.2,
-                            stagger: 0.15,
-                            ease: "power4.out"
-                        });
-                        const container = document.getElementById('webgl-container');
-                        if (container) container.style.opacity = '1';
-                    }
-                }
-            });
-            
+            targetPage.style.opacity = '1';
+            targetPage.style.visibility = 'visible';
+            targetPage.scrollTop = 0;
+
+            // 3. Trigger Staggered Entrance Animation for the new section
+            const elements = targetPage.querySelectorAll('.stagger-element');
+            if (elements.length > 0) {
+                // Reset to hidden state before animation
+                gsap.set(elements, { 
+                    x: -50, 
+                    opacity: 0 
+                });
+
+                // Animate in
+                gsap.to(elements, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: "power4.out",
+                    delay: instant ? 0.1 : 0.05
+                });
+            }
+
+            // Special Case: 3D Computer on Home
+            if (targetId === '#home') {
+                const container = document.getElementById('webgl-container');
+                if (container) container.style.opacity = '1';
+            }
+
             // Update URL hash without scrolling
-            if (window.location.hash !== targetId) {
+            if (window.location.hash !== targetId && !instant) {
                 history.pushState(null, null, targetId);
             }
         }
@@ -1086,23 +978,11 @@
             navigateTo(hash, true);
         });
 
-        // Intro Overlay Closure (Special Case)
-        function handleIntroClose() {
-            const intro = document.getElementById("intro-overlay");
-            if (intro) {
-                gsap.to(intro, {
-                    y: "-100%",
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        intro.remove();
-                        // Trigger Home entrance
-                        navigateTo(window.location.hash || '#home', true);
-                    }
-                });
-            }
-        }
+        // Initial Load Landing
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash || '#home';
+            navigateTo(hash, true);
+        });
 
         // If the user clicks anywhere on intro or wait for button
         // Looking for existing intro trigger logic
