@@ -28,16 +28,38 @@
     </script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-snap-type: y proximity;
+        html, body {
+            overflow: hidden !important;
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             background-color: #e4dfd6;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
             color: #1a1a1a;
+        }
+
+        .section-page {
+            position: fixed;
+            top: 65px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 65px);
+            overflow-y: auto;
             overflow-x: hidden;
+            background-color: #e4dfd6;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+            z-index: 5;
+        }
+
+        .active-page {
+            opacity: 1;
+            visibility: visible;
+            z-index: 50;
         }
 
         @keyframes swing {
@@ -159,6 +181,10 @@
                 height: 55px;
                 padding: 0 20px;
             }
+            .section-page {
+                top: 55px;
+                height: calc(100vh - 55px);
+            }
 
             .nav-group-right {
                 gap: 0.75rem;
@@ -212,7 +238,8 @@
 
     <!-- INTRO WARNING SECTION (PAGE 1) -->
     <section id="intro-overlay"
-        class="relative min-h-screen flex flex-col items-center justify-center bg-[#e4dfd6] px-4 snap-item">
+        class="relative min-h-screen flex flex-col items-center justify-center bg-[#e4dfd6] px-4 snap-item cursor-pointer"
+        onclick="handleIntroClose()">
         <!-- noise background -->
         <div class="absolute inset-0 opacity-[1] pointer-events-none"
             style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E&quot;);">
@@ -310,13 +337,13 @@
             <!-- Scroll Indicator -->
             <p class="text-xs font-sans font-black text-[#222] mt-8 uppercase tracking-[0.3em] text-center animate-bounce cursor-default"
                 style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.5);">
-                &darr; SCROLL DOWN &darr;
+                &darr; CLICK TO PROCEED / ENTER &darr;
             </p>
 
         </div>
     </section>
 
-    <section id="home" class="relative snap-item">
+    <section id="home" class="section-page active-page">
         <!-- WebGL Container for Retro Computer -->
         <div id="webgl-container"
             class="absolute right-[0%] top-1/2 -translate-y-1/2 w-[50%] h-full z-10 pointer-events-none hidden md:block opacity-0 transition-opacity duration-1000">
@@ -621,7 +648,7 @@
         </main>
     </section>
     <!-- SECTION: SELECTED WORK -->
-    <section id="selected-work" class="relative bg-[#e4dfd6] pt-20 md:pt-24 pb-0 overflow-hidden snap-item">
+    <section id="selected-work" class="section-page">
         <div class="px-6 md:px-12 lg:px-24">
             <div class="mb-20">
                 <h2 class="font-mono font-black text-lg mb-4 tracking-[0.2em] uppercase opacity-40">SELECTED WORK // THE LEDGER</h2>
@@ -797,7 +824,7 @@
     </section>
 
     <!-- SECTION: FIELD WORK & SPRINTS -->
-    <section id="deployments" class="relative bg-[#e4dfd6] pt-0 pb-24 md:pb-32 overflow-hidden snap-item">
+    <section id="deployments" class="section-page">
         <!-- ... (Floating Stickers omitted for brevity but remain in file) ... -->
         
         <div class="section-padding max-w-7xl mx-auto relative z-10">
@@ -886,8 +913,7 @@
     </section>
 
     <!-- SECTION: THE ARSENAL -->
-    <section id="the-arsenal"
-        class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-center snap-item">
+    <section id="the-arsenal" class="section-page">
         <div class="section-padding max-w-7xl mx-auto">
             <div class="mb-16">
                 <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">CAPABILITIES & HARDWARE</h2>
@@ -928,8 +954,7 @@
     </section>
 
     <!-- SECTION: PING (FOOTER) -->
-    <section id="ping"
-        class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-between snap-item">
+    <section id="ping" class="section-page">
         <div class="flex-grow flex flex-col items-center justify-center px-4">
             <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase">Let's build
                 something.</h2>
@@ -982,67 +1007,105 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        // GSAP Initialization
-        gsap.registerPlugin(ScrollTrigger);
-
         // Setup initial hidden state for portfolio content
         gsap.set(".hero-element", { y: 50, opacity: 0 });
 
-        // Hero Entrance Animation Trigger
-        ScrollTrigger.create({
-            trigger: "#home",
-            start: "top center",
-            onEnter: () => {
-                gsap.to(".hero-element", {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.2,
-                    stagger: 0.15,
-                    ease: "power4.out"
+        function navigateTo(targetId, instant = false) {
+            const targetPage = document.querySelector(targetId);
+            if (!targetPage) return;
+
+            const currentPage = document.querySelector('.active-page');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // 1. Update Navigation Highlight
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === targetId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // 2. Handle Transitions
+            if (currentPage && currentPage !== targetPage) {
+                gsap.to(currentPage, {
+                    opacity: 0,
+                    duration: instant ? 0 : 0.4,
+                    onComplete: () => {
+                        currentPage.classList.remove('active-page');
+                        showNewPage(targetPage, targetId, instant);
+                    }
                 });
-
-                // Also trigger computer reveal if it's hidden
-                if (container) {
-                    container.style.opacity = '1';
-                }
-
-                // ONE-TIME LOCK: Animate and remove the intro section
-                const intro = document.getElementById("intro-overlay");
-                if (intro) {
-                    gsap.to(intro, {
-                        y: "-100%",
-                        opacity: 0,
-                        duration: 1,
-                        ease: "power2.inOut",
-                        onComplete: () => {
-                            intro.remove();
-                            ScrollTrigger.refresh();
-                        }
-                    });
-                }
+            } else {
+                showNewPage(targetPage, targetId, instant);
             }
+        }
+
+        function showNewPage(targetPage, targetId, instant) {
+            targetPage.classList.add('active-page');
+            targetPage.scrollTop = 0; // Reset internal scroll
+            
+            gsap.to(targetPage, {
+                opacity: 1,
+                duration: instant ? 0 : 0.4,
+                onComplete: () => {
+                    // 3. Trigger Section Specific Animations
+                    if (targetId === '#home') {
+                        gsap.to(".hero-element", {
+                            y: 0,
+                            opacity: 1,
+                            duration: 1.2,
+                            stagger: 0.15,
+                            ease: "power4.out"
+                        });
+                        const container = document.getElementById('webgl-container');
+                        if (container) container.style.opacity = '1';
+                    }
+                }
+            });
+            
+            // Update URL hash without scrolling
+            if (window.location.hash !== targetId) {
+                history.pushState(null, null, targetId);
+            }
+        }
+
+        // Event Listeners
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    navigateTo(targetId);
+                }
+            });
         });
 
-        // Navigation Highlighting Logic
-        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-        navLinks.forEach(link => {
-            const sectionId = link.getAttribute('href');
-            const section = document.querySelector(sectionId);
-            
-            if (section) {
-                ScrollTrigger.create({
-                    trigger: section,
-                    start: "top 120px", 
-                    end: "bottom 120px",
-                    onToggle: self => {
-                        if (self.isActive) {
-                            navLinks.forEach(l => l.classList.remove('active'));
-                            link.classList.add('active');
-                        }
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash || '#home';
+            navigateTo(hash, true);
+        });
+
+        // Intro Overlay Closure (Special Case)
+        function handleIntroClose() {
+            const intro = document.getElementById("intro-overlay");
+            if (intro) {
+                gsap.to(intro, {
+                    y: "-100%",
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        intro.remove();
+                        // Trigger Home entrance
+                        navigateTo(window.location.hash || '#home', true);
                     }
                 });
             }
-        });
+        }
+
+        // If the user clicks anywhere on intro or wait for button
+        // Looking for existing intro trigger logic
 
     </script>
 
