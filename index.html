@@ -104,7 +104,8 @@
             cursor: default;
         }
 
-        .nav-link:hover {
+        .nav-link:hover,
+        .nav-link.active {
             background-color: #1a1a1a;
             color: #e4dfd6;
         }
@@ -310,12 +311,6 @@
         </div>
     </section>
 
-    <!-- Global Camera Container for Section Tracking -->
-    <div id="name-camera-container" 
-         class="fixed w-32 h-32 z-[9999] pointer-events-none transition-opacity duration-1000 opacity-0"
-         style="top: 25%; right: 15%;">
-    </div>
-
     <section id="home" class="relative">
         <!-- WebGL Container for Retro Computer -->
         <div id="webgl-container"
@@ -414,8 +409,9 @@
 
                 <!-- Tag 3: DaVinci Resolve (Sleek Dark Badge) -->
                 <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3 mr-1 group">
-                    <!-- Placeholder/Anchor for Camera in Hero -->
-                    <div id="camera-anchor-hero" class="absolute -right-16 -top-16 w-32 h-32 invisible"></div>
+                    <!-- 3D Camera Container perched on DaVinci tag -->
+                    <div id="name-camera-container"
+                        class="absolute -right-16 -top-16 w-32 h-32 z-30 pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"></div>
                     <div
                         class="flex items-stretch bg-[#151515] rounded-[6px] border-[3px] border-[#151515] shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(255,255,255,0.1)] overflow-hidden relative transition-all duration-300 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.4)] group-hover:-translate-y-1">
                         <!-- Fabric Texture -->
@@ -1021,58 +1017,26 @@
             }
         });
 
-        // 3D CAMERA SCROLL TRACKING ENGINE
-        const cameraFollower = document.getElementById('name-camera-container');
-        if (cameraFollower) {
-            // Hero Anchor (DaVinci Tag)
-            const heroAnchor = document.getElementById('camera-anchor-hero');
+        // Navigation Highlighting Logic
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+        navLinks.forEach(link => {
+            const sectionId = link.getAttribute('href');
+            const section = document.querySelector(sectionId);
             
-            // Define positions for different sections
-            // We'll use JS to update the fixed position
-            
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#selected-work",
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1,
-                    onUpdate: (self) => {
-                        // Dynamically update camera rotation speed based on scroll velocity
-                        const velocity = Math.abs(self.getVelocity()) / 1000;
-                        if (window.cameraSticker) {
-                             window.cameraSticker.rotation.y += velocity * 0.1;
-                             window.cameraSticker.rotation.x += velocity * 0.05;
+            if (section) {
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "top 120px", 
+                    end: "bottom 120px",
+                    onToggle: self => {
+                        if (self.isActive) {
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
                         }
                     }
-                }
-            })
-            // HERO STATE -> SELECTED WORK
-            .to(cameraFollower, {
-                top: "40%",
-                right: "5%",
-                scale: 1.2,
-                rotate: -15,
-                ease: "none"
-            }, 0);
-
-            // SELECTED WORK -> FIELD WORK
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#deployments",
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1
-                }
-            })
-            .to(cameraFollower, {
-                top: "20%",
-                left: "2%",
-                right: "auto",
-                scale: 0.8,
-                rotate: 10,
-                ease: "none"
-            });
-        }
+                });
+            }
+        });
 
     </script>
 
@@ -1352,7 +1316,6 @@
 
             cameraSticker.rotation.set(0.2, -0.4, 0);
             camScene.add(cameraSticker);
-            window.cameraSticker = cameraSticker; // Expose for GSAP tracking
 
             let camCurrentRotX = 0;
             let camCurrentRotY = 0;
