@@ -613,52 +613,100 @@
     </section>
 
     <!-- SECTION: SELECTED WORK -->
-    <section id="selected-work"
-        class="relative border-t-[3px] border-[#1a1a1a] bg-[#e4dfd6] min-h-screen flex flex-col justify-center">
-        <div class="section-padding max-w-7xl mx-auto">
-            <div class="mb-20">
-                <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">SELECTED WORK // THE LEDGER</h2>
-                <p class="font-sans text-lg max-w-2xl text-[#5a5a5a]">I build products that scale. From
-                    hackathon-winning mobile pipelines to B2B marketplaces and peer-to-peer networks.</p>
+    <section id="selected-work" class="relative bg-[#e4dfd6] py-32 overflow-hidden">
+        <div class="px-6 md:px-12 lg:px-24">
+            <div class="mb-32">
+                <h2 class="font-mono font-black text-xl mb-4 tracking-[0.2em] uppercase opacity-40">SELECTED WORK // THE LEDGER</h2>
+                <div class="w-24 h-1 bg-[#1a1a1a]"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <!-- Card 1: The Execution Proof -->
-                <div class="md:col-span-6 bento-card">
-                    <span class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a]">[ SIH 2025 GRAND FINALIST ]</span>
-                    <h3 class="font-serif font-black text-4xl mt-4 mb-4">SCRIPTIFY</h3>
-                    <p class="font-sans mb-8 leading-relaxed text-[#1a1a1a]">An offline-first transliteration pipeline designed to help travelers read local street signs. Built, optimized, and shipped a production-ready mobile app under a brutal 24-hour hackathon deadline.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">React Native</span>
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">TRANSLITERATION</span>
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">Rapid Prototyping</span>
+            <!-- Project 1: SCRIPTIFY (Left Side Text) -->
+            <div class="flex flex-col md:flex-row items-center gap-16 md:gap-32 mb-48 md:mb-72">
+                <div class="w-full md:w-3/5">
+                    <span class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a] block mb-6">[ SIH 2025 // THE EXECUTION PROOF ]</span>
+                    <h3 class="font-serif font-black text-7xl sm:text-8xl lg:text-[10rem] tracking-tighter leading-[0.8] mb-10 uppercase">
+                        SCRIPTIFY
+                    </h3>
+                    <p class="font-sans text-xl md:text-2xl leading-relaxed max-w-xl text-[#1a1a1a] mb-12">
+                        An offline-first transliteration pipeline designed to help travelers read local street signs. Built, optimized, and shipped a production-ready mobile app under a brutal 24-hour hackathon deadline.
+                    </p>
+                    <div class="flex flex-wrap gap-5">
+                        <!-- Yellow Sticker Tag -->
+                        <div class="relative group cursor-default">
+                            <div class="bg-[#ffcc00] border-[4px] border-[#151515] px-4 py-2 shadow-[6px_6px_0_#151515] transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1 group-hover:shadow-[10px_10px_0_#151515]">
+                                <span class="font-sans font-black text-xl text-[#151515] uppercase tracking-tighter">React Native</span>
+                            </div>
+                        </div>
+                        <!-- Blue Sticker Tag -->
+                        <div class="relative inline-flex group cursor-default">
+                            <div class="absolute inset-0 bg-[#3eb0ff] border-[3px] border-[#151515] translate-x-1.5 translate-y-1.5 transition-transform duration-200 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+                            <div class="relative bg-white border-[3px] border-[#151515] px-4 py-2 transition-transform duration-200 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5">
+                                <span class="font-mono font-black text-lg text-[#151515] uppercase tracking-tighter">TRANSLITERATION</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Card 2: The Business Proof -->
-                <div class="md:col-span-6 bento-card">
-                    <span class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a]">[ IN ACTIVE DEVELOPMENT ]</span>
-                    <h3 class="font-serif font-black text-4xl mt-4 mb-4">PLAN KARO</h3>
-                    <p class="font-sans mb-8 leading-relaxed text-[#1a1a1a]">Architected at the IDE Bootcamp. A digital marketplace connecting users with local event vendors. Engineered around a sustainable 12% vendor commission model to aggressively capture Tier-2 Indian cities with lean UX and scalable unit economics.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">Product Architecture</span>
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">UI/UX Design</span>
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">Market Strategy</span>
-                    </div>
-                </div>
-
-                <!-- Card 4: The Data Pipeline -->
-                <div class="md:col-span-6 bento-card">
-                    <span class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a]">[ DATA AGGREGATION PIPELINE ]</span>
-                    <h3 class="font-serif font-black text-4xl mt-4 mb-4 text-sm-truncate">IKS WEATHER REPORT BUILDER</h3>
-                    <p class="font-sans mb-8 leading-relaxed text-[#1a1a1a] opacity-60 italic">[ Use case placeholder: CLI tool, web dashboard, or localized API wrapper? ]</p>
-                    <div class="flex flex-wrap gap-3 opacity-40">
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">Tech 1</span>
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">Tech 2</span>
-                        <span class="px-3 py-1 border border-[#1a1a1a] font-mono text-[0.65rem] font-bold uppercase">Tech 3</span>
-                    </div>
+                <!-- Visual Placeholder -->
+                <div class="w-full md:w-2/5 aspect-square bg-[#d9d9d9] border-[4px] border-[#1a1a1a] shadow-[25px_25px_0px_#1a1a1a] relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-[#ffcc00]/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
             </div>
+
+            <!-- Project 2: PLAN KARO (Right Side Text - Flipped) -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-32 mb-48 md:mb-72">
+                <div class="w-full md:w-3/5">
+                    <span class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a] block mb-6">[ IDE BOOTCAMP // THE BUSINESS PROOF ]</span>
+                    <h3 class="font-serif font-black text-7xl sm:text-8xl lg:text-[10rem] tracking-tighter leading-[0.8] mb-10 uppercase">
+                        PLAN KARO
+                    </h3>
+                    <p class="font-sans text-xl md:text-2xl leading-relaxed max-w-xl text-[#1a1a1a] mb-12">
+                        Architected at the IDE Bootcamp. A digital marketplace connecting users with local event vendors. Engineered around a sustainable 12% vendor commission model to aggressively capture Tier-2 Indian cities with lean UX.
+                    </p>
+                    <div class="flex flex-wrap gap-5">
+                        <!-- Black Sticker Tag -->
+                        <div class="relative group cursor-default">
+                            <div class="bg-[#151515] border-[4px] border-[#151515] px-4 py-2 shadow-[6px_6px_0_#3eb0ff] transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1">
+                                <span class="font-sans font-black text-xl text-white uppercase tracking-tighter">Architecture</span>
+                            </div>
+                        </div>
+                        <!-- White Sticker Tag -->
+                        <div class="relative group cursor-default">
+                            <div class="bg-white border-[4px] border-[#151515] px-4 py-2 shadow-[6px_6px_0_#151515] transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1">
+                                <span class="font-sans font-black text-xl text-[#151515] uppercase tracking-tighter">Market Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visual Placeholder -->
+                <div class="w-full md:w-2/5 aspect-square bg-[#ccc] border-[4px] border-[#1a1a1a] shadow-[-25px_25px_0px_#1a1a1a] relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-[#3eb0ff]/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Project 3: IKS WEATHER (Left Side Text) -->
+            <div class="flex flex-col md:flex-row items-center gap-16 md:gap-32 mb-32">
+                <div class="w-full md:w-3/5">
+                    <span class="font-mono text-xs font-bold tracking-[0.3em] text-[#5a5a5a] block mb-6">[ DATA PIPELINE // LOCALIZED AGGREGATION ]</span>
+                    <h3 class="font-serif font-black text-5xl sm:text-7xl lg:text-[8rem] tracking-tighter leading-[0.85] mb-10 uppercase">
+                        IKS WEATHER
+                    </h3>
+                    <p class="font-sans text-xl md:text-2xl leading-relaxed max-w-xl text-[#1a1a1a] mb-12 opacity-60 italic">
+                        [ Use case placeholder: CLI tool, web dashboard, or localized API wrapper? ]
+                    </p>
+                    <div class="flex flex-wrap gap-5">
+                        <div class="bg-[#151515] border-[4px] border-[#151515] px-4 py-2 shadow-[6px_6px_0_#ffcc00]">
+                            <span class="font-sans font-black text-xl text-white uppercase tracking-tighter">DATA PIPELINE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visual Placeholder -->
+                <div class="w-full md:w-2/5 aspect-square bg-[#bbb] border-[4px] border-[#1a1a1a] shadow-[25px_25px_0px_#1a1a1a] relative group overflow-hidden">
+                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
         </div>
     </section>
 
