@@ -40,15 +40,21 @@
         }
 
         @keyframes swing {
+            0%, 100% { transform: rotate(1deg) translateY(0px); }
+            50% { transform: rotate(-1.5deg) translateY(-3px); }
+        }
 
-            0%,
-            100% {
-                transform: rotate(1deg);
-            }
+        @keyframes float-subtle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
 
-            50% {
-                transform: rotate(-1.5deg);
-            }
+        .sticker-float {
+            animation: float-subtle 3s ease-in-out infinite;
+        }
+        
+        .sticker-swing {
+            animation: swing 4s ease-in-out infinite;
         }
 
         /* Refined Split-Alignment Nav Styles */
@@ -645,18 +651,18 @@
 
                     <!-- Tech Tags (Floating Stickers) -->
                     <div class="flex flex-wrap gap-3 mt-6">
-                        <div class="relative group cursor-default">
-                             <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#3eb0ff] transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1">
+                        <div class="relative group cursor-default sticker-float">
+                             <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#3eb0ff] transition-all duration-200 group-hover:-translate-y-1 group-hover:-translate-x-0.5 group-hover:shadow-[6px_6px_0_#3eb0ff]">
                                 <span class="font-sans font-black text-base text-white uppercase">React Native</span>
                             </div>
                         </div>
-                        <div class="relative inline-flex group cursor-default">
+                        <div class="relative inline-flex group cursor-default sticker-float" style="animation-delay: 0.2s;">
                             <div class="absolute inset-0 bg-[#3eb0ff] border-[3px] border-[#151515] translate-x-[3px] translate-y-[3px] transition-transform duration-200 group-hover:translate-x-0 group-hover:translate-y-0"></div>
-                            <div class="relative bg-white border-[2px] border-[#151515] px-3 py-1 transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1">
+                            <div class="relative bg-white border-[2px] border-[#151515] px-3 py-1 transition-transform duration-200 group-hover:-translate-y-1.5 group-hover:-translate-x-1.5">
                                 <span class="font-mono font-bold text-sm text-[#151515] uppercase tracking-widest">COMPUTER VISION</span>
                             </div>
                         </div>
-                        <div class="bg-white border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] -rotate-2">
+                        <div class="bg-white border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] -rotate-2 sticker-float" style="animation-delay: 0.4s;">
                              <span class="font-sans font-black text-base text-[#151515] uppercase">GEMINI API</span>
                         </div>
                     </div>
@@ -699,16 +705,16 @@
 
                     <!-- Tech Tags (Floating Stickers) -->
                     <div class="flex flex-wrap gap-3 mt-6 md:justify-end clear-both pt-6">
-                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] rotate-1">
+                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] rotate-1 sticker-float">
                              <span class="font-sans font-black text-base text-white uppercase">Product Architecture</span>
                         </div>
-                         <div class="relative inline-flex group cursor-default">
+                         <div class="relative inline-flex group cursor-default sticker-float" style="animation-delay: 0.3s;">
                             <div class="absolute inset-0 bg-[#ffcc00] border-[3px] border-[#151515] translate-x-[3px] translate-y-[3px] transition-transform duration-200 group-hover:translate-x-0 group-hover:translate-y-0"></div>
                             <div class="relative bg-white border-[2px] border-[#151515] px-3 py-1 transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1">
                                 <span class="font-mono font-bold text-sm text-[#151515] uppercase tracking-widest">UI/UX DESIGN</span>
                             </div>
                         </div>
-                        <div class="bg-white border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515]">
+                        <div class="bg-white border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] sticker-float" style="animation-delay: 0.5s;">
                              <span class="font-sans font-black text-base text-[#151515] uppercase">MARKET STRATEGY</span>
                         </div>
                     </div>
@@ -751,13 +757,13 @@
 
                     <!-- Tech Tags (Floating Stickers) -->
                     <div class="flex flex-wrap gap-3 mt-6">
-                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] -rotate-1">
+                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] -rotate-1 sticker-float">
                              <span class="font-sans font-black text-base text-white uppercase">Python</span>
                         </div>
-                        <div class="bg-[#ffcc00] border-[2px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] rotate-2">
+                        <div class="bg-[#ffcc00] border-[2px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] rotate-2 sticker-float" style="animation-delay: 0.2s;">
                              <span class="font-sans font-black text-base text-[#151515] uppercase">Prompt Engineering</span>
                         </div>
-                        <div class="bg-[#3eb0ff] border-[2px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515]">
+                        <div class="bg-[#3eb0ff] border-[2px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] sticker-float" style="animation-delay: 0.4s;">
                              <span class="font-sans font-black text-base text-[#151515] uppercase">AI Coding Agents</span>
                         </div>
                     </div>
