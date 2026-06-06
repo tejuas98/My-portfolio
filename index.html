@@ -593,83 +593,130 @@
                 </div>
             </div>
 
+            
             <!-- LIGHT MODE LAYOUT (Postcard) -->
             <div class="postcard-brief-content justify-center items-center w-full my-8">
-                <div class="bg-[#e4dbca] text-[#2a2a2a] w-full max-w-5xl aspect-auto md:aspect-[3/2] shadow-[8px_8px_20px_rgba(0,0,0,0.15)] flex flex-col md:flex-row relative p-8 md:p-12" 
-                     style="background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png'); transform: rotate(-1.5deg);">
+                <div class="bg-[#e4dbca] text-[#2a2a2a] w-full max-w-6xl shadow-[8px_8px_20px_rgba(0,0,0,0.15)] flex flex-col lg:flex-row relative p-6 md:p-12 lg:p-16" 
+                     style="background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png'); transform: rotate(-1deg);">
                     
                     <!-- Tape -->
                     <div class="absolute -top-4 -left-6 w-32 h-10 bg-[#e0d3b6] opacity-80 shadow-sm z-20 mix-blend-multiply" style="transform: rotate(-15deg);"></div>
+                    <div class="absolute -bottom-4 right-20 w-24 h-8 bg-[#e0d3b6] opacity-80 shadow-sm z-20 mix-blend-multiply" style="transform: rotate(5deg);"></div>
                     
                     <!-- Divider (Hidden on small screens) -->
-                    <div class="hidden md:block absolute top-12 bottom-12 left-1/2 w-[2px] bg-[#2a2a2a] opacity-30 transform -translate-x-1/2"></div>
+                    <div class="hidden lg:block absolute top-16 bottom-16 left-1/2 w-[2px] bg-[#2a2a2a] opacity-30 transform -translate-x-1/2 border-l-2 border-dashed border-[#2a2a2a]"></div>
                     
                     <!-- Stamp -->
-                    <div class="absolute top-6 right-6 md:top-10 md:right-10 w-20 h-24 md:w-24 md:h-28 bg-[#f5f5f5] p-1 border-[1px] border-[#d4d4d4] shadow-sm transform rotate-3 flex items-center justify-center z-10">
-                        <img src="id_card.jpg" class="w-full h-full object-cover sepia-[.3]">
+                    <div class="absolute top-6 right-6 md:top-10 md:right-10 w-20 h-24 bg-[#f5f5f5] p-2 border-[1px] border-[#d4d4d4] shadow-sm transform rotate-6 flex items-center justify-center z-10">
+                        <img src="davinci_logo.jpg" class="w-full h-full object-cover sepia-[.4]">
                     </div>
 
                     <!-- Postmarks -->
-                    <div class="hidden md:flex absolute top-12 right-36 opacity-40 font-mono text-xs border-2 border-[#2a2a2a] rounded-full w-20 h-20 items-center justify-center text-center transform -rotate-12 z-0">
+                    <div class="hidden md:flex absolute top-12 right-28 opacity-40 font-mono text-xs border-2 border-[#2a2a2a] rounded-full w-20 h-20 items-center justify-center text-center transform -rotate-12 z-0">
                         BHUSAWAL<br>2026
                     </div>
-                    <div class="hidden md:block absolute top-8 right-52 opacity-40 z-0">
-                        <svg width="100" height="40" viewBox="0 0 100 40">
-                            <path d="M0 10 Q 10 0, 20 10 T 40 10 T 60 10 T 80 10 T 100 10" fill="none" stroke="#2a2a2a" stroke-width="2"/>
-                            <path d="M0 20 Q 10 10, 20 20 T 40 20 T 60 20 T 80 20 T 100 20" fill="none" stroke="#2a2a2a" stroke-width="2"/>
-                            <path d="M0 30 Q 10 20, 20 30 T 40 30 T 60 30 T 80 30 T 100 30" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+                    <div class="hidden md:block absolute top-10 right-44 opacity-30 z-0">
+                        <svg width="120" height="40" viewBox="0 0 120 40">
+                            <path d="M0 10 Q 15 0, 30 10 T 60 10 T 90 10 T 120 10" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+                            <path d="M0 20 Q 15 10, 30 20 T 60 20 T 90 20 T 120 20" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+                            <path d="M0 30 Q 15 20, 30 30 T 60 30 T 90 30 T 120 30" fill="none" stroke="#2a2a2a" stroke-width="2"/>
                         </svg>
                     </div>
 
-                    <!-- Air Mail Sticker -->
-                    <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-[#283e75] text-[#e6e6e6] font-sans font-bold text-[10px] md:text-xs tracking-widest px-3 py-1 md:px-4 md:py-2 border-2 border-[#e6e6e6] transform -rotate-6 shadow-sm z-20">
-                        AIR MAIL<br>PAR AVION
-                    </div>
-
-                    <!-- Left Side: Message -->
-                    <div class="w-full md:w-1/2 md:pr-12 flex flex-col items-center justify-start h-full relative z-10 mt-10 md:mt-0">
-                        <p class="font-serif font-black text-2xl tracking-widest uppercase mb-6 self-start text-[#2a2a2a] opacity-80">POSTCARD</p>
-                        
-                        <div class="mt-4 font-caveat text-xl md:text-3xl leading-relaxed text-[#2a2a2a]">
-                            <p class="transform -rotate-1 mb-4">
-                                I don't wait until I know everything to start. I build things that actually work!
-                            </p>
-                            <p class="transform rotate-1 opacity-80 text-lg md:text-2xl">
-                                I shipped an app to a national panel in 36 hrs, document Linux on YT, and figure out AI.
-                            </p>
-                        </div>
-
-                        <div class="mt-auto self-start transform rotate-[-5deg]">
-                            <span class="font-caveat text-2xl text-[#2a2a2a]">From:</span>
-                            <img src="davinci_logo.jpg" class="w-16 h-16 rounded-full inline-block ml-2 sepia-[.3] border border-black/20">
-                        </div>
-                    </div>
-
-                    <!-- Right Side: Address & Details -->
-                    <div class="w-full md:w-1/2 md:pl-16 pt-16 md:pt-32 flex flex-col justify-start h-full relative z-10">
-                        <p class="font-caveat text-2xl md:text-3xl font-bold mb-4 text-[#2a2a2a]">To: The World</p>
-                        
-                        <div class="relative w-full">
-                            <!-- Lines -->
-                            <div class="absolute inset-0 flex flex-col justify-between pointer-events-none z-0" style="padding-top: 1.5rem; gap: 2.5rem;">
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-20"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-20"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-20"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-20"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-20 hidden md:block"></div>
+                    <!-- Left Side: Message & Photo -->
+                    <div class="w-full lg:w-1/2 lg:pr-16 flex flex-col justify-start relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="bg-[#283e75] text-[#e6e6e6] font-sans font-bold text-[10px] md:text-xs tracking-widest px-3 py-1 border-2 border-[#e6e6e6] transform -rotate-3 shadow-sm inline-block">
+                                AIR MAIL<br>PAR AVION
                             </div>
-                            <!-- Handwriting -->
-                            <div class="relative font-caveat text-xl md:text-[1.6rem] leading-[2.5rem] md:leading-[2.5rem] text-[#2a2a2a] z-10 pt-1">
-                                <span class="block">B.Tech CSE @ Shri Sant Gadge Baba College</span>
-                                <span class="block">Google Gemini Student Ambassador</span>
-                                <span class="block">Applied AI Intern @ 1M1B</span>
-                                <span class="block">SIH Grand Finalist &amp; Dev</span>
-                                <span class="block hidden md:block text-lg opacity-80 mt-2">Bhusawal, Maharashtra</span>
+                            <p class="font-serif font-black text-3xl tracking-widest uppercase text-[#2a2a2a] opacity-30">POSTCARD</p>
+                        </div>
+                        
+                        <!-- Polaroid -->
+                        <div class="bg-white p-3 pb-12 shadow-md transform -rotate-2 relative w-64 max-w-full self-center mb-8">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#e0d3b6] opacity-70 transform rotate-3 mix-blend-multiply"></div>
+                            <div class="w-full h-56 bg-gray-200 overflow-hidden">
+                                <img src="anime_character.png" onerror="this.src='id_card.jpg'" class="w-full h-full object-cover sepia-[.2] contrast-125">
+                            </div>
+                            <p class="font-caveat text-2xl text-center mt-4 text-[#2a2a2a] transform -rotate-2">@tejus98</p>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="font-caveat text-2xl md:text-3xl leading-relaxed text-[#2a2a2a] space-y-4">
+                            <p class="transform -rotate-1">
+                                "I'm an 18-year-old first-year CSE student who builds things that actually work. I shipped a functioning app to a national hackathon panel in 36 hours. I document Linux customization on YouTube. I'm figuring out agentic AI."
+                            </p>
+                            <p class="transform rotate-1 font-bold">
+                                I don't wait until I know everything to start.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Address & Details (The original content) -->
+                    <div class="w-full lg:w-1/2 lg:pl-16 pt-16 lg:pt-24 flex flex-col justify-start relative z-10">
+                        <p class="font-caveat text-4xl font-bold mb-8 text-[#2a2a2a] transform -rotate-2">To: The World</p>
+                        
+                        <div class="font-caveat text-xl md:text-2xl text-[#2a2a2a] space-y-8 relative">
+                            
+                            <!-- Address Lines Background -->
+                            <div class="absolute inset-0 flex flex-col pointer-events-none z-0" style="gap: 2rem; margin-top: 2rem;">
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="relative z-10 space-y-8">
+                                <!-- Education -->
+                                <div class="transform rotate-1">
+                                    <span class="uppercase tracking-widest text-sm opacity-60 font-sans font-bold block mb-1">Currently</span>
+                                    <p class="font-bold text-2xl leading-none mb-1">B.Tech, Computer Science</p>
+                                    <p class="leading-tight">Shri Sant Gadge Baba College of Engineering & Technology</p>
+                                    <p class="text-lg opacity-80 leading-tight">DBATU, Maharashtra &nbsp;&middot;&nbsp; Expected 2029</p>
+                                </div>
+
+                                <!-- Internships -->
+                                <div class="transform -rotate-1">
+                                    <span class="uppercase tracking-widest text-sm opacity-60 font-sans font-bold block mb-1">Active Internships</span>
+                                    <div class="mb-3">
+                                        <p class="font-bold text-2xl leading-none mb-1">Google Gemini Student Ambassador</p>
+                                        <p class="text-lg opacity-80 leading-tight">Google &middot; GSA 2026 &middot; May 2026 – Present</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-2xl leading-none mb-1">Applied AI Intern — Green Skills & Climate Action</p>
+                                        <p class="text-lg opacity-80 leading-tight">1M1B &middot; June 2026 – Present</p>
+                                    </div>
+                                </div>
+
+                                <!-- Certifications -->
+                                <div class="transform rotate-1">
+                                    <span class="uppercase tracking-widest text-sm opacity-60 font-sans font-bold block mb-1">Certifications</span>
+                                    <ul class="list-disc pl-5 space-y-1 text-[1.3rem] leading-tight">
+                                        <li>Google AI Essentials Specialization (Coursera)</li>
+                                        <li>Google Prompting Essentials (Coursera)</li>
+                                        <li>Google Cloud Gen AI Academy, APAC (Cohort 1)</li>
+                                        <li>IBM Dev Day: BOB Edition</li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-4 transform -rotate-2">
+                                    <span class="border-2 border-[#2a2a2a] px-3 py-1 font-bold inline-block">
+                                        BHUSAWAL, MAHARASHTRA &nbsp;&middot;&nbsp; OPEN TO INTERNSHIPS & COLLABS
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
