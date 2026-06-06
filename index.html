@@ -10,6 +10,8 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@400;700;900&family=Space+Mono&display=swap"
         rel="stylesheet">
     
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <!-- Lenis Smooth Scroll CSS -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css">
 
@@ -19,7 +21,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { background: '#e4dfd6' },
+                    colors: { background: '#1a1a1a' },
                     fontFamily: {
                         sans: ['"Space Grotesk"', 'sans-serif'],
                         mono: ['"Space Mono"', 'monospace'],
@@ -34,7 +36,7 @@
         html, body {
             margin: 0;
             padding: 0;
-            background-color: #e4dfd6;
+            background-color: #1a1a1a;
         }
 
         /* Lenis setup */
@@ -59,15 +61,14 @@
         }
 
         body {
-            background-color: #e4dfd6;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-            color: #1a1a1a;
+            background-color: #1a1a1a;
+            color: #e4dfd6;
         }
 
         .section-page {
             position: relative;
             width: 100%;
-            background-color: #e4dfd6;
+            background-color: transparent;
             display: flex;
             flex-direction: column;
             opacity: 1;
@@ -76,7 +77,7 @@
             min-height: 100vh;
         }
 
-        /* Brutalist Animation Classes */
+        /* Brutalist Animation Classes */ ("or")
         .brutalist-btn {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -109,8 +110,8 @@
         #top-nav {
             width: 100%;
             height: 65px;
-            background-color: #e4dfd6;
-            border-bottom: 2px solid #1a1a1a;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #e4dfd6;
             z-index: 100;
             display: flex;
             align-items: stretch;
@@ -132,7 +133,7 @@
             font-weight: 900;
             font-size: 0.8rem;
             letter-spacing: 0.15em;
-            color: #1a1a1a;
+            color: #e4dfd6;
             text-decoration: none;
             transition: background-color 0.1s steps(2), color 0.1s steps(2);
             white-space: nowrap;
@@ -154,8 +155,8 @@
 
         .nav-link:hover,
         .nav-link.active {
-            background-color: #1a1a1a;
-            color: #e4dfd6;
+            background-color: #e4dfd6;
+            color: #1a1a1a;
         }
 
         /* SECTION STYLES */
@@ -168,19 +169,19 @@
         }
 
         .bento-card {
-            background-color: #f0e4c6;
-            border: 3px solid #1a1a1a;
+            background-color: #111111;
+            border: 3px solid #e4dfd6;
             padding: 40px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .bento-card:hover {
             transform: translate(-4px, -4px);
-            box-shadow: 4px 4px 0px #1a1a1a;
+            box-shadow: 4px 4px 0px #e4dfd6;
         }
 
         .ledger-line {
-            border-bottom: 2px solid #1a1a1a;
+            border-bottom: 2px solid #e4dfd6;
             padding: 32px 0;
         }
 
@@ -194,11 +195,12 @@
             width: 100%;
             text-align: center;
             display: block;
+            color: #e4dfd6;
         }
 
         .giant-email:hover {
-            background-color: #1a1a1a;
-            color: #e4dfd6;
+            background-color: #e4dfd6;
+            color: #1a1a1a;
         }
 
         @media (max-width: 768px) {
@@ -237,32 +239,121 @@
             scroll-snap-align: start;
             scroll-snap-stop: always;
         }
+    
+        /* OVERLAY STYLES */
+        .project-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #1a1a1a;
+            z-index: 9999;
+            transform: translateX(100%);
+            transition: transform 0.45s cubic-bezier(0.77,0,0.175,1);
+            overflow-y: auto;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .project-overlay.active {
+            transform: translateX(0);
+        }
+        .overlay-close {
+            position: sticky;
+            top: 24px;
+            right: 24px;
+            float: right;
+            font-family: "Space Mono", monospace;
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 8px 16px;
+            border: 2px solid #e4dfd6;
+            background: #1a1a1a;
+            color: #e4dfd6;
+            z-index: 10000;
+            transition: background 0.2s, color 0.2s;
+        }
+        .overlay-close:hover {
+            background: #e4dfd6;
+            color: #1a1a1a;
+        }
+        .overlay-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            clear: both;
+        }
+        @media (min-width: 1024px) {
+            .overlay-content {
+                flex-direction: row;
+            }
+            .overlay-left {
+                width: 40%;
+                padding: 60px;
+                border-right: 1px solid rgba(255,255,255,0.12);
+            }
+            .overlay-right {
+                width: 60%;
+                padding: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        @media (max-width: 1023px) {
+            .overlay-left, .overlay-right {
+                width: 100%;
+                padding: 40px 20px;
+            }
+            .overlay-right {
+                border-top: 1px solid rgba(0,0,0,0.12);
+            }
+        }
+        /* Hide scrollbar when overlay is open */
+        body.overlay-open {
+            overflow: hidden;
+        }
+
     </style>
 </head>
 
-<body class="relative bg-[#e4dfd6] overflow-x-hidden selection:bg-[#1a1a1a] selection:text-[#e4dfd6]">
+<body class="relative bg-[#1a1a1a] overflow-x-hidden selection:bg-[#e4dfd6] selection:text-[#1a1a1a]">
 
     <!-- SPLIT-ALIGNMENT TOP NAV -->
     <nav id="top-nav" class="fixed left-0 top-0 w-full">
         <a href="#home" class="nav-link">HOME</a>
 
         <div class="nav-group-right">
+            <a href="#the-arsenal" class="nav-link">THE ARSENAL</a>
             <a href="#selected-work" class="nav-link">SELECTED WORK</a>
             <a href="#deployments" class="nav-link">DEPLOYMENTS</a>
-            <a href="#the-arsenal" class="nav-link">THE ARSENAL</a>
             <a href="#ping" class="nav-link">PING</a>
         </div>
     </nav>
 
 
-    <section id="home" class="section-page min-h-screen">
+    <section id="home" class="section-page min-h-screen relative overflow-hidden">
+        
+        
+        
+        
+
         <!-- WebGL Container for Retro Computer -->
         <div id="webgl-container"
             class="absolute right-[0%] top-1/2 -translate-y-1/2 w-[50%] h-full z-10 pointer-events-none hidden md:block opacity-0 transition-opacity duration-1000">
         </div>
         <main id="main-content"
-            class="relative flex-grow flex flex-col justify-center px-6 md:px-16 lg:px-32">
-            <div class="stagger-element flex mb-5 relative ml-[-4px]">
+            class="relative flex-grow flex flex-col justify-center px-6 md:px-16 lg:px-32 z-10 py-32 md:py-0">
+            
+            <!-- Floating Dossier Elements -->
+
+            
+            
+            <div class="w-full md:w-[600px] relative z-20">
+                
+
+                <div class="stagger-element flex mb-5 relative ml-[-4px]">
                 <!-- Fabric Badge for Username -->
                 <div
                     class="hero-badge-group relative bg-[#151515] rounded-[6px] border-[3px] border-[#151515] overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_0_4px_rgba(255,255,255,0.1)] inline-flex tracking-widest cursor-default transition-transform duration-300 hover:-translate-y-1">
@@ -271,7 +362,7 @@
                     </div>
                     <div class="relative text-[#f8f8f8] px-3 py-1 font-bold text-sm uppercase font-sans z-20"
                         style="text-shadow: 0.5px 0.5px 0px rgba(0,0,0,1);">
-                        - @RUDRAUO
+                        - @TEJUS98
                     </div>
                     <!-- Inner Stitching -->
 
@@ -279,553 +370,128 @@
             </div>
 
             <div class="stagger-element relative inline-block mb-2 group">
-                <h1 class="text-5xl md:text-6xl font-serif font-black text-[#1a1a1a] tracking-tight">
+                <h1 class="text-5xl md:text-6xl font-serif font-black text-[#e4dfd6] tracking-tight">
                     Tejas Jaware
                 </h1>
             </div>
 
-            <div class="stagger-element mb-3 flex flex-wrap items-center gap-2 md:gap-3">
-                <!-- Part 1: Eng ineer Fabric Badge -->
-                <div class="inline-flex items-center tracking-tighter cursor-default group">
-                    <div
-                        class="relative flex items-stretch bg-[#ffcc00] rounded-[6px] border-[4px] border-[#151515] overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(0,0,0,0.2)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.4)]">
-                        <!-- Fabric Texture -->
-                        <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10"
-                            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                        </div>
-
-                        <div class="relative bg-[#151515] flex items-center justify-center px-2 py-[2px] z-20">
-                            <span
-                                class="text-[#f8f8f8] font-sans font-black text-[1.4rem] md:text-[1.8rem] leading-none tracking-tight pt-[2px]"
-                                style="text-shadow: 0.5px 0.5px 0px rgba(0,0,0,1);">Eng</span>
-                            <!-- Left split stitching -->
-
-                        </div>
-                        <div class="relative flex items-center justify-center px-1.5 py-[2px] z-20">
-                            <span
-                                class="text-[#151515] font-sans font-black text-[1.4rem] md:text-[1.8rem] leading-none tracking-tight top-[1px] pr-1 relative"
-                                style="text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.8), -0.5px -0.5px 0 rgba(0,0,0,0.2);">ineer</span>
-                        </div>
-
-                        <!-- Outer Fake stitching outline -->
-
-                    </div>
-                </div>
-
-                <!-- Part 2: I DESIGN STUFF Fabric Badge -->
-                <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3 group">
-                    <div class="relative rounded-[8px] overflow-visible transition-transform duration-300 group-hover:-translate-y-1">
-
-                        <!-- Blue Back Fabric (acts as drop shadow) -->
-                        <div
-                            class="absolute inset-0 bg-[#3eb0ff] rounded-[8px] border-[3px] border-[#151515] overflow-hidden translate-x-[5px] translate-y-[5px] md:translate-x-[6px] md:translate-y-[6px] transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
-                            <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10"
-                                style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                            </div>
-
-                            <div class="px-3 py-[6px] md:px-4 md:py-[8px] invisible">
-                                <span
-                                    class="font-mono font-bold text-[0.95rem] md:text-[1.1rem] tracking-widest uppercase">I
-                                    DESIGN STUFF</span>
-                            </div>
-                        </div>
-
-                        <!-- White Front Fabric -->
-                        <div
-                            class="relative bg-[#f8f8f8] rounded-[8px] border-[3px] border-[#151515] overflow-hidden flex items-center justify-center shadow-[inset_0_0_8px_rgba(0,0,0,0.15)] z-20">
-                            <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-multiply z-10"
-                                style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                            </div>
-
-                            <div
-                                class="px-3 py-[6px] md:px-4 md:py-[8px] relative z-20 flex items-center justify-center">
-                                <span
-                                    class="font-mono font-bold text-[0.95rem] md:text-[1.1rem] text-[#151515] tracking-widest uppercase pt-[2px]"
-                                    style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.4), -0.5px -0.5px 0 rgba(255,255,255,0.8);">I
-                                    DESIGN STUFF</span>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Tag 3: DaVinci Resolve (Sleek Dark Badge) -->
-                <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3 mr-1 group">
-                    <!-- 3D Camera Container perched on DaVinci tag -->
-                    <div id="name-camera-container"
-                        class="absolute -right-16 -top-16 w-32 h-32 z-30 pointer-events-none transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"></div>
-                    <div
-                        class="flex items-stretch bg-[#151515] rounded-[6px] border-[3px] border-[#151515] shadow-[0_4px_10px_rgba(0,0,0,0.3),inset_0_0_8px_rgba(255,255,255,0.1)] overflow-hidden relative transition-all duration-300 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.4)] group-hover:-translate-y-1">
-                        <!-- Fabric Texture -->
-                        <div class="absolute inset-0 opacity-[0.25] pointer-events-none mix-blend-overlay z-10"
-                            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                        </div>
-
-
-                        <!-- Left Photo area -->
-                        <div class="bg-[#1a1a1a] px-3 py-1.5 flex items-center justify-center relative z-20">
-                            <img src="davinci_logo.jpg" alt="DaVinci"
-                                class="w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-[5px] object-cover border-[1px] border-[#333] shadow-sm">
-                        </div>
-
-                        <!-- Right Text Area -->
-                        <div class="flex flex-col justify-center px-4 pt-[3px] relative z-20 bg-[#f8f8f8]">
-                            <span
-                                class="font-sans font-black text-[#151515] text-[1.1rem] md:text-[1.2rem] leading-none uppercase tracking-widest pl-[1px]"
-                                style="text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);">EDITING</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="stagger-element mb-6 mt-2">
+                <span class="font-mono font-bold text-[#e4dfd6] text-[10px] md:text-sm lg:text-base tracking-wider md:whitespace-nowrap uppercase opacity-80">
+                    Engineer &bull; SIH GRAND FINALIST &bull; Google Student Ambassador
+                </span>
             </div>
 
-            <!-- NEW ROW OF TAGS -->
-            <div class="stagger-element mb-6 flex flex-wrap items-center gap-3 md:gap-4 mt-1">
-
-                <!-- Tag 4: Creator & Director (Kodak Retro Style) -->
-                <div class="relative inline-flex items-center cursor-default group">
-                    <div
-                        class="bg-[#fbf8f1] p-[4px] rounded-[6px] shadow-[0_4px_10px_rgba(0,0,0,0.2),0_1px_3px_rgba(0,0,0,0.1)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)]">
-                        <div
-                            class="bg-[#ffb600] w-[180px] md:w-[200px] h-[58px] rounded-[3px] relative overflow-hidden flex flex-col border-[1px] border-[#ffb600]/80 shadow-[inset_0_0_8px_rgba(0,0,0,0.05)]">
-                            <!-- Top Yellow section -->
-                            <div class="flex-1 flex items-end justify-center pb-0.5 z-20">
-                                <span
-                                    class="font-sans font-black text-[1.4rem] md:text-[1.6rem] tracking-tighter text-[#111] leading-none mb-0.5">CREATOR</span>
-                            </div>
-                            <!-- Middle white thin gap -->
-                            <div class="w-full h-[2.5px] bg-[#fbf8f1] z-30 relative shadow-[0_1px_2px_rgba(0,0,0,0.2)]">
-                            </div>
-                            <!-- Bottom Red section with stripes -->
-                            <div class="flex-1 flex items-center justify-center pt-0.5 relative z-20 bg-[#ffb600]">
-                                <!-- Stripes mask -->
-                                <div class="absolute inset-0"
-                                    style="background: repeating-linear-gradient(0deg, #d31818, #d31818 2.5px, #ffb600 2.5px, #ffb600 5px);">
-                                </div>
-                                <div
-                                    class="absolute inset-y-0 right-0 bg-[#d31818] w-[75%] border-l-[1.5px] border-[#d31818]">
-                                </div>
-                                <span
-                                    class="font-sans font-black italic text-[1.1rem] md:text-[1.2rem] tracking-wider text-[#fbf8f1] leading-none relative z-10 pl-6">&amp;
-                                    ARCHITECT</span>
-
-                                <!-- Kodak style side cut illusion -->
-                                <div
-                                    class="absolute left-[-2px] bottom-0 w-0 h-0 border-t-[30px] border-t-transparent border-b-[0px] border-b-transparent border-l-[45px] border-l-[#ffb600] z-20">
-                                </div>
-                            </div>
-                            <!-- Distressed Texture -->
-                            <div class="absolute inset-0 opacity-[0.4] pointer-events-none mix-blend-multiply z-40"
-                                style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tag 5: Status Ledger (Minimalist Sticker) -->
-                <div class="relative inline-flex items-center cursor-default ml-1 md:ml-2 group">
-                    <!-- Outer white sticker trim -->
-                    <div
-                        class="bg-[#fdfdfd] p-[4px] rounded-[4px] shadow-[0_2px_8px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.08)] relative transition-all duration-300 group-hover:-translate-y-1 group-hover:rotate-1 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.2)]">
-                        <!-- Black box -->
-                        <div class="bg-[#1a1a1a] w-full pt-[2px] px-[2px] pb-[7px] rounded-[2px]">
-                            <!-- Inner white box -->
-                            <div class="bg-[#fdfdfd] px-4 py-1 flex items-center justify-center">
-                                <span
-                                    class="font-serif text-[1rem] md:text-[1.15rem] text-[#1a1a1a] tracking-[0.03em]">Status
-                                    Ledger</span>
-                            </div>
-                        </div>
-
-                        <!-- Very subtle noise over the sticker -->
-                        <div class="absolute inset-0 opacity-[0.15] pointer-events-none mix-blend-multiply rounded-[4px]"
-                            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tag 6: CREATIVE (Magazine Cutout Style) -->
-                <div class="relative inline-flex items-center cursor-default ml-1 md:ml-3">
-                    <div class="flex items-center justify-center gap-[2px]">
-                        <!-- c -->
-                        <div class="bg-[#d3272d] px-[3px] py-[3px] transform -rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] transition-all duration-300 hover:rotate-0 hover:-translate-y-1 cursor-pointer"
-                            style="clip-path: polygon(5% 0%, 95% 4%, 100% 98%, 0% 100%);">
-                            <span
-                                class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[18px] text-center inline-block">c</span>
-                        </div>
-                        <!-- r -->
-                        <div class="bg-[#2978c4] px-[3px] py-[3px] transform rotate-[2deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[2px] transition-all duration-300 hover:rotate-[-5deg] hover:translate-y-[-2px] cursor-pointer"
-                            style="clip-path: polygon(0% 5%, 100% 0%, 95% 100%, 5% 95%);">
-                            <span
-                                class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[16px] text-center inline-block">r</span>
-                        </div>
-                        <!-- e -->
-                        <div class="bg-[#288450] px-[3.5px] py-[3px] transform rotate-[4deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[-1px] transition-all duration-300 hover:rotate-12 hover:-translate-y-3 cursor-pointer"
-                            style="clip-path: polygon(0% 0%, 98% 5%, 100% 95%, 2% 100%);">
-                            <span
-                                class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[16px] text-center inline-block">e</span>
-                        </div>
-                        <!-- a -->
-                        <div class="bg-[#de6097] px-[4px] py-[4px] transform -rotate-[2deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[1px] transition-all duration-300 hover:rotate-[5deg] hover:translate-y-[-3px] cursor-pointer"
-                            style="clip-path: polygon(5% 0%, 100% 2%, 95% 100%, 0% 95%);">
-                            <span
-                                class="font-serif font-black text-[#de6097] text-[1.3rem] leading-none w-[18px] text-center inline-block"
-                                style="-webkit-text-stroke: 1px #f8f8f8;">a</span>
-                        </div>
-                        <!-- t -->
-                        <div class="bg-[#f8f8f8] px-[4px] py-[4px] transform -rotate-[4deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[-1px] transition-all duration-300 hover:rotate-3 hover:-translate-y-2 cursor-pointer"
-                            style="clip-path: polygon(0% 5%, 95% 0%, 100% 95%, 5% 100%);">
-                            <span
-                                class="font-sans font-black text-[#111] text-[1.4rem] leading-none w-[16px] text-center inline-block pb-[1px]">t</span>
-                        </div>
-                        <!-- i -->
-                        <div class="bg-[#e96627] px-[3.5px] py-[4px] transform rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 cursor-pointer"
-                            style="clip-path: polygon(5% 0%, 95% 0%, 100% 95%, 0% 90%);">
-                            <span
-                                class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[12px] text-center inline-block">i</span>
-                        </div>
-                        <!-- v -->
-                        <div class="bg-[#191919] px-[3px] py-[3px] transform rotate-[1deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[2px] transition-all duration-300 hover:-rotate-6 hover:-translate-y-2 cursor-pointer"
-                            style="clip-path: polygon(0% 5%, 100% 0%, 95% 95%, 5% 100%);">
-                            <span
-                                class="font-sans font-black text-[#44915b] text-[1.3rem] leading-none w-[18px] text-center inline-block">v</span>
-                        </div>
-                        <!-- e -->
-                        <div class="bg-[#eec131] px-[4px] py-[4px] transform -rotate-[3deg] shadow-[0_2px_4px_rgba(0,0,0,0.2)] translate-y-[-1px] transition-all duration-300 hover:rotate-0 hover:-translate-y-2 cursor-pointer"
-                            style="clip-path: polygon(5% 0%, 95% 4%, 100% 98%, 0% 95%);">
-                            <span
-                                class="font-serif font-black text-[#f8f8f8] text-[1.3rem] leading-none w-[16px] text-center inline-block">e</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+            <!-- Killed Third Row Tags Here -->
             <p
-                class="stagger-element font-serif text-[#3a3a3a] text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 italic">
-                "Hey, I'm Tejas Jaware. Here, you can check out what I'm working on. I try my best to create things with
-                🖤"
+                class="stagger-element font-serif text-[#cccccc] text-lg md:text-xl max-w-2xl leading-relaxed mb-8 mt-4 italic">
+                I build AI-powered software and ship under pressure. First year. Already in the field.
             </p>
 
-            <div class="stagger-element flex flex-wrap gap-5 text-[#5a5a5a]">
-                <a href="https://github.com/tejuas98" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-[#1a1a1a] transition-colors duration-200">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4">
-                        </path>
+            <div class="stagger-element flex gap-6 md:gap-8 mt-12">
+                <a href="https://github.com/tejuas98" target="_blank"
+                    class="text-[#888888] hover:text-[#e4dfd6] hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/tejus98" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-[#1a1a1a] transition-colors duration-200">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
+                <a href="https://www.linkedin.com/in/tejus98" target="_blank"
+                    class="text-[#888888] hover:text-[#e4dfd6] hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                 </a>
-                <a href="https://x.com/tejus_98" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-[#1a1a1a] transition-colors duration-200">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                <a href="https://x.com/tejus_98" target="_blank"
+                    class="text-[#888888] hover:text-[#e4dfd6] hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/tejus.98/" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-[#1a1a1a] transition-colors duration-200">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                <a href="https://www.instagram.com/tejus.98/" target="_blank"
+                    class="text-[#888888] hover:text-[#e4dfd6] hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                     </svg>
                 </a>
-                <a href="https://discord.gg/qVpaPcNzxx" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-[#1a1a1a] transition-colors duration-200">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 13H15M10 17H14M11 21H13M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.65 15C17.65 15 16.5 16.5 15 16.5H9C7.5 16.5 6.35 15 6.35 15V9C6.35 9 7.5 7.5 9 7.5H15C16.5 7.5 17.65 9 17.65 9V15Z"/>
+                <a href="https://discord.gg/qVpaPcNzxx" target="_blank"
+                    class="text-[#888888] hover:text-[#e4dfd6] hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09c-.01-.02-.04-.03-.07-.03c-1.5.26-2.93.71-4.27 1.33c-.01 0-.02.01-.03.02c-2.72 4.07-3.47 8.03-3.1 11.95c0 .02.01.04.03.05c1.8 1.32 3.53 2.12 5.24 2.65c.03.01.06 0 .07-.02c.4-.55.76-1.13 1.07-1.74c.02-.04 0-.08-.04-.09c-.57-.22-1.11-.48-1.64-.78c-.04-.02-.04-.08-.01-.11c.11-.08.22-.17.33-.25c.02-.02.05-.02.07-.01c3.44 1.57 7.15 1.57 10.55 0c.02-.01.05-.01.07.01c.11.09.22.17.33.26c.04.03.04.09-.01.11c-.52.31-1.07.56-1.64.78c-.04.01-.05.06-.04.09c.32.61.68 1.19 1.07 1.74c.03.03.06.04.09.02c1.72-.53 3.45-1.33 5.25-2.65c.02-.01.03-.03.03-.05c.44-4.53-.73-8.46-3.1-11.95c-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.83 2.12-1.89 2.12z"/>
                     </svg>
                 </a>
-                <a href="https://www.youtube.com/@tejus_98" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-[#1a1a1a] transition-colors duration-200">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z">
-                        </path>
-                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                <a href="https://www.youtube.com/@tejus_98" target="_blank"
+                    class="text-[#888888] hover:text-[#e4dfd6] hover:-translate-y-1 transition-all duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z" />
                     </svg>
                 </a>
+            </div>
+                </div>
             </div>
         </main>
     </section>
-    <!-- SECTION: SELECTED WORK -->
-    <section id="selected-work" class="section-page relative">
+    
+    <!-- SECTION: THE BRIEF -->
+    <section id="the-brief" class="section-page relative overflow-hidden py-12 md:py-24">
 
-        <div class="px-6 md:px-12 lg:px-24">
-            <div class="mb-20 stagger-element">
-                <h2 class="font-mono font-black text-lg mb-4 tracking-[0.2em] uppercase opacity-40">SELECTED WORK // THE LEDGER</h2>
-                <div class="w-12 h-1 bg-[#1a1a1a]"></div>
+        <div class="relative z-10 w-full px-8 py-16 md:px-16 lg:px-32">
+
+            <div class="mb-16 stagger-element relative z-20">
+                <h2 class="font-serif font-black text-xl mb-4 tracking-widest uppercase text-white">THE BRIEF // WHO + WHERE</h2>
+                <div class="w-16 h-[3px] bg-[#e4dfd6]"></div>
             </div>
-
-            <!-- Project 1: SCRIPTIFY (Editorial Scene) -->
-            <div id="project-scriptify" class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
-                <div class="w-full lg:w-[60%] relative">
-                    <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ SIH25155 // HERITAGE & CULTURE ]</span>
-                    
-                    <!-- Competition Badge -->
-                    <div class="absolute -top-10 left-0 bg-[#3eb0ff] border-[3px] border-[#151515] px-4 py-1 -rotate-2 shadow-[4px_4px_0_#151515] z-20">
-                        <span class="font-sans font-black text-xs text-white uppercase tracking-tighter">SIH 2025 GRAND FINALIST</span>
+            
+            <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 stagger-element relative z-20">
+                <!-- Left Column (50%) -->
+                <div class="w-full lg:w-1/2">
+                    <div class="mb-10">
+                        <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-gray-400 block mb-3 uppercase">CURRENTLY</span>
+                        <h4 class="font-serif font-black text-xl text-white uppercase">B.TECH, COMPUTER SCIENCE</h4>
+                        <p class="font-sans text-base text-white mt-1 font-bold">Shri Sant Gadge Baba College of Engineering & Technology</p>
+                        <p class="font-sans text-sm text-gray-400 mt-1">DBATU, Maharashtra &nbsp;&middot;&nbsp; Expected 2029</p>
                     </div>
-
-                    <h3 class="font-serif font-black text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[0.9] mb-8 uppercase drop-shadow-[4px_4px_0_rgba(0,0,0,0.1)]">
-                        SCRIPTIFY
-                    </h3>
                     
-                    <!-- Sticker Description Panel -->
-                    <div class="relative inline-block -rotate-1 transform transition-transform duration-300 hover:rotate-0 mb-12">
-                        <div class="bg-[#ffcc00] border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] max-w-lg">
-                            <p class="font-sans font-bold text-lg md:text-xl leading-snug text-[#1a1a1a]">
-                                Engineered a mobile OCR pipeline to bridge language barriers for travelers at Indian heritage sites. Processes raw camera input, extracts regional text via cloud-based inference, and instantly transliterates it into the user's native script.
-                            </p>
+                    <div class="w-full h-[1px] bg-[#e4dfd6] opacity-20 mb-10"></div>
+                    
+                    <div>
+                        <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-gray-400 block mb-3 uppercase">ACTIVE INTERNSHIPS</span>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-serif font-black text-lg text-white uppercase">GOOGLE GEMINI STUDENT AMBASSADOR</h4>
+                            <p class="font-sans text-sm text-gray-400 mt-1 font-bold">Google &middot; GSA 2026 &middot; May 2026 &ndash; Present</p>
                         </div>
                         
-                        <!-- Tactical Receipt Link -->
-                        <a href="https://github.com/tejuas98/scriptify" target="_blank" rel="noopener noreferrer" class="absolute -right-6 -bottom-10 bg-white border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#151515] brutalist-btn group">
-                            <span class="font-mono font-black text-xs uppercase text-[#1a1a1a]">GITHUB // SOURCE</span>
-                            <div class="w-8 h-8 bg-[#151515] flex items-center justify-center">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Tech Tags (Floating Stickers) -->
-                    <div class="flex flex-wrap gap-3 mt-6">
-                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] -rotate-1 sticker-float">
-                             <span class="font-sans font-black text-base text-white uppercase">React Native (Expo)</span>
-                        </div>
-                        <div class="bg-white border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] rotate-1 sticker-float" style="animation-delay: 0.2s;">
-                             <span class="font-sans font-black text-base text-[#151515] uppercase">Cloud Vision API</span>
-                        </div>
-                        <div class="bg-[#3eb0ff] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] -rotate-1 sticker-float" style="animation-delay: 0.4s;">
-                             <span class="font-sans font-black text-base text-white uppercase">CUSTOM OCR MAPPING</span>
+                        <div class="mb-6">
+                            <h4 class="font-serif font-black text-lg text-white uppercase">APPLIED AI INTERN &mdash; GREEN SKILLS & CLIMATE ACTION</h4>
+                            <p class="font-sans text-sm text-gray-400 mt-1 font-bold">1M1B (One Million for One Billion) &middot; June 2026 &ndash; Present</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Visual Block -->
-                <div class="w-full lg:w-[35%] aspect-square bg-[#d9d9d9] border-[4px] border-[#151515] shadow-[12px_12px_0_#151515] relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
-                    <div class="absolute top-3 left-3 font-mono text-[8px] uppercase opacity-20">RDR001 // SCRIPTIFY_ENV</div>
-                </div>
-            </div>
-
-            <!-- Project 2: PLAN KARO (The Flip) -->
-            <div id="project-plankaro" class="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24 mb-24 md:mb-32 snap-item stagger-element">
-                <div class="w-full lg:w-[60%] relative">
-                    <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ IDE BOOTCAMP // VENTURE ARCHITECTURE ]</span>
                     
-                    <!-- Development Badge -->
-                    <div class="absolute -top-6 right-0 bg-white border-[3px] border-[#151515] px-4 py-1 rotate-3 shadow-[4px_4px_0_#151515] z-20">
-                        <span class="font-sans font-black text-xs text-[#151515] uppercase tracking-tighter">STILL IN DEVELOPMENT</span>
-                    </div>
-
-                    <h3 class="font-serif font-black text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[0.9] mb-8 uppercase md:text-right">
-                        PLAN KARO
-                    </h3>
+                    <div class="w-full h-[1px] bg-[#e4dfd6] opacity-20 mb-10 mt-10"></div>
                     
-                    <!-- Sticker Description Panel -->
-                    <div class="relative inline-block rotate-1 transform transition-transform duration-300 hover:rotate-0 mb-8 md:float-right">
-                        <div class="bg-[#3eb0ff] border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] max-w-lg">
-                            <p class="font-sans font-bold text-lg md:text-xl leading-snug text-[#1a1a1a]">
-                                A B2B digital marketplace connecting users with local event vendors. Engineered around a sustainable 12% vendor commission model, targeting Tier-2 Indian cities with lean UX, scalable unit economics, and a streamlined booking pipeline.
-                            </p>
-                        </div>
-                        
-                        <!-- Tactical Receipt Link -->
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="absolute -left-6 -bottom-10 bg-white border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#151515] brutalist-btn group opacity-60">
-                            <span class="font-mono font-black text-xs uppercase">BETA // PREVIEW</span>
-                            <div class="w-8 h-8 bg-[#151515] flex items-center justify-center">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Tech Tags (Floating Stickers) -->
-                    <div class="flex flex-wrap gap-3 mt-6 md:justify-end clear-both pt-6">
-                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#ffcc00] rotate-1 sticker-float">
-                             <span class="font-sans font-black text-base text-white uppercase">Product Architecture</span>
-                        </div>
-                         <div class="relative inline-flex group cursor-default sticker-float" style="animation-delay: 0.3s;">
-                            <div class="absolute inset-0 bg-[#ffcc00] border-[3px] border-[#151515] translate-x-[3px] translate-y-[3px] transition-transform duration-200 group-hover:translate-x-0 group-hover:translate-y-0"></div>
-                            <div class="relative bg-white border-[2px] border-[#151515] px-3 py-1 transition-transform duration-200 group-hover:-translate-y-1 group-hover:-translate-x-1">
-                                <span class="font-mono font-bold text-sm text-[#151515] uppercase tracking-widest">UI/UX DESIGN</span>
-                            </div>
-                        </div>
-                        <div class="bg-white border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] sticker-float" style="animation-delay: 0.5s;">
-                             <span class="font-sans font-black text-base text-[#151515] uppercase">MARKET STRATEGY</span>
-                        </div>
+                    <div>
+                        <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-gray-400 block mb-3 uppercase">CERTIFICATIONS</span>
+                        <ul class="flex flex-col gap-3 font-sans text-[10px] md:text-[11px] lg:text-xs xl:text-[13px] text-white font-bold whitespace-nowrap">
+                            <li>GOOGLE AI ESSENTIALS SPECIALIZATION &middot; <span class="text-gray-400">Google via Coursera</span> &middot; <span class="text-[#e4dfd6]/60">May 2026</span></li>
+                            <li>GOOGLE PROMPTING ESSENTIALS &middot; <span class="text-gray-400">Google via Coursera</span> &middot; <span class="text-[#e4dfd6]/60">May 2026</span></li>
+                            <li>GOOGLE CLOUD GEN AI ACADEMY, APAC &middot; <span class="text-gray-400">Google Cloud + Hack2Skill (Cohort 1)</span> &middot; <span class="text-[#e4dfd6]/60">Apr 2026</span></li>
+                            <li>IBM DEV DAY: BOB EDITION &middot; <span class="text-gray-400">IBM Developer + Bemyapp</span> &middot; <span class="text-[#e4dfd6]/60">May 2026</span></li>
+                        </ul>
                     </div>
                 </div>
-
-                <!-- Visual Block -->
-                <div class="w-full lg:w-[35%] aspect-square bg-[#ccc] border-[4px] border-[#151515] shadow-[-12px_12px_0_#151515] relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-[#3eb0ff]/20 group-hover:bg-transparent transition-colors duration-500"></div>
-                    <!-- Work in Progress Overlay -->
-                    <div class="absolute inset-0 flex items-center justify-center rotate-[-15deg] pointer-events-none">
-                        <span class="font-sans font-black text-3xl opacity-10 uppercase tracking-tighter">WORK IN PROGRESS</span>
-                    </div>
-                    <div class="absolute top-3 right-3 font-mono text-[8px] uppercase opacity-20">RDR002 // PK_B2B_CORE // DEV_BUILD</div>
-                </div>
-            </div>
-
-            <!-- Project 3: IKS WEATHER REPORT BUILDER (Final Scene) -->
-            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16 snap-item stagger-element">
-                <div class="w-full lg:w-[60%] relative">
-                    <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-[#5a5a5a] block mb-4 uppercase">[ DATA VISUALIZATION // REPORT ENGINE ]</span>
-                    <h3 class="font-serif font-black text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[0.9] mb-8 uppercase">
-                        IKS WEATHER REPORT BUILDER
-                    </h3>
-                    
-                    <!-- Sticker Description Panel -->
-                    <div class="relative inline-block -rotate-1 transform transition-transform duration-300 hover:rotate-0 mb-8">
-                        <div class="bg-white border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] max-w-lg">
-                            <p class="font-sans font-bold text-lg md:text-xl leading-snug text-[#1a1a1a]">
-                                A specialized report generator for the IKS Bucket Assignment. Allows users to manually input hourly weather data, select custom graph colors, and instantly generate a print-ready, full-page analytical report.
-                            </p>
-                        </div>
-                        
-                        <!-- Tactical Receipt Link -->
-                        <a href="https://github.com/tejuas98/IKS-Weather-Report-Builder" target="_blank" rel="noopener noreferrer" class="absolute -right-6 -bottom-10 bg-[#151515] border-[3px] border-[#151515] px-4 py-2 flex items-center gap-3 shadow-[6px_6px_0_#3eb0ff] hover:-translate-y-1 transition-transform group">
-                            <span class="font-mono font-black text-xs text-white uppercase text-white">REPOS // DATA</span>
-                            <div class="w-8 h-8 bg-white flex items-center justify-center">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Tech Tags (Floating Stickers) -->
-                    <div class="flex flex-wrap gap-3 mt-6">
-                        <div class="bg-[#151515] border-[3px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#3eb0ff] -rotate-1 sticker-float">
-                             <span class="font-sans font-black text-base text-white uppercase">HTML5 / CSS3</span>
-                        </div>
-                        <div class="bg-[#ffcc00] border-[2px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] rotate-1 sticker-float" style="animation-delay: 0.2s;">
-                             <span class="font-sans font-black text-base text-[#151515] uppercase">VANILLA JS</span>
-                        </div>
-                        <div class="bg-white border-[2px] border-[#151515] px-3 py-1 shadow-[4px_4px_0_#151515] sticker-float" style="animation-delay: 0.4s;">
-                             <span class="font-sans font-black text-base text-[#151515] uppercase">UI DESIGN</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Visual Block -->
-                <div class="w-full lg:w-[35%] aspect-square bg-[#bbb] border-[4px] border-[#151515] shadow-[12px_12px_0_#151515] relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                    <div class="absolute top-3 left-3 font-mono text-[8px] uppercase opacity-20">RDR003 // IKS_REP_SRC</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: FIELD WORK & SPRINTS -->
-    <section id="deployments" class="section-page">
-        <!-- ... (Floating Stickers omitted for brevity but remain in file) ... -->
-        
-        <div class="section-padding max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                 
-                <!-- Left Column: Editorial Title -->
-                <div class="w-full lg:w-1/2 relative mt-[-100px] lg:mt-[-180px] stagger-element">
-                    <h2 class="font-serif font-black text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight uppercase mb-8">
-                        FIELD WORK<br>
-                        <span class="flex items-center gap-4 text-4xl md:text-5xl lg:text-6xl">// & SPRINTS</span>
-                    </h2>
-                    
-                    <!-- Angled Subtext Banner -->
-                    <div class="relative inline-block -rotate-2 transform hover:rotate-0 transition-transform duration-300 mt-2 lg:mt-4">
-                        <div class="bg-[#ffcc00] border-[3px] border-[#1a1a1a] p-5 shadow-[8px_8px_0_#1a1a1a] max-w-md">
-                            <p class="font-sans font-bold text-lg md:text-xl leading-tight text-[#1a1a1a]">
-                                I don't just write code; I deploy under pressure, from 24-hour hackathons to <span class="bg-[#1a1a1a] text-white px-1">strategic product validation.</span>
-                            </p>
-                        </div>
-                    </div>
+                <!-- Right Column (50%) -->
+                <div class="w-full lg:w-1/2 flex flex-col justify-start">
+                    <div class="p-8 md:p-10 relative border-[1px] border-white/20 -mt-16">
 
-                    <!-- Floating Gear -->
-                    <div class="absolute -right-12 -bottom-24 rotate-12 opacity-60 hidden lg:block">
-                        <svg width="100" height="100" viewBox="0 0 100 100" class="fill-[#3eb0ff] stroke-[#1a1a1a] stroke-[4px]">
-                            <path d="M50 20 L55 5 L45 5 L50 20 M80 50 L95 55 L95 45 L80 50 M50 80 L55 95 L45 95 L50 80 M20 50 L5 55 L5 45 L20 50" />
-                            <circle cx="50" cy="50" r="25" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Right Column: The Floating List -->
-                <div class="w-full lg:w-1/2 flex flex-col gap-12 lg:gap-8 relative">
-                    <!-- Graph Paper Grid Texture -->
-                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1a1a1a 1px, transparent 1px); background-size: 20px 20px;"></div>
-
-                    <!-- Sticker Card 1: SIH 2025 -->
-                    <div class="relative group rotate-1 hover:rotate-0 transition-transform duration-300 lg:ml-12 stagger-element">
-                        <div class="bg-[#ffcc00] border-[3px] border-[#1a1a1a] p-5 shadow-[8px_8px_0_#1a1a1a] relative">
-                            <h3 class="font-sans font-black text-xl md:text-2xl uppercase tracking-tighter mb-4 pr-10">SIH 2025 // GRAND FINALIST (GUNTUR)</h3>
-                            
-                            <!-- Intersecting Tag -->
-                            <div class="inline-block bg-[#1a1a1a] px-3 py-1 -ml-10 mb-4">
-                                <span class="text-white font-mono font-black text-xs uppercase tracking-widest">[ SOFTWARE EDITION ]</span>
-                            </div>
-
-                            <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a] mb-6">
-                                Competed in the Software Edition Grand Finale. Engineered and shipped <a href="#project-scriptify" class="border-b-2 border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition-colors">SCRIPTIFY</a>—an offline transliteration mobile app—under a strict 24-hour timeline.
-                            </p>
-
-                            <!-- Side-Pinned Arrow -->
-                            <a href="https://www.linkedin.com/posts/tejus98_sih2025-smartindiahackathon-reactnative-activity-7412184654000234496-hKTA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 brutalist-btn group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Sticker Card 2: IDE Bootcamp -->
-                    <div class="relative group -rotate-1 hover:rotate-0 transition-transform duration-300 lg:mr-12 stagger-element">
-                        <div class="bg-[#3eb0ff] border-[3px] border-[#1a1a1a] p-5 shadow-[8px_8px_0_#1a1a1a] relative">
-                            <h3 class="font-sans font-black text-xl md:text-2xl uppercase tracking-tighter mb-4 pr-10 text-[#1a1a1a]">IDE BOOTCAMP // EDITION 3 PHASE 2 (NASHIK)</h3>
-                            
-                            <!-- Intersecting Tag -->
-                            <div class="inline-block bg-white border-2 border-[#1a1a1a] px-3 py-1 -ml-10 mb-4">
-                                <span class="text-[#1a1a1a] font-mono font-black text-xs uppercase tracking-widest">[ BY AICTE ]</span>
-                            </div>
-
-                            <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a] mb-6">
-                                Formal training in lean design, product strategy, and finding actual product-market fit. Architected <a href="#project-plankaro" class="border-b-2 border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition-colors">PLAN KARO</a>, a B2B event vendor marketplace.
-                            </p>
-
-                            <!-- Side-Pinned Arrow -->
-                            <a href="https://www.linkedin.com/posts/tejus98_idebootcamp-moeinnovationcell-wadhwanifoundation-activity-7450046618025836544-xQKm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" rel="noopener noreferrer" class="absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center transition-all duration-200 hover:bg-white group/arrow shadow-[4px_4px_0_rgba(0,0,0,0.3)]">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/arrow:text-[#1a1a1a]">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </a>
-                        </div>
+                        <p class="font-serif text-white text-xl md:text-2xl leading-relaxed italic mb-8 relative z-10">
+                            "I'm an 18-year-old first-year CSE student who builds things that actually work. 
+                            I shipped a functioning app to a national hackathon panel in 36 hours. 
+                            I document Linux customization on YouTube. I'm figuring out agentic AI.<br><br>
+                            I don't wait until I know everything to start."
+                        </p>
+                        <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-white uppercase px-3 py-2 inline-block self-start border border-white/30 relative z-10 bg-transparent">
+                            BHUSAWAL, MAHARASHTRA &nbsp;&middot;&nbsp; OPEN TO INTERNSHIPS & COLLABS
+                        </span>
                     </div>
                 </div>
             </div>
@@ -834,97 +500,749 @@
 
     <!-- SECTION: THE ARSENAL -->
     <section id="the-arsenal" class="section-page relative">
-        <!-- Stickers & Assets -->
-        <div class="absolute right-4 md:right-24 top-12 z-50 stagger-element">
-            <img src="assets/headphones.png" alt="Headphones Sticker" 
-                 class="w-48 md:w-56 rotate-12 transition-transform duration-500 ease-out hover:-translate-y-16 cursor-pointer drop-shadow-[8px_8px_0_rgba(0,0,0,1)]">
-        </div>
-
         <div class="section-padding max-w-7xl mx-auto">
-            <div class="mb-16 stagger-element">
-                <h2 class="font-mono font-black text-xl mb-2 tracking-[0.2em]">CAPABILITIES & HARDWARE</h2>
+            <div class="mb-12 stagger-element w-full flex justify-between items-end">
+                <h2 class="font-serif font-black text-3xl md:text-5xl tracking-wide uppercase text-[#e4dfd6]">THE ARSENAL</h2>
+                <div class="hidden md:block h-[4px] flex-grow bg-[#e4dfd6] ml-8 mb-2 opacity-20"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 stagger-element">
-                <div>
-                    <h3 class="font-mono font-black text-xs tracking-[0.4em] mb-8 text-[#5a5a5a] uppercase">01. Frontend
-                        & UI</h3>
-                    <ul class="font-serif font-black text-3xl space-y-4">
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">REACT NATIVE
-                        </li>
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">JAVASCRIPT</li>
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">TAILWIND CSS</li>
-                    </ul>
+            <!-- Bento Box Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 stagger-element">
+                
+                <!-- AI / ML (Large, spans 2) -->
+                <div class="md:col-span-2 bg-[#e4dfd6] border-[3px] border-[#1a1a1a] p-6 lg:p-8 shadow-[6px_6px_0_#1a1a1a] hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="font-mono font-black text-sm tracking-[0.2em] uppercase text-[#1a1a1a] bg-[#e4dfd6] px-2 py-1 border-2 border-[#1a1a1a]">AI / ML</h3>
+                        <div class="flex gap-3 text-3xl text-[#1a1a1a]">
+                            <i class="devicon-pytorch-plain"></i>
+                            <i class="devicon-tensorflow-original"></i>
+                            <i class="devicon-opencv-plain"></i>
+                        </div>
+                    </div>
+                    <p class="font-sans font-bold text-lg lg:text-xl leading-relaxed text-[#1a1a1a]">
+                        Generative AI, Agentic AI, MCP, Prompt Engineering, LLMs, Computer Vision, OCR, YOLO
+                    </p>
                 </div>
-                <div>
-                    <h3 class="font-mono font-black text-xs tracking-[0.4em] mb-8 text-[#5a5a5a] uppercase">02. Systems
-                        & Execution</h3>
-                    <ul class="font-serif font-black text-3xl space-y-4">
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">PYTHON</li>
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">NODE.JS</li>
-                    </ul>
+
+                <!-- Languages (Spans 1) -->
+                <div class="md:col-span-1 bg-[#e4dfd6] border-[3px] border-[#1a1a1a] p-6 shadow-[6px_6px_0_#1a1a1a] hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                    <h3 class="font-mono font-black text-sm tracking-[0.2em] uppercase text-[#1a1a1a] mb-4">Languages</h3>
+                    <div class="flex gap-3 text-2xl text-[#1a1a1a] mb-4">
+                        <i class="devicon-python-plain"></i>
+                        <i class="devicon-javascript-plain"></i>
+                        <i class="devicon-bash-plain"></i>
+                    </div>
+                    <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a]">
+                        Python, Bash, JavaScript, HTML5/CSS3, Tailwind
+                    </p>
                 </div>
-                <div>
-                    <h3 class="font-mono font-black text-xs tracking-[0.4em] mb-8 text-[#5a5a5a] uppercase">03. The
-                        Setup & Creative</h3>
-                    <ul class="font-serif font-black text-3xl space-y-4">
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">DAVINCI RESOLVE
-                        </li>
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">GIT AND GITHUB
-                        </li>
-                        <li class="hover:translate-x-2 transition-transform duration-200 cursor-default">ARCH LINUX</li>
-                    </ul>
+
+                <!-- Systems (Spans 1) -->
+                <div class="md:col-span-1 bg-[#e4dfd6] border-[3px] border-[#1a1a1a] p-6 shadow-[6px_6px_0_#1a1a1a] hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300 group">
+                    <h3 class="font-mono font-black text-sm tracking-[0.2em] uppercase text-[#1a1a1a] mb-4">Systems</h3>
+                    <div class="flex gap-3 text-2xl text-[#1a1a1a] mb-4">
+                        <i class="devicon-archlinux-plain"></i>
+                        <i class="devicon-linux-plain"></i>
+                    </div>
+                    <p class="font-sans font-bold text-sm lg:text-base leading-relaxed text-[#1a1a1a]">
+                        Arch Linux, Shell Scripting, CLI
+                    </p>
                 </div>
+
+                <!-- Frameworks (Spans 1) -->
+                <div class="md:col-span-1 bg-[#e4dfd6] border-[3px] border-[#1a1a1a] p-6 shadow-[6px_6px_0_#1a1a1a] hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                    <h3 class="font-mono font-black text-sm tracking-[0.2em] uppercase text-[#1a1a1a] mb-4">Frameworks</h3>
+                    <div class="flex gap-3 text-2xl text-[#1a1a1a] mb-4">
+                        <i class="devicon-react-original"></i>
+                        <i class="devicon-nodejs-plain"></i>
+                        <i class="devicon-firebase-plain"></i>
+                    </div>
+                    <p class="font-sans font-bold text-base leading-relaxed text-[#5a5a5a]">
+                        React Native (Expo), Node.js, REST APIs, Firebase
+                    </p>
+                </div>
+
+                <!-- Tools (Spans 2) -->
+                <div class="md:col-span-2 bg-[#e4dfd6] border-[3px] border-[#1a1a1a] p-6 lg:p-8 shadow-[6px_6px_0_#1a1a1a] hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="font-mono font-black text-sm tracking-[0.2em] uppercase text-[#1a1a1a] bg-[#e4dfd6] px-2 py-1 border-2 border-[#1a1a1a]">Tools & Cloud</h3>
+                        <div class="flex gap-3 text-3xl text-[#1a1a1a]">
+                            <i class="devicon-github-original"></i>
+                            <i class="devicon-googlecloud-plain"></i>
+                            <i class="devicon-figma-plain"></i>
+                        </div>
+                    </div>
+                    <p class="font-sans font-bold text-lg lg:text-xl leading-relaxed text-[#1a1a1a]">
+                        Git, GitHub, Figma, Google AI Studio, Google Cloud, CAD (Circuit Design)
+                    </p>
+                </div>
+
+                <!-- Creative (Spans 1) -->
+                <div class="md:col-span-1 bg-[#e4dfd6] border-[3px] border-[#1a1a1a] p-6 shadow-[6px_6px_0_#1a1a1a] hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                    <h3 class="font-mono font-black text-sm tracking-[0.2em] uppercase text-[#1a1a1a] mb-4">Creative</h3>
+                    <div class="flex gap-3 text-2xl text-[#1a1a1a] mb-4">
+                        <i class="devicon-blender-original"></i>
+                        <i class="devicon-premierepro-plain"></i>
+                        <i class="devicon-photoshop-plain"></i>
+                    </div>
+                    <p class="font-sans font-bold text-base leading-relaxed text-[#1a1a1a]">
+                        DaVinci Resolve, Blender, UI/UX, Graphic Design
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
+    
+    <!-- SECTION: SELECTED WORK -->
+    <section id="selected-work" class="section-page relative">
 
+        <div class="px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">
+            <div class="mb-12 stagger-element">
+                <h2 class="font-mono font-black text-lg mb-4 tracking-[0.2em] uppercase opacity-40 text-[#e4dfd6]">SELECTED WORK // THE LEDGER</h2>
+                <div class="w-12 h-1 bg-[#e4dfd6]"></div>
+            </div>
+
+            <!-- Bento Box Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-element">
+                
+                <!-- Project 1: SCRIPTIFY -->
+                <div id="project-scriptify" class="bg-[#e4dfd6] border-[3px] border-[#151515] p-6 flex flex-col hover:-translate-y-1 hover:shadow-[6px_6px_0_#e4dfd6] transition-all duration-300">
+                    <div class="mb-4">
+                        <span class="font-mono text-[9px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-2 uppercase">[ SIH25155 // HERITAGE & CULTURE ]</span>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="bg-[#151515] text-[#e4dfd6] font-mono text-[9px] px-2 py-1 uppercase tracking-wider">SIH 2025 GRAND FINALIST // TOP 54,000+ TEAMS</span>
+                            <span class="bg-[#151515] text-[#e4dfd6] font-mono text-[9px] px-2 py-1 uppercase tracking-wider">36-HOUR SPRINT</span>
+                        </div>
+                        <h3 class="font-serif font-black text-3xl tracking-tighter leading-[1] uppercase text-[#1a1a1a]">SCRIPTIFY</h3>
+                    </div>
+                    
+                    <p class="font-sans font-medium text-sm leading-relaxed text-[#1a1a1a] mb-6 flex-grow">
+                        Engineered a mobile OCR pipeline to bridge language barriers for travelers at Indian heritage sites. Processes raw camera input, extracts regional text via cloud-based inference, and instantly transliterates it into the user's native script.
+                    </p>
+
+                    <div class="mt-auto">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">React Native</span>
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">Cloud Vision API</span>
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">CUSTOM OCR MAPPING</span>
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <a href="#" onclick="openOverlay('scriptify')" class="bg-[#1a1a1a] border-[3px] border-[#151515] px-4 py-2 flex justify-between items-center group hover:bg-transparent transition-colors">
+                                <span class="font-mono font-black text-xs uppercase text-[#e4dfd6] group-hover:text-[#151515]">RESEARCH // CASE STUDY</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-[#e4dfd6] group-hover:text-[#151515]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                            </a>
+                            <a href="https://github.com/tejuas98/scriptify" target="_blank" rel="noopener noreferrer" class="bg-transparent border-[3px] border-[#151515] px-4 py-2 flex justify-between items-center group hover:bg-[#151515] transition-colors">
+                                <span class="font-mono font-black text-xs uppercase text-[#151515] group-hover:text-[#e4dfd6]">PROTOTYPE // GITHUB</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-[#151515] group-hover:text-[#e4dfd6]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: PLAN KARO -->
+                <div id="project-plankaro" class="bg-[#e4dfd6] border-[3px] border-[#151515] p-6 flex flex-col hover:-translate-y-1 hover:shadow-[6px_6px_0_#e4dfd6] transition-all duration-300">
+                    <div class="mb-4">
+                        <span class="font-mono text-[9px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-2 uppercase">[ IDE BOOTCAMP // VENTURE ARCHITECTURE ]</span>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="bg-[#151515] text-[#e4dfd6] font-mono text-[9px] px-2 py-1 uppercase tracking-wider">12% COMMISSION MODEL VALIDATED</span>
+                        </div>
+                        <h3 class="font-serif font-black text-3xl tracking-tighter leading-[1] uppercase text-[#1a1a1a]">PLAN KARO</h3>
+                    </div>
+                    
+                    <p class="font-sans font-medium text-sm leading-relaxed text-[#1a1a1a] mb-6 flex-grow">
+                        A B2B digital marketplace connecting users with local event vendors. Engineered around a sustainable 12% vendor commission model, targeting Tier-2 Indian cities with lean UX, scalable unit economics, and a streamlined booking pipeline.
+                    </p>
+
+                    <div class="mt-auto">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">Product Arch</span>
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">UI/UX DESIGN</span>
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">MARKET STRATEGY</span>
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <a href="#" onclick="openOverlay('plankaro')" class="bg-[#1a1a1a] border-[3px] border-[#151515] px-4 py-2 flex justify-between items-center group hover:bg-transparent transition-colors">
+                                <span class="font-mono font-black text-xs uppercase text-[#e4dfd6] group-hover:text-[#151515]">RESEARCH // CASE STUDY</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-[#e4dfd6] group-hover:text-[#151515]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                            </a>
+                            <a href="#" class="bg-transparent border-[3px] border-[#151515] px-4 py-2 flex justify-between items-center group opacity-60 cursor-not-allowed">
+                                <span class="font-mono font-black text-xs uppercase text-[#151515]">BETA // PREVIEW</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-[#151515]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: IKS WEATHER REPORT BUILDER -->
+                <div id="project-iksweather" class="bg-[#e4dfd6] border-[3px] border-[#151515] p-6 flex flex-col hover:-translate-y-1 hover:shadow-[6px_6px_0_#e4dfd6] transition-all duration-300">
+                    <div class="mb-4">
+                        <span class="font-mono text-[9px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-2 uppercase">[ DATA VISUALIZATION // REPORT ENGINE ]</span>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="bg-[#151515] text-[#e4dfd6] font-mono text-[9px] px-2 py-1 uppercase tracking-wider opacity-0 select-none">SPACER</span> <!-- Invisible spacer to maintain height alignment -->
+                        </div>
+                        <h3 class="font-serif font-black text-3xl tracking-tighter leading-[1] uppercase text-[#1a1a1a]">IKS WEATHER REPORT BUILDER</h3>
+                    </div>
+                    
+                    <p class="font-sans font-medium text-sm leading-relaxed text-[#1a1a1a] mb-6 flex-grow">
+                        A specialized report generator for the IKS Bucket Assignment. Allows users to manually input hourly weather data, select custom graph colors, and instantly generate a print-ready, full-page analytical report.
+                    </p>
+
+                    <div class="mt-auto">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">HTML5 / CSS3</span>
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">VANILLA JS</span>
+                            <span class="border-[2px] border-[#151515] text-[#151515] font-sans font-bold text-[10px] px-2 py-1 uppercase">UI DESIGN</span>
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <a href="#" onclick="openOverlay('iksweather')" class="bg-[#1a1a1a] border-[3px] border-[#151515] px-4 py-2 flex justify-between items-center group hover:bg-transparent transition-colors">
+                                <span class="font-mono font-black text-xs uppercase text-[#e4dfd6] group-hover:text-[#151515]">RESEARCH // CASE STUDY</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-[#e4dfd6] group-hover:text-[#151515]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                            </a>
+                            <a href="https://github.com/tejuas98/IKS-Weather-Report-Builder" target="_blank" rel="noopener noreferrer" class="bg-transparent border-[3px] border-[#151515] px-4 py-2 flex justify-between items-center group hover:bg-[#151515] transition-colors">
+                                <span class="font-mono font-black text-xs uppercase text-[#151515] group-hover:text-[#e4dfd6]">REPOS // DATA</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-[#151515] group-hover:text-[#e4dfd6]" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECTION: DEPLOYMENTS (FIELD WORK) -->
+    <section id="deployments" class="section-page relative overflow-hidden">
+        
+        <div class="section-padding max-w-[1400px] mx-auto relative z-10">
+            
+            <!-- SIMPLE HEADER -->
+            <div class="mb-16 stagger-element relative z-20">
+                <h2 class="font-serif font-black text-xl mb-4 tracking-widest uppercase text-[#e4dfd6]">FIELD WORK // & SPRINTS</h2>
+                <div class="w-16 h-[3px] bg-[#e4dfd6]"></div>
+                <p class="font-sans text-gray-400 max-w-2xl mt-6 font-bold leading-relaxed">
+                    I don't just write code; I deploy under pressure, from 24-hour hackathons to strategic product validation.
+                </p>
+            </div>
+            
+            <!-- TIMELINE LAYOUT -->
+            <div class="relative mt-16 mb-24 z-10 px-4 md:px-0 max-w-4xl mx-auto">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-8 top-0 bottom-0 w-[2px] bg-[#e4dfd6] opacity-30"></div>
+                
+                <!-- Item 1: SIH 2025 -->
+                <div class="relative pl-12 md:pl-24 mb-16 stagger-element group">
+                    <!-- Marker -->
+                    <div class="absolute left-[11px] md:left-[27px] top-8 w-3.5 h-3.5 rounded-full bg-[#1a1a1a] border-2 border-[#e4dfd6] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[#e4dfd6] transition-colors duration-300"></div>
+                    
+                    <div class="bg-[#e4dfd6] border-[3px] border-[#1a1a1a] shadow-[6px_6px_0_#1a1a1a] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-[#1a1a1a] text-[#e4dfd6] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[#1a1a1a]">Software Edition</span>
+                            <a href="https://www.linkedin.com/posts/tejus98_sih2025-smartindiahackathon-reactnative-activity-7412184654000234496-hKTA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" class="w-10 h-10 bg-[#1a1a1a] flex justify-center items-center rounded-full hover:scale-110 transition-transform">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e4dfd6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                        
+                        <h3 class="font-sans font-black text-2xl md:text-3xl text-[#1a1a1a] uppercase leading-tight mb-2">SIH 2025</h3>
+                        <p class="font-sans font-bold text-sm leading-relaxed text-[#151515] mb-6 flex-grow">
+                            Competed in the Software Edition Grand Finale. Engineered and shipped <a href="#project-scriptify" class="underline decoration-2 text-[#1a1a1a]">SCRIPTIFY</a>—an offline transliteration mobile app—under a strict 24-hour timeline.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mt-auto">
+                            <p class="font-mono text-xs font-bold text-gray-500 tracking-widest uppercase">Dec 2025</p>
+                            <button onclick="document.getElementById('modal-sih').classList.remove('hidden')" class="font-mono text-[10px] font-bold bg-[#1a1a1a] text-[#e4dfd6] px-4 py-2.5 uppercase hover:bg-red-600 transition-colors border-2 border-[#1a1a1a] shadow-[4px_4px_0_#1a1a1a] flex items-center gap-2">
+                                <span>Read Field Notes</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2: IDE Bootcamp -->
+                <div class="relative pl-12 md:pl-24 mb-16 stagger-element group">
+                    <!-- Marker -->
+                    <div class="absolute left-[11px] md:left-[27px] top-8 w-3.5 h-3.5 rounded-full bg-[#1a1a1a] border-2 border-[#e4dfd6] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[#e4dfd6] transition-colors duration-300"></div>
+                    
+                    <div class="bg-[#e4dfd6] border-[3px] border-[#1a1a1a] shadow-[6px_6px_0_#1a1a1a] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-[#1a1a1a] text-[#e4dfd6] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[#1a1a1a]">By AICTE</span>
+                            <a href="https://www.linkedin.com/posts/tejus98_idebootcamp-moeinnovationcell-wadhwanifoundation-activity-7450046618025836544-xQKm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" class="w-10 h-10 bg-[#1a1a1a] flex justify-center items-center rounded-full hover:scale-110 transition-transform">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e4dfd6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </a>
+                        </div>
+                        
+                        <h3 class="font-sans font-black text-2xl md:text-3xl text-[#1a1a1a] uppercase leading-tight mb-2">IDE BOOTCAMP // EDITION 3</h3>
+                        <p class="font-sans font-bold text-sm leading-relaxed text-[#151515] mb-6 flex-grow">
+                            Formal training in lean design, product strategy, and finding actual product-market fit. Architected PLAN KARO, a B2B event vendor marketplace.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mt-auto">
+                            <p class="font-mono text-xs font-bold text-gray-500 tracking-widest uppercase">Feb 2026</p>
+                            <button onclick="document.getElementById('modal-ide').classList.remove('hidden')" class="font-mono text-[10px] font-bold bg-[#1a1a1a] text-[#e4dfd6] px-4 py-2.5 uppercase hover:bg-red-600 transition-colors border-2 border-[#1a1a1a] shadow-[4px_4px_0_#1a1a1a] flex items-center gap-2">
+                                <span>Read Field Notes</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3: Build with AI -->
+                <div class="relative pl-12 md:pl-24 mb-16 stagger-element group">
+                    <!-- Marker -->
+                    <div class="absolute left-[11px] md:left-[27px] top-8 w-3.5 h-3.5 rounded-full bg-[#1a1a1a] border-2 border-[#e4dfd6] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[#e4dfd6] transition-colors duration-300"></div>
+                    
+                    <div class="bg-[#e4dfd6] border-[3px] border-[#1a1a1a] shadow-[6px_6px_0_#1a1a1a] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-[#1a1a1a] text-[#e4dfd6] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[#1a1a1a]">By Google for Developers</span>
+                        </div>
+                        
+                        <h3 class="font-sans font-black text-2xl md:text-3xl text-[#1a1a1a] uppercase leading-tight mb-2 flex items-center gap-3">
+                            <span class="italic">Build with AI</span>
+                            <span class="font-mono text-xs font-bold bg-[#1a1a1a] text-[#e4dfd6] px-2 py-1 not-italic">PUNE</span>
+                        </h3>
+                        <p class="font-sans font-bold text-sm leading-relaxed text-[#151515] mb-6 flex-grow">
+                            Hands-on training with Google Developer Experts at MIT WPU. Deployed scalable AI models using Google AI Studio and Antigravity. Explored local vector integrations and production AI systems.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mt-auto">
+                            <p class="font-mono text-xs font-bold text-gray-500 tracking-widest uppercase">June 2026</p>
+                            <button onclick="document.getElementById('modal-ai').classList.remove('hidden')" class="font-mono text-[10px] font-bold bg-[#1a1a1a] text-[#e4dfd6] px-4 py-2.5 uppercase hover:bg-red-600 transition-colors border-2 border-[#1a1a1a] shadow-[4px_4px_0_#1a1a1a] flex items-center gap-2">
+                                <span>Read Field Notes</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4: GSA Program -->
+                <div class="relative pl-12 md:pl-24 mb-0 stagger-element group">
+                    <!-- Marker -->
+                    <div class="absolute left-[11px] md:left-[27px] top-8 w-3.5 h-3.5 rounded-full bg-[#1a1a1a] border-2 border-[#e4dfd6] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[#e4dfd6] transition-colors duration-300"></div>
+                    
+                    <div class="bg-[#e4dfd6] border-[3px] border-[#1a1a1a] shadow-[6px_6px_0_#1a1a1a] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_#1a1a1a] transition-all duration-300 relative overflow-hidden">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-[#1a1a1a] text-[#e4dfd6] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[#1a1a1a]">GSA Program 2026</span>
+                            <span class="font-mono text-[11px] font-bold text-green-700 border border-green-700 bg-green-100 px-2 py-1">STATUS: ACTIVE</span>
+                        </div>
+                        
+                        <!-- Fake stamp mark -->
+                        <div class="absolute right-4 top-16 border-[3px] border-red-500 text-red-500 font-bold font-sans text-xl p-1 -rotate-12 opacity-60 mix-blend-multiply z-0 pointer-events-none">
+                            APPROVED
+                        </div>
+                        
+                        <h3 class="font-sans font-black text-2xl md:text-3xl text-[#1a1a1a] uppercase leading-tight mb-2 relative z-10">Google Student Ambassador</h3>
+                        <p class="font-sans font-bold text-sm leading-relaxed text-[#151515] mb-6 flex-grow relative z-10">
+                            Selected for Google's nationwide campus ambassador program. Representing Gemini AI platform, driving peer adoption of Google AI tools.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mt-auto relative z-10">
+                            <p class="font-mono text-xs font-bold text-gray-500 tracking-widest uppercase">2026</p>
+                            <button onclick="document.getElementById('modal-gsa').classList.remove('hidden')" class="font-mono text-[10px] font-bold bg-[#1a1a1a] text-[#e4dfd6] px-4 py-2.5 uppercase hover:bg-red-600 transition-colors border-2 border-[#1a1a1a] shadow-[4px_4px_0_#1a1a1a] flex items-center gap-2">
+                                <span>Read Field Notes</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- <!-- FIELD NOTES MODALS (Hidden by default)     -->
+        <!-- ========================================== -->
+        
+        <!-- MODAL: MODAL-SIH -->
+        <div id="modal-sih" class="fixed inset-0 z-50 flex justify-center items-center bg-black/60 backdrop-blur-sm hidden p-4 transition-opacity">
+            <div class="w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-[#ffeba0] border-[4px] border-[#1a1a1a] shadow-[20px_20px_0_rgba(0,0,0,0.9)] relative" style="background-image: repeating-linear-gradient(transparent, transparent 31px, #d4a373 31px, #d4a373 32px);">
+                <!-- Red margin line -->
+                <div class="absolute left-[40px] md:left-[60px] top-0 bottom-0 w-[2px] bg-red-400/60 z-0 pointer-events-none"></div>
+                <!-- Tape -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/70 backdrop-blur-sm border border-gray-200 -rotate-1 shadow-sm z-30 opacity-90"></div>
+                
+                <button onclick="document.getElementById('modal-sih').classList.add('hidden')" class="absolute top-4 right-4 z-40 bg-[#1a1a1a] text-white w-10 h-10 flex justify-center items-center border-[2px] border-[#1a1a1a] hover:bg-red-600 transition-colors shadow-[4px_4px_0_rgba(0,0,0,0.5)]">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <div class="relative z-10 p-8 pt-14 pl-[60px] md:pl-[90px] pr-8 pb-16">
+                    <h3 class="font-['Caveat'] text-5xl md:text-6xl font-bold mb-8 text-[#1a1a1a] -rotate-1">Field Notes: SIH 2025</h3>
+                    
+                    <div class="font-sans text-lg md:text-xl leading-[32px] text-gray-800 space-y-12">
+                        
+                        <!-- 1. TECH STACK BADGES -->
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 1</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 2</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 3</span>
+                        </div>
+
+                        <!-- 2. ARCHITECTURE DIAGRAM (Taped Polaroid Style) -->
+                        <!-- USER: Add the path to your architecture image in the src="" below -->
+                        <div class="relative bg-[#e4dfd6] p-4 pb-10 shadow-[8px_8px_15px_rgba(0,0,0,0.3)] border-[2px] border-gray-200 rotate-1 max-w-full mx-auto my-12 group hover:rotate-0 transition-transform">
+                            <!-- Tape -->
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/50 backdrop-blur-sm border border-gray-300 -rotate-2 shadow-sm z-30 opacity-80"></div>
+                            
+                            <div class="w-full aspect-video bg-gray-100 border-[2px] border-[#1a1a1a] flex justify-center items-center overflow-hidden relative">
+                                <span class="font-mono text-sm font-bold text-gray-400 absolute z-0 text-center px-4">[ INSERT ARCHITECTURE DIAGRAM HERE ]</span>
+                                <!-- Replace src="" -->
+                                <img src="" alt="Architecture Diagram" class="w-full h-full object-contain relative z-10 opacity-0 transition-opacity duration-300" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <p class="font-['Caveat'] text-2xl text-center text-gray-600 mt-4 absolute bottom-2 w-full left-0">System Architecture & Data Flow</p>
+                        </div>
+
+                        <!-- 3. THE HOUR-BY-HOUR JOURNAL -->
+                        <div class="relative border-l-4 border-red-500/30 pl-6 md:pl-8 space-y-12 py-4">
+                            
+                            <!-- TIMELINE ITEM 1 -->
+                            <div class="relative">
+                                <!-- Red Node -->
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 01: IDEATION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the story of how you started. What was the initial plan? What did you focus on first during the hackathon/bootcamp?
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 2 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 12: THE ROADBLOCK ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with a roadblock you hit. Did a bug occur? Did you have to pivot your architecture? Tell the story of how you solved it.
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 3 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 24: SUBMISSION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the conclusion. How did the deployment go? What was the final presentation like?
+                                </p>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- MODAL: MODAL-IDE -->
+        <div id="modal-ide" class="fixed inset-0 z-50 flex justify-center items-center bg-black/60 backdrop-blur-sm hidden p-4 transition-opacity">
+            <div class="w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-[#ffeba0] border-[4px] border-[#1a1a1a] shadow-[20px_20px_0_rgba(0,0,0,0.9)] relative" style="background-image: repeating-linear-gradient(transparent, transparent 31px, #d4a373 31px, #d4a373 32px);">
+                <!-- Red margin line -->
+                <div class="absolute left-[40px] md:left-[60px] top-0 bottom-0 w-[2px] bg-red-400/60 z-0 pointer-events-none"></div>
+                <!-- Tape -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/70 backdrop-blur-sm border border-gray-200 rotate-1 shadow-sm z-30 opacity-90"></div>
+                
+                <button onclick="document.getElementById('modal-ide').classList.add('hidden')" class="absolute top-4 right-4 z-40 bg-[#1a1a1a] text-white w-10 h-10 flex justify-center items-center border-[2px] border-[#1a1a1a] hover:bg-red-600 transition-colors shadow-[4px_4px_0_rgba(0,0,0,0.5)]">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <div class="relative z-10 p-8 pt-14 pl-[60px] md:pl-[90px] pr-8 pb-16">
+                    <h3 class="font-['Caveat'] text-5xl md:text-6xl font-bold mb-8 text-[#1a1a1a] rotate-1">Field Notes: IDE Bootcamp</h3>
+                    
+                    <div class="font-sans text-lg md:text-xl leading-[32px] text-gray-800 space-y-12">
+                        
+                        <!-- 1. TECH STACK BADGES -->
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 1</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 2</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 3</span>
+                        </div>
+
+                        <!-- 2. ARCHITECTURE DIAGRAM (Taped Polaroid Style) -->
+                        <!-- USER: Add the path to your architecture image in the src="" below -->
+                        <div class="relative bg-[#e4dfd6] p-4 pb-10 shadow-[8px_8px_15px_rgba(0,0,0,0.3)] border-[2px] border-gray-200 rotate-1 max-w-full mx-auto my-12 group hover:rotate-0 transition-transform">
+                            <!-- Tape -->
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/50 backdrop-blur-sm border border-gray-300 -rotate-2 shadow-sm z-30 opacity-80"></div>
+                            
+                            <div class="w-full aspect-video bg-gray-100 border-[2px] border-[#1a1a1a] flex justify-center items-center overflow-hidden relative">
+                                <span class="font-mono text-sm font-bold text-gray-400 absolute z-0 text-center px-4">[ INSERT ARCHITECTURE DIAGRAM HERE ]</span>
+                                <!-- Replace src="" -->
+                                <img src="" alt="Architecture Diagram" class="w-full h-full object-contain relative z-10 opacity-0 transition-opacity duration-300" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <p class="font-['Caveat'] text-2xl text-center text-gray-600 mt-4 absolute bottom-2 w-full left-0">System Architecture & Data Flow</p>
+                        </div>
+
+                        <!-- 3. THE HOUR-BY-HOUR JOURNAL -->
+                        <div class="relative border-l-4 border-red-500/30 pl-6 md:pl-8 space-y-12 py-4">
+                            
+                            <!-- TIMELINE ITEM 1 -->
+                            <div class="relative">
+                                <!-- Red Node -->
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 01: IDEATION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the story of how you started. What was the initial plan? What did you focus on first during the hackathon/bootcamp?
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 2 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 12: THE ROADBLOCK ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with a roadblock you hit. Did a bug occur? Did you have to pivot your architecture? Tell the story of how you solved it.
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 3 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 24: SUBMISSION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the conclusion. How did the deployment go? What was the final presentation like?
+                                </p>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- MODAL: MODAL-AI -->
+        <div id="modal-ai" class="fixed inset-0 z-50 flex justify-center items-center bg-black/60 backdrop-blur-sm hidden p-4 transition-opacity">
+            <div class="w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-[#ffeba0] border-[4px] border-[#1a1a1a] shadow-[20px_20px_0_rgba(0,0,0,0.9)] relative" style="background-image: repeating-linear-gradient(transparent, transparent 31px, #d4a373 31px, #d4a373 32px);">
+                <!-- Red margin line -->
+                <div class="absolute left-[40px] md:left-[60px] top-0 bottom-0 w-[2px] bg-red-400/60 z-0 pointer-events-none"></div>
+                <!-- Tape -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/70 backdrop-blur-sm border border-gray-200 -rotate-2 shadow-sm z-30 opacity-90"></div>
+                
+                <button onclick="document.getElementById('modal-ai').classList.add('hidden')" class="absolute top-4 right-4 z-40 bg-[#1a1a1a] text-white w-10 h-10 flex justify-center items-center border-[2px] border-[#1a1a1a] hover:bg-red-600 transition-colors shadow-[4px_4px_0_rgba(0,0,0,0.5)]">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <div class="relative z-10 p-8 pt-14 pl-[60px] md:pl-[90px] pr-8 pb-16">
+                    <h3 class="font-['Caveat'] text-5xl md:text-6xl font-bold mb-8 text-[#1a1a1a] -rotate-2">Field Notes: Build with AI</h3>
+                    
+                    <div class="font-sans text-lg md:text-xl leading-[32px] text-gray-800 space-y-12">
+                        
+                        <!-- 1. TECH STACK BADGES -->
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 1</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 2</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 3</span>
+                        </div>
+
+                        <!-- 2. ARCHITECTURE DIAGRAM (Taped Polaroid Style) -->
+                        <!-- USER: Add the path to your architecture image in the src="" below -->
+                        <div class="relative bg-[#e4dfd6] p-4 pb-10 shadow-[8px_8px_15px_rgba(0,0,0,0.3)] border-[2px] border-gray-200 rotate-1 max-w-full mx-auto my-12 group hover:rotate-0 transition-transform">
+                            <!-- Tape -->
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/50 backdrop-blur-sm border border-gray-300 -rotate-2 shadow-sm z-30 opacity-80"></div>
+                            
+                            <div class="w-full aspect-video bg-gray-100 border-[2px] border-[#1a1a1a] flex justify-center items-center overflow-hidden relative">
+                                <span class="font-mono text-sm font-bold text-gray-400 absolute z-0 text-center px-4">[ INSERT ARCHITECTURE DIAGRAM HERE ]</span>
+                                <!-- Replace src="" -->
+                                <img src="" alt="Architecture Diagram" class="w-full h-full object-contain relative z-10 opacity-0 transition-opacity duration-300" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <p class="font-['Caveat'] text-2xl text-center text-gray-600 mt-4 absolute bottom-2 w-full left-0">System Architecture & Data Flow</p>
+                        </div>
+
+                        <!-- 3. THE HOUR-BY-HOUR JOURNAL -->
+                        <div class="relative border-l-4 border-red-500/30 pl-6 md:pl-8 space-y-12 py-4">
+                            
+                            <!-- TIMELINE ITEM 1 -->
+                            <div class="relative">
+                                <!-- Red Node -->
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 01: IDEATION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the story of how you started. What was the initial plan? What did you focus on first during the hackathon/bootcamp?
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 2 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 12: THE ROADBLOCK ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with a roadblock you hit. Did a bug occur? Did you have to pivot your architecture? Tell the story of how you solved it.
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 3 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 24: SUBMISSION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the conclusion. How did the deployment go? What was the final presentation like?
+                                </p>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- MODAL: MODAL-GSA -->
+        <div id="modal-gsa" class="fixed inset-0 z-50 flex justify-center items-center bg-black/60 backdrop-blur-sm hidden p-4 transition-opacity">
+            <div class="w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-[#ffeba0] border-[4px] border-[#1a1a1a] shadow-[20px_20px_0_rgba(0,0,0,0.9)] relative" style="background-image: repeating-linear-gradient(transparent, transparent 31px, #d4a373 31px, #d4a373 32px);">
+                <!-- Red margin line -->
+                <div class="absolute left-[40px] md:left-[60px] top-0 bottom-0 w-[2px] bg-red-400/60 z-0 pointer-events-none"></div>
+                <!-- Tape -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/70 backdrop-blur-sm border border-gray-200 rotate-2 shadow-sm z-30 opacity-90"></div>
+                
+                <button onclick="document.getElementById('modal-gsa').classList.add('hidden')" class="absolute top-4 right-4 z-40 bg-[#1a1a1a] text-white w-10 h-10 flex justify-center items-center border-[2px] border-[#1a1a1a] hover:bg-red-600 transition-colors shadow-[4px_4px_0_rgba(0,0,0,0.5)]">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <div class="relative z-10 p-8 pt-14 pl-[60px] md:pl-[90px] pr-8 pb-16">
+                    <h3 class="font-['Caveat'] text-5xl md:text-6xl font-bold mb-8 text-[#1a1a1a] rotate-2">Field Notes: Google Ambassador</h3>
+                    
+                    <div class="font-sans text-lg md:text-xl leading-[32px] text-gray-800 space-y-12">
+                        
+                        <!-- 1. TECH STACK BADGES -->
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 1</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 2</span>
+                            <span class="font-mono text-sm bg-[#1a1a1a] text-white px-3 py-1 font-bold shadow-[2px_2px_0_rgba(0,0,0,0.5)]">TECH 3</span>
+                        </div>
+
+                        <!-- 2. ARCHITECTURE DIAGRAM (Taped Polaroid Style) -->
+                        <!-- USER: Add the path to your architecture image in the src="" below -->
+                        <div class="relative bg-[#e4dfd6] p-4 pb-10 shadow-[8px_8px_15px_rgba(0,0,0,0.3)] border-[2px] border-gray-200 rotate-1 max-w-full mx-auto my-12 group hover:rotate-0 transition-transform">
+                            <!-- Tape -->
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-[#e4dfd6]/50 backdrop-blur-sm border border-gray-300 -rotate-2 shadow-sm z-30 opacity-80"></div>
+                            
+                            <div class="w-full aspect-video bg-gray-100 border-[2px] border-[#1a1a1a] flex justify-center items-center overflow-hidden relative">
+                                <span class="font-mono text-sm font-bold text-gray-400 absolute z-0 text-center px-4">[ INSERT ARCHITECTURE DIAGRAM HERE ]</span>
+                                <!-- Replace src="" -->
+                                <img src="" alt="Architecture Diagram" class="w-full h-full object-contain relative z-10 opacity-0 transition-opacity duration-300" onload="this.classList.remove('opacity-0')">
+                            </div>
+                            <p class="font-['Caveat'] text-2xl text-center text-gray-600 mt-4 absolute bottom-2 w-full left-0">System Architecture & Data Flow</p>
+                        </div>
+
+                        <!-- 3. THE HOUR-BY-HOUR JOURNAL -->
+                        <div class="relative border-l-4 border-red-500/30 pl-6 md:pl-8 space-y-12 py-4">
+                            
+                            <!-- TIMELINE ITEM 1 -->
+                            <div class="relative">
+                                <!-- Red Node -->
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 01: IDEATION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the story of how you started. What was the initial plan? What did you focus on first during the hackathon/bootcamp?
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 2 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 12: THE ROADBLOCK ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with a roadblock you hit. Did a bug occur? Did you have to pivot your architecture? Tell the story of how you solved it.
+                                </p>
+                            </div>
+
+                            <!-- TIMELINE ITEM 3 -->
+                            <div class="relative">
+                                <div class="absolute -left-[37px] md:-left-[45px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-[#ffeba0]"></div>
+                                
+                                <h4 class="font-mono font-black text-xl text-[#1a1a1a] bg-[#e4dfd6] inline-block px-3 py-1 mb-4 shadow-[3px_3px_0_#1a1a1a] border-[2px] border-[#1a1a1a]">[ HOUR 24: SUBMISSION ]</h4>
+                                
+                                <!-- USER: WRITE YOUR JOURNAL TEXT HERE -->
+                                <p class="bg-[#e4dfd6]/50 p-4 border border-gray-300/50 rounded-sm">
+                                    Replace this text with the conclusion. How did the deployment go? What was the final presentation like?
+                                </p>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
     <!-- SECTION: PING (FOOTER) -->
     <section id="ping" class="section-page min-h-screen relative">
              
         <div class="flex-grow flex flex-col items-center justify-center px-4 stagger-element py-20">
-            <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase">
+            <h2 class="font-serif font-black text-4xl sm:text-6xl mb-12 tracking-tighter uppercase text-[#e4dfd6]">
                 Let's build <span class="relative">something.
                     <!-- Zoro Sticker Tucked Inward -->
                     <img src="assets/zoro.png" alt="Zoro Sticker" 
-                         class="absolute -right-16 md:-right-24 -top-8 md:-top-12 w-24 md:w-32 ml-6 drop-shadow-[6px_6px_0_rgba(0,0,0,1)] z-50 pointer-events-none">
+                         class="absolute -right-16 md:-right-24 -top-8 md:-top-12 w-24 md:w-32 ml-6 drop-shadow-[6px_6px_0_rgba(255,255,255,0.2)] z-50 pointer-events-none">
                 </span>
             </h2>
-            <a href="mailto:tejusj98@gmail.com" class="giant-email overflow-hidden border-y-[3px] border-[#1a1a1a]">
+            <a href="mailto:tejusj98@gmail.com" class="giant-email overflow-hidden border-y-[3px] border-[#e4dfd6] text-[#e4dfd6] hover:text-[#1a1a1a] hover:bg-[#e4dfd6]">
                 TEJUSJ98@GMAIL.COM
             </a>
         </div>
 
         <!-- FOOTER BOTTOM -->
         <div
-            class="border-t-[3px] border-[#1a1a1a] py-8 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 mt-auto">
-            <span class="font-mono font-bold text-[10px] md:text-xs tracking-[0.2em] text-[#5a5a5a] uppercase">© 2026 TEJAS JAWARE // ALL SYSTEM
+            class="border-t-[3px] border-[#e4dfd6] py-8 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 mt-auto">
+            <span class="font-mono font-bold text-[10px] md:text-xs tracking-[0.2em] text-[#cccccc] uppercase">© 2026 TEJAS JAWARE // ALL SYSTEM
                 OPERATIONAL</span>
 
             <div class="flex gap-6 md:gap-10">
                 <a href="https://github.com/tejuas98" target="_blank"
-                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    class="text-[#e4dfd6] hover:text-white hover:scale-125 transition-transform duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/tejus98" target="_blank"
-                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    class="text-[#e4dfd6] hover:text-[#e4dfd6] hover:scale-125 transition-transform duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                 </a>
                 <a href="https://x.com/tejus_98" target="_blank"
-                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    class="text-[#e4dfd6] hover:text-white hover:scale-125 transition-transform duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                 </a>
                 <a href="https://www.instagram.com/tejus.98/" target="_blank"
-                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    class="text-[#e4dfd6] hover:text-[#e4dfd6] hover:scale-125 transition-transform duration-200">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -932,13 +1250,13 @@
                     </svg>
                 </a>
                 <a href="https://discord.gg/qVpaPcNzxx" target="_blank"
-                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    class="text-[#e4dfd6] hover:text-[#e4dfd6] hover:scale-125 transition-transform duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 13H15M10 17H14M11 21H13M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.65 15C17.65 15 16.5 16.5 15 16.5H9C7.5 16.5 6.35 15 6.35 15V9C6.35 9 7.5 7.5 9 7.5H15C16.5 7.5 17.65 9 17.65 9V15Z"/>
                     </svg>
                 </a>
                 <a href="https://www.youtube.com/@tejus_98" target="_blank"
-                    class="text-[#1a1a1a] hover:scale-125 transition-transform duration-200">
+                    class="text-[#e4dfd6] hover:text-red-500 hover:scale-125 transition-transform duration-200">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z" />
@@ -1064,6 +1382,19 @@
             });
         }
 
+        
+        // Overlay Logic
+        function openOverlay(id) {
+            document.getElementById('overlay-' + id).classList.add('active');
+            document.body.classList.add('overlay-open');
+            if (typeof lenis !== 'undefined') lenis.stop();
+        }
+        function closeOverlay(id) {
+            document.getElementById('overlay-' + id).classList.remove('active');
+            document.body.classList.remove('overlay-open');
+            if (typeof lenis !== 'undefined') lenis.start();
+        }
+
         function updateActiveNav(id) {
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
@@ -1114,6 +1445,204 @@
     </script>
 
     <!-- Three.js Library -->
+    
+    <!-- OVERLAYS -->
+    <!-- SCRIPTIFY OVERLAY -->
+    <div id="overlay-scriptify" class="project-overlay" data-lenis-prevent="true">
+        <button class="overlay-close" onclick="closeOverlay('scriptify')">✕ CLOSE</button>
+        <div class="overlay-content">
+            <div class="overlay-left">
+                <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-6 uppercase">DATE: December 2025 | TYPE: Mobile Application | ROLE: Sole Developer + Project Lead | TEAM: 6 Members | LOCATION: SIH Grand Finale, Guntur, India</span>
+                <h2 class="font-serif font-black text-5xl tracking-tighter leading-[0.9] mb-6 uppercase">SCRIPTIFY</h2>
+                
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">REACT NATIVE (EXPO)</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">CLOUD VISION API</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">CUSTOM OCR MAPPING</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">FIREBASE</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">PYTHON</span>
+                </div>
+
+                <div class="bg-[#e4dfd6] border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] mb-8">
+                    <p class="font-sans font-bold text-lg leading-snug text-[#1a1a1a]">
+                        India has 22 official languages written in 13 different scripts. For a traveler arriving in an unfamiliar state, a street sign in Tamil or Devanagari is completely unreadable. SCRIPTIFY solves this by processing raw camera input through a cloud-based OCR inference layer, then instantly transliterating detected text into the user's native script — offline-capable, with no internet dependency for the transliteration step itself.<br><br>
+                        The pipeline: camera frame → image preprocessing (contrast enhancement, noise reduction) → YOLO-based text region detection → Cloud Vision OCR extraction → Aksharamukha transliteration engine → rendered output in Devanagari, Tamil, Gurmukhi, or Bengali.<br><br>
+                        I was the only developer on a 6-person team. I wrote all the code, managed the architecture decisions, debugged API failures at 3AM, and demonstrated a live working demo to the SIH evaluation panel within 36 hours of starting. The app functioned. That's the metric that mattered.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="https://github.com/tejuas98/scriptify" class="font-mono font-black text-xs uppercase text-[#1a1a1a] border-b-2 border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#e4dfd6] transition-colors">GITHUB // SOURCE ↗</a>
+                    <span class="font-mono font-black text-xs uppercase text-[#5a5a5a]">SIH 2025 GRAND FINALIST // SOFTWARE EDITION</span>
+                </div>
+            </div>
+            <div class="overlay-right">
+                <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-4 uppercase">SYSTEM ARCHITECTURE</span>
+                <svg width="100%" height="200" viewBox="0 0 800 200" class="mb-4" style="max-width: 100%;">
+                    <rect x="10" y="50" width="120" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="70" y="85" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">CAMERA INPUT</text>
+                    
+                    <line x1="130" y1="80" x2="160" y2="80" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+                    
+                    <rect x="160" y="50" width="120" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="220" y="85" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">PREPROCESSING</text>
+
+                    <line x1="280" y1="80" x2="310" y2="80" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+
+                    <rect x="310" y="50" width="120" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="370" y="85" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">TEXT DETECTION</text>
+
+                    <line x1="430" y1="80" x2="460" y2="80" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+
+                    <rect x="460" y="50" width="130" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="525" y="85" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">OCR + CLOUD API</text>
+
+                    <line x1="590" y1="80" x2="620" y2="80" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+
+                    <rect x="620" y="50" width="170" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="705" y="85" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">TRANSLITERATED OUTPUT</text>
+
+                    <path d="M 705 110 L 705 130" stroke="#111" stroke-width="1"/>
+                    <line x1="600" y1="130" x2="810" y2="130" stroke="#111" stroke-width="1"/>
+                    <path d="M 600 130 L 600 140" stroke="#111" stroke-width="1"/>
+                    <path d="M 670 130 L 670 140" stroke="#111" stroke-width="1"/>
+                    <path d="M 740 130 L 740 140" stroke="#111" stroke-width="1"/>
+                    <path d="M 810 130 L 810 140" stroke="#111" stroke-width="1"/>
+
+                    <text x="600" y="160" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">DEVANAGARI</text>
+                    <text x="670" y="160" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">TAMIL</text>
+                    <text x="740" y="160" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">GURMUKHI</text>
+                    <text x="810" y="160" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">BENGALI</text>
+
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#111" />
+                        </marker>
+                    </defs>
+                </svg>
+                <p class="font-serif italic text-sm text-[#5a5a5a] max-w-2xl text-center">
+                    The original approach used only Tesseract OCR offline — acceptable accuracy for clean signage, unacceptable for low-contrast or damaged signs. Switched to Cloud Vision API mid-sprint after testing showed 40% improvement on real street sign images. The offline transliteration step (Aksharamukha) stayed on-device so the app works without connectivity after the first API call.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAN KARO OVERLAY -->
+    <div id="overlay-plankaro" class="project-overlay" data-lenis-prevent="true">
+        <button class="overlay-close" onclick="closeOverlay('plankaro')">✕ CLOSE</button>
+        <div class="overlay-content">
+            <div class="overlay-left">
+                <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-6 uppercase">DATE: 2026 | TYPE: Venture Architecture + UI/UX Design | PROGRAM: AICTE IDE Bootcamp Phase-I | PARTNERS: Karan Pansari, Tanay Patil, Pranab Roy, Vaibhav Satdive | LOCATION: KBT College, Nashik</span>
+                <h2 class="font-serif font-black text-5xl tracking-tighter leading-[0.9] mb-6 uppercase">PLAN KARO</h2>
+                
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">PRODUCT ARCHITECTURE</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">UI/UX DESIGN</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">LEAN CANVAS</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">MARKET STRATEGY</span>
+                </div>
+
+                <div class="bg-[#e4dfd6] border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] mb-8">
+                    <p class="font-sans font-bold text-lg leading-snug text-[#1a1a1a]">
+                        In Tier-2 Indian cities, small event organizers — college fests, family functions, local cultural programs — have no structured way to discover and book local vendors: decorators, caterers, sound systems, photographers. They rely on WhatsApp referrals and cold calls. Vendors, on their side, have no consistent discovery channel.<br><br>
+                        PLAN KARO is a B2B digital marketplace that bridges this gap. The business model is built around a 12% vendor commission on confirmed bookings — a number derived from actual market research on existing event agency margins in Nashik, Aurangabad, and Bhusawal during the bootcamp.<br><br>
+                        The platform architecture: vendor onboarding → service catalog → organizer discovery → quote request → booking confirmation → commission settlement. The UX is deliberately lean — we found that Tier-2 event organizers distrust complex platforms. Every screen has one primary action.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <span class="font-mono font-black text-xs uppercase text-[#1a1a1a]">STILL IN DEVELOPMENT</span>
+                    <a href="#" class="font-mono font-black text-xs uppercase text-[#5a5a5a] border-b-2 border-transparent hover:border-[#5a5a5a] transition-colors">BETA // PREVIEW ↗</a>
+                </div>
+            </div>
+            <div class="overlay-right">
+                <svg width="100%" height="300" viewBox="0 0 600 300" class="mb-4" style="max-width: 100%;">
+                    <circle cx="150" cy="150" r="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="150" y="145" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">EVENT</text>
+                    <text x="150" y="160" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">ORGANIZERS</text>
+                    <text x="150" y="180" font-family="Space Mono" font-size="8" fill="#5a5a5a" text-anchor="middle">(Tier-2 cities)</text>
+
+                    <rect x="250" y="120" width="100" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="300" y="145" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">PLAN KARO</text>
+                    <text x="300" y="160" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">PLATFORM</text>
+                    
+                    <text x="300" y="200" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">12% COMMISSION</text>
+                    <text x="300" y="215" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">LEAN UX BOOKING PIPELINE</text>
+
+                    <circle cx="450" cy="150" r="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="450" y="145" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">LOCAL</text>
+                    <text x="450" y="160" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">VENDORS</text>
+
+                    <path d="M 210 140 L 245 140" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+                    <path d="M 350 160 L 385 160" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+                </svg>
+                <p class="font-serif italic text-sm text-[#5a5a5a] max-w-2xl text-center">
+                    Built during AICTE IDE Bootcamp Phase-I under Wadhwani Foundation mentors. Week 1: we obsessed over the UI. Mentor feedback was brutal — "you don't have a product, you have a mockup." Week 2: we rebuilt from the unit economics up. A 12% commission only works if booking frequency is high enough and vendor acquisition cost stays below ₹800. That math now drives every feature decision. Still in active development.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- IKS WEATHER OVERLAY -->
+    <div id="overlay-iksweather" class="project-overlay" data-lenis-prevent="true">
+        <button class="overlay-close" onclick="closeOverlay('iksweather')">✕ CLOSE</button>
+        <div class="overlay-content">
+            <div class="overlay-left">
+                <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[#5a5a5a] block mb-6 uppercase">DATE: 2025–2026 | TYPE: Data Pipeline + Report Engine | STACK: Vanilla JS, HTML5/CSS3, Node.js, Tailwind CSS | CONSTRAINT: Zero external chart libraries</span>
+                <h2 class="font-serif font-black text-5xl tracking-tighter leading-[0.9] mb-6 uppercase">IKS WEATHER REPORT BUILDER</h2>
+                
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">HTML5 / CSS3</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">VANILLA JS</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">NODE.JS</span>
+                    <span class="bg-[#151515] text-white font-sans font-black text-xs uppercase px-2 py-1">UI DESIGN</span>
+                </div>
+
+                <div class="bg-[#e4dfd6] border-[3px] border-[#151515] p-5 shadow-[8px_8px_0_#151515] mb-8">
+                    <p class="font-sans font-bold text-lg leading-snug text-[#1a1a1a]">
+                        For the IKS Bucket Assignment, I needed a way to take raw hourly weather data — temperature, humidity, wind speed, pressure — and produce a print-ready analytical report instantly, without setting up a backend or depending on a paid charting service.<br><br>
+                        The solution: a browser-based data pipeline. User inputs hourly values manually or pastes from a spreadsheet. User selects color themes for each graph series. The system generates a full-page PDF-ready report — axes, legends, annotations, title block, and all — using canvas-based rendering written from scratch in Vanilla JS.<br><br>
+                        No Chart.js. No D3. Every graph element is drawn directly on an HTML canvas using calculated coordinates. This constraint made the project significantly harder and significantly more instructive.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="https://github.com/tejuas98/IKS-Weather-Report-Builder" class="font-mono font-black text-xs uppercase text-[#1a1a1a] border-b-2 border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#e4dfd6] transition-colors">REPOS // DATA ↗</a>
+                </div>
+            </div>
+            <div class="overlay-right">
+                <svg width="100%" height="200" viewBox="0 0 700 200" class="mb-4" style="max-width: 100%;">
+                    <rect x="50" y="70" width="100" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="100" y="100" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">RAW DATA</text>
+                    <text x="100" y="115" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">INPUT</text>
+
+                    <line x1="150" y1="100" x2="190" y2="100" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+
+                    <rect x="190" y="70" width="120" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="250" y="100" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">USER COLOR</text>
+                    <text x="250" y="115" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">SELECTION</text>
+
+                    <line x1="310" y1="100" x2="350" y2="100" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+
+                    <rect x="350" y="70" width="130" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="415" y="100" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">CANVAS RENDERING</text>
+                    <text x="415" y="115" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">ENGINE</text>
+
+                    <text x="415" y="150" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">No external libraries —</text>
+                    <text x="415" y="165" font-family="Space Mono" font-size="10" font-weight="bold" fill="#111" text-anchor="middle">pure canvas API</text>
+
+                    <line x1="480" y1="100" x2="520" y2="100" stroke="#111" stroke-width="1" marker-end="url(#arrow)"/>
+
+                    <rect x="520" y="70" width="120" height="60" fill="#e4dfd6" stroke="#111" stroke-width="1"/>
+                    <text x="580" y="100" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">PRINT-READY</text>
+                    <text x="580" y="115" font-family="Space Mono" font-size="12" font-weight="bold" fill="#111" text-anchor="middle">EXPORT</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Shared Materials & Helper
