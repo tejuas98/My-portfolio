@@ -397,14 +397,11 @@
 
     
         /* Postcard Styles for Light Theme */
-        .postcard-brief-content { display: none; }
-        body.light-theme .postcard-brief-content { display: flex; }
         
-        .dark-brief-content { display: block; }
-        body.light-theme .dark-brief-content { display: none; }
         
         body.light-theme #the-brief {
             background-color: var(--bg-primary) !important;
+            background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png');
         }
 
         .font-caveat { font-family: 'Caveat', cursive; }
@@ -532,186 +529,63 @@
     <section id="the-brief" class="section-page relative overflow-hidden py-12 md:py-24 bg-[var(--bg-primary)]">
         <div class="relative z-10 w-full px-4 md:px-16 lg:px-32">
             
-            <!-- DARK MODE LAYOUT (Neubrutalist) -->
-            <div class="dark-brief-content">
+            <!-- UNIFIED BRIEF CONTENT -->
+
+            <div class="brief-content">
                 <div class="mb-16 stagger-element relative z-20">
-                    <h2 class="font-serif font-black text-xl mb-4 tracking-widest uppercase text-white">THE BRIEF // WHO + WHERE</h2>
+                    <h2 class="font-styrene font-black text-xl mb-4 tracking-widest uppercase text-[var(--text-primary)]">THE BRIEF // WHO + WHERE</h2>
                     <div class="w-16 h-[3px] bg-[var(--text-primary)]"></div>
                 </div>
                 
                 <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 stagger-element relative z-20">
                     <!-- Left Column (50%) -->
                     <div class="w-full lg:w-1/2">
-                        <div class="mb-10">
-                            <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-gray-400 block mb-3 uppercase">CURRENTLY</span>
-                            <h4 class="font-serif font-black text-xl text-white uppercase">B.TECH, COMPUTER SCIENCE</h4>
-                            <p class="font-sans text-base text-white mt-1 font-bold">Shri Sant Gadge Baba College of Engineering & Technology</p>
-                            <p class="font-sans text-sm text-gray-400 mt-1">DBATU, Maharashtra &nbsp;&middot;&nbsp; Expected 2029</p>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-red-700 block mb-3 uppercase">CURRENTLY</span>
+                            <h4 class="font-styrene font-black text-xl text-[var(--text-primary)] uppercase">B.TECH, COMPUTER SCIENCE</h4>
+                            <p class="font-sans text-base text-[var(--text-primary)] mt-1 font-bold">Shri Sant Gadge Baba College of Engineering & Technology</p>
+                            <p class="font-sans text-sm text-[var(--text-muted)] mt-1">DBATU, Maharashtra &nbsp;&middot;&nbsp; Expected 2029</p>
                         </div>
                         
-                        <div class="w-full h-[1px] bg-[var(--text-primary)] opacity-20 mb-10"></div>
+                        <div class="w-full h-[1px] bg-[var(--text-primary)] opacity-20 my-3"></div>
                         
                         <div>
-                            <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-gray-400 block mb-3 uppercase">ACTIVE INTERNSHIPS</span>
+                            <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-red-700 block mb-3 uppercase">ACTIVE INTERNSHIPS</span>
                             <div class="mb-6">
-                                <h4 class="font-serif font-black text-lg text-white uppercase">GOOGLE GEMINI STUDENT AMBASSADOR</h4>
-                                <p class="font-sans text-sm text-gray-400 mt-1 font-bold">Google &middot; GSA 2026 &middot; May 2026 &ndash; Present</p>
+                                <h4 class="font-styrene font-black text-lg text-[var(--text-primary)] uppercase">GOOGLE GEMINI STUDENT AMBASSADOR</h4>
+                                <p class="font-sans text-sm text-[var(--text-muted)] mt-1 font-bold">Google &middot; GSA 2026 &middot; May 2026 &ndash; Present</p>
                             </div>
                             <div class="mb-6">
-                                <h4 class="font-serif font-black text-lg text-white uppercase">APPLIED AI INTERN &mdash; GREEN SKILLS & CLIMATE ACTION</h4>
-                                <p class="font-sans text-sm text-gray-400 mt-1 font-bold">1M1B (One Million for One Billion) &middot; June 2026 &ndash; Present</p>
+                                <h4 class="font-styrene font-black text-lg text-[var(--text-primary)] uppercase">APPLIED AI INTERN &mdash; GREEN SKILLS & CLIMATE ACTION</h4>
+                                <p class="font-sans text-sm text-[var(--text-muted)] mt-1 font-bold">1M1B (One Million for One Billion) &middot; June 2026 &ndash; Present</p>
                             </div>
                         </div>
                         
-                        <div class="w-full h-[1px] bg-[var(--text-primary)] opacity-20 mb-10 mt-10"></div>
+                        <div class="w-full h-[1px] bg-[var(--text-primary)] opacity-20 my-3"></div>
                         
                         <div>
-                            <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-gray-400 block mb-3 uppercase">CERTIFICATIONS</span>
-                            <ul class="flex flex-col gap-3 font-sans text-[10px] md:text-[11px] lg:text-xs xl:text-[13px] text-white font-bold whitespace-nowrap">
-                                <li>GOOGLE AI ESSENTIALS SPECIALIZATION &middot; <span class="text-gray-400">Google via Coursera</span> &middot; <span class="text-[var(--text-primary)]/60">May 2026</span></li>
-                                <li>GOOGLE PROMPTING ESSENTIALS &middot; <span class="text-gray-400">Google via Coursera</span> &middot; <span class="text-[var(--text-primary)]/60">May 2026</span></li>
-                                <li>GOOGLE CLOUD GEN AI ACADEMY, APAC &middot; <span class="text-gray-400">Google Cloud + Hack2Skill (Cohort 1)</span> &middot; <span class="text-[var(--text-primary)]/60">Apr 2026</span></li>
-                                <li>IBM DEV DAY: BOB EDITION &middot; <span class="text-gray-400">IBM Developer + Bemyapp</span> &middot; <span class="text-[var(--text-primary)]/60">May 2026</span></li>
+                            <span class="font-mono text-[10px] font-bold tracking-[0.3em] text-red-700 block mb-3 uppercase">CERTIFICATIONS</span>
+                            <ul class="flex flex-col gap-3 font-sans text-[10px] md:text-[11px] lg:text-xs xl:text-[13px] text-[var(--text-primary)] font-bold whitespace-nowrap">
+                                <li>GOOGLE AI ESSENTIALS SPECIALIZATION &middot; <span class="text-[var(--text-muted)]">Google via Coursera</span> &middot; <span class="opacity-60">May 2026</span></li>
+                                <li>GOOGLE PROMPTING ESSENTIALS &middot; <span class="text-[var(--text-muted)]">Google via Coursera</span> &middot; <span class="opacity-60">May 2026</span></li>
+                                <li>GOOGLE CLOUD GEN AI ACADEMY, APAC &middot; <span class="text-[var(--text-muted)]">Google Cloud + Hack2Skill (Cohort 1)</span> &middot; <span class="opacity-60">Apr 2026</span></li>
+                                <li>IBM DEV DAY: BOB EDITION &middot; <span class="text-[var(--text-muted)]">IBM Developer + Bemyapp</span> &middot; <span class="opacity-60">May 2026</span></li>
                             </ul>
                         </div>
                     </div>
                     
                     <!-- Right Column (50%) -->
                     <div class="w-full lg:w-1/2 flex flex-col justify-start">
-                        <div class="p-8 md:p-10 relative border-[1px] border-[var(--border-primary)]/20 -mt-16">
-                            <p class="font-styrene text-white text-xl md:text-2xl leading-relaxed mb-8 relative z-10">
+                        <div class="p-8 md:p-10 relative border border-[var(--border-primary)] -mt-16" style="border-color: var(--border-primary);">
+                            <p class="font-styrene text-[var(--text-primary)] text-xl md:text-2xl leading-relaxed mb-8 relative z-10">
                                 "I'm an 18-year-old first-year CSE student who builds things that actually work. 
                                 I shipped a functioning app to a national hackathon panel in 36 hours. 
                                 I document Linux customization on YouTube. I'm figuring out agentic AI.<br><br>
                                 I don't wait until I know everything to start."
                             </p>
-                            <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-white uppercase px-3 py-2 inline-block self-start border border-[var(--border-primary)]/30 relative z-10 bg-transparent">
+                            <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[var(--text-primary)] uppercase px-3 py-2 inline-block self-start border border-[var(--border-primary)] relative z-10 bg-transparent">
                                 BHUSAWAL, MAHARASHTRA &nbsp;&middot;&nbsp; OPEN TO INTERNSHIPS & COLLABS
                             </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <!-- LIGHT MODE LAYOUT (Postcard) -->
-            <div class="postcard-brief-content justify-center items-center w-full my-8">
-                <div class="bg-[#e4dbca] text-[#2a2a2a] w-full max-w-6xl shadow-[8px_8px_20px_rgba(0,0,0,0.15)] flex flex-col lg:flex-row relative p-6 md:p-12 lg:p-16" 
-                     style="background-image: url('https://www.transparenttextures.com/patterns/crumpled-paper.png'); transform: rotate(-1deg);">
-                    
-                    <!-- Tape -->
-                    <div class="absolute -top-4 -left-6 w-32 h-10 bg-[#e0d3b6] opacity-80 shadow-sm z-20 mix-blend-multiply" style="transform: rotate(-15deg);"></div>
-                    <div class="absolute -bottom-4 right-20 w-24 h-8 bg-[#e0d3b6] opacity-80 shadow-sm z-20 mix-blend-multiply" style="transform: rotate(5deg);"></div>
-                    
-                    <!-- Divider (Hidden on small screens) -->
-                    <div class="hidden lg:block absolute top-16 bottom-16 left-1/2 w-[2px] bg-[#2a2a2a] opacity-30 transform -translate-x-1/2 border-l-2 border-dashed border-[#2a2a2a]"></div>
-                    
-                    <!-- Stamp -->
-                    <div class="absolute top-6 right-6 md:top-10 md:right-10 w-20 h-24 bg-[#f5f5f5] p-2 border-[1px] border-[#d4d4d4] shadow-sm transform rotate-6 flex items-center justify-center z-10">
-                        <img src="davinci_logo.jpg" class="w-full h-full object-cover sepia-[.4]">
-                    </div>
-
-                    <!-- Postmarks -->
-                    <div class="hidden md:flex absolute top-12 right-28 opacity-40 font-mono text-xs border-2 border-[#2a2a2a] rounded-full w-20 h-20 items-center justify-center text-center transform -rotate-12 z-0">
-                        BHUSAWAL<br>2026
-                    </div>
-                    <div class="hidden md:block absolute top-10 right-44 opacity-30 z-0">
-                        <svg width="120" height="40" viewBox="0 0 120 40">
-                            <path d="M0 10 Q 15 0, 30 10 T 60 10 T 90 10 T 120 10" fill="none" stroke="#2a2a2a" stroke-width="2"/>
-                            <path d="M0 20 Q 15 10, 30 20 T 60 20 T 90 20 T 120 20" fill="none" stroke="#2a2a2a" stroke-width="2"/>
-                            <path d="M0 30 Q 15 20, 30 30 T 60 30 T 90 30 T 120 30" fill="none" stroke="#2a2a2a" stroke-width="2"/>
-                        </svg>
-                    </div>
-
-                    <!-- Left Side: Message & Photo -->
-                    <div class="w-full lg:w-1/2 lg:pr-16 flex flex-col justify-start relative z-10">
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="bg-[#283e75] text-[#e6e6e6] font-sans font-bold text-[10px] md:text-xs tracking-widest px-3 py-1 border-2 border-[#e6e6e6] transform -rotate-3 shadow-sm inline-block">
-                                AIR MAIL<br>PAR AVION
-                            </div>
-                            <p class="font-serif font-black text-3xl tracking-widest uppercase text-[#2a2a2a] opacity-30">POSTCARD</p>
-                        </div>
-                        
-                        <!-- Polaroid -->
-                        <div class="bg-white p-3 pb-12 shadow-md transform -rotate-2 relative w-64 max-w-full self-center mb-8">
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#e0d3b6] opacity-70 transform rotate-3 mix-blend-multiply"></div>
-                            <div class="w-full h-56 bg-gray-200 overflow-hidden">
-                                <img src="anime_character.png" onerror="this.src='id_card.jpg'" class="w-full h-full object-cover sepia-[.2] contrast-125">
-                            </div>
-                            <p class="font-caveat text-2xl text-center mt-4 text-[#2a2a2a] transform -rotate-2">@tejus98</p>
-                        </div>
-
-                        <!-- Message -->
-                        <div class="font-caveat text-2xl md:text-3xl leading-relaxed text-[#2a2a2a] space-y-4">
-                            <p class="transform -rotate-1">
-                                "I'm an 18-year-old first-year CSE student who builds things that actually work. I shipped a functioning app to a national hackathon panel in 36 hours. I document Linux customization on YouTube. I'm figuring out agentic AI."
-                            </p>
-                            <p class="transform rotate-1 font-bold">
-                                I don't wait until I know everything to start.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Right Side: Address & Details (The original content) -->
-                    <div class="w-full lg:w-1/2 lg:pl-16 pt-16 lg:pt-24 flex flex-col justify-start relative z-10">
-                        <p class="font-caveat text-4xl font-bold mb-8 text-[#2a2a2a] transform -rotate-2">To: The World</p>
-                        
-                        <div class="font-caveat text-xl md:text-2xl text-[#2a2a2a] space-y-8 relative">
-                            
-                            <!-- Address Lines Background -->
-                            <div class="absolute inset-0 flex flex-col pointer-events-none z-0" style="gap: 2rem; margin-top: 2rem;">
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                                <div class="w-full h-[1px] bg-[#2a2a2a] opacity-10"></div>
-                            </div>
-
-                            <!-- Content -->
-                            <div class="relative z-10 space-y-8">
-                                <!-- Education -->
-                                <div class="transform rotate-1">
-                                    <span class="uppercase tracking-widest text-sm opacity-60 font-sans font-bold block mb-1">Currently</span>
-                                    <p class="font-bold text-2xl leading-none mb-1">B.Tech, Computer Science</p>
-                                    <p class="leading-tight">Shri Sant Gadge Baba College of Engineering & Technology</p>
-                                    <p class="text-lg opacity-80 leading-tight">DBATU, Maharashtra &nbsp;&middot;&nbsp; Expected 2029</p>
-                                </div>
-
-                                <!-- Internships -->
-                                <div class="transform -rotate-1">
-                                    <span class="uppercase tracking-widest text-sm opacity-60 font-sans font-bold block mb-1">Active Internships</span>
-                                    <div class="mb-3">
-                                        <p class="font-bold text-2xl leading-none mb-1">Google Gemini Student Ambassador</p>
-                                        <p class="text-lg opacity-80 leading-tight">Google &middot; GSA 2026 &middot; May 2026 – Present</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-bold text-2xl leading-none mb-1">Applied AI Intern — Green Skills & Climate Action</p>
-                                        <p class="text-lg opacity-80 leading-tight">1M1B &middot; June 2026 – Present</p>
-                                    </div>
-                                </div>
-
-                                <!-- Certifications -->
-                                <div class="transform rotate-1">
-                                    <span class="uppercase tracking-widest text-sm opacity-60 font-sans font-bold block mb-1">Certifications</span>
-                                    <ul class="list-disc pl-5 space-y-1 text-[1.3rem] leading-tight">
-                                        <li>Google AI Essentials Specialization (Coursera)</li>
-                                        <li>Google Prompting Essentials (Coursera)</li>
-                                        <li>Google Cloud Gen AI Academy, APAC (Cohort 1)</li>
-                                        <li>IBM Dev Day: BOB Edition</li>
-                                    </ul>
-                                </div>
-
-                                <div class="pt-4 transform -rotate-2">
-                                    <span class="border-2 border-[#2a2a2a] px-3 py-1 font-bold inline-block">
-                                        BHUSAWAL, MAHARASHTRA &nbsp;&middot;&nbsp; OPEN TO INTERNSHIPS & COLLABS
-                                    </span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
