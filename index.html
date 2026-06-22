@@ -389,10 +389,7 @@
             box-shadow: 6px 6px 0 var(--border-primary);
         }
         body.light-theme .selected-work-card,
-        body.light-theme .network-card {
-            --card-border: var(--text-secondary);
-            --border-primary: var(--text-secondary);
-        }
+        body.light-theme .network-card,
         body.light-theme .field-work-card {
             --card-border: var(--text-primary);
             --border-primary: var(--text-primary);
@@ -2505,11 +2502,7 @@
                 }
                 
                 /* Force Neubrutalist borders on cards when JS theme is active */
-                .selected-work-card, .network-card {
-                    --card-border: var(--text-secondary) !important;
-                    --border-primary: var(--text-secondary) !important;
-                }
-                .field-work-card {
+                .selected-work-card, .network-card, .field-work-card {
                     --card-border: var(--text-primary) !important;
                     --border-primary: var(--text-primary) !important;
                 }
