@@ -112,8 +112,10 @@
         #top-nav {
             width: 100%;
             height: 65px;
-            background-color: #1a1a1a;
-            border-bottom: 2px solid #e4dfd6;
+            background-color: color-mix(in srgb, var(--bg-primary) 80%, transparent);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-bottom: 2px solid var(--text-primary);
             z-index: 100;
             display: flex;
             align-items: stretch;
@@ -135,7 +137,7 @@
             font-weight: 900;
             font-size: 0.8rem;
             letter-spacing: 0.15em;
-            color: #e4dfd6;
+            color: var(--text-primary);
             text-decoration: none;
             transition: background-color 0.1s steps(2), color 0.1s steps(2);
             white-space: nowrap;
@@ -149,7 +151,7 @@
             font-weight: 900;
             font-size: 0.7rem;
             letter-spacing: 0.35em;
-            color: #5a5a5a;
+            color: var(--text-secondary);
             text-transform: uppercase;
             white-space: nowrap;
             cursor: default;
@@ -157,8 +159,8 @@
 
         .nav-link:hover,
         .nav-link.active {
-            background-color: #e4dfd6;
-            color: #1a1a1a;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
         }
 
         /* SECTION STYLES */
@@ -319,14 +321,14 @@
 
     
                         :root {
-            --arsenal-card-bg: #e4dfd6;
-            --arsenal-border: #1a1a1a;
-            --arsenal-shadow: #1a1a1a;
-            --arsenal-title: #1a1a1a;
-            --arsenal-text: #5a5a5a;
-            --card-bg: #e4dfd6;
-            --card-text: #1a1a1a;
-            --card-border: #1a1a1a;
+            --arsenal-card-bg: #151515;
+            --arsenal-border: #e4dfd6;
+            --arsenal-shadow: #e4dfd6;
+            --arsenal-title: #e4dfd6;
+            --arsenal-text: #cccccc;
+            --card-bg: #151515;
+            --card-text: #e4dfd6;
+            --card-border: #e4dfd6;
             --bg-primary: #1a1a1a;
             --bg-secondary: #151515;
             --text-primary: #e4dfd6;
@@ -338,14 +340,14 @@
 
         
                         .force-dark {
-            --arsenal-card-bg: #e4dfd6 !important;
-            --arsenal-border: #1a1a1a !important;
-            --arsenal-shadow: #1a1a1a !important;
-            --arsenal-title: #1a1a1a !important;
-            --arsenal-text: #5a5a5a !important;
-            --card-bg: #e4dfd6 !important;
-            --card-text: #1a1a1a !important;
-            --card-border: #1a1a1a !important;
+            --arsenal-card-bg: #151515 !important;
+            --arsenal-border: #e4dfd6 !important;
+            --arsenal-shadow: #e4dfd6 !important;
+            --arsenal-title: #e4dfd6 !important;
+            --arsenal-text: #cccccc !important;
+            --card-bg: #151515 !important;
+            --card-text: #e4dfd6 !important;
+            --card-border: #e4dfd6 !important;
             --bg-primary: #1a1a1a !important;
             --bg-secondary: #151515 !important;
             --text-primary: #e4dfd6 !important;
@@ -376,23 +378,39 @@
     
         .selected-work-card {
             background-color: var(--card-bg);
-            border: 3px solid var(--card-border);
+            border: 2px solid var(--card-border);
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s;
+            transition: all 0.3s, background-color 0.3s, border-color 0.3s, color 0.3s, border-radius 0.3s;
         }
         .selected-work-card:hover {
             transform: translateY(-0.25rem);
             box-shadow: 6px 6px 0 var(--border-primary);
         }
-        body.light-theme .selected-work-card {
-            border: 1px solid #d2cabf;
-            border-radius: 12px;
+        body.light-theme .selected-work-card,
+        body.light-theme .network-card {
+            --card-border: var(--text-secondary);
+            --border-primary: var(--text-secondary);
         }
-        body.light-theme .selected-work-card:hover {
-            box-shadow: none;
-            transform: translateY(-0.25rem);
+        body.light-theme .field-work-card {
+            --card-border: var(--text-primary);
+            --border-primary: var(--text-primary);
+        }
+        .field-work-card {
+            --card-border: var(--text-primary);
+            --border-primary: var(--text-primary);
+            transition: all 0.3s, background-color 0.3s, border-color 0.3s, color 0.3s, border-radius 0.3s;
+        }
+        
+        .network-card {
+            transition: all 0.3s, border-radius 0.3s;
+        }
+
+        body.theme-rounded .selected-work-card,
+        body.theme-rounded .field-work-card,
+        body.theme-rounded .network-card {
+            border-radius: 12px;
         }
 
     
@@ -410,7 +428,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
-<body class="relative bg-[var(--bg-primary)] overflow-x-hidden selection:bg-[var(--text-primary)] selection:text-[var(--text-primary)]">
+<body class="theme-rounded light-theme relative bg-[var(--bg-primary)] overflow-x-hidden selection:bg-[var(--text-primary)] selection:text-[var(--text-primary)]">
 
     <!-- SPLIT-ALIGNMENT TOP NAV -->
     <nav id="top-nav" class="fixed left-0 top-0 w-full">
@@ -1013,7 +1031,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-element mb-12">
                 
                 <!-- MY RESEARCH -->
-                <div class="border-[3px] border-[var(--text-primary)] bg-[var(--bg-primary)] p-8 flex flex-col group relative shadow-[8px_8px_0_0_var(--text-primary)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[6px_6px_0_0_var(--text-primary)] transition-all">
+                <div class="network-card border-[2px] border-[var(--card-border)] bg-[var(--bg-primary)] p-8 flex flex-col group relative shadow-[6px_6px_0_0_var(--border-primary)] hover:-translate-y-1 hover:shadow-[10px_10px_0_0_var(--border-primary)] transition-all">
                     <div class="mb-6">
                         <div class="flex items-center justify-between mb-4">
                             <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[var(--text-secondary)] uppercase group-hover:text-[var(--arsenal-text)] transition-colors">[ RESEARCH NODE ]</span>
@@ -1025,17 +1043,17 @@
                         Research papers, micro-tool workflows, guides, experiments, and original writing.
                     </p>
                     <div class="mt-auto flex flex-col gap-3">
-                        <a href="https://tejuas98.github.io/My-research/" target="_blank" class="bg-[var(--text-primary)] border-[3px] border-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-3 flex justify-between items-center hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
+                        <a href="https://tejuas98.github.io/My-research/" target="_blank" class="bg-[var(--text-primary)] border-[2px] border-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-3 flex justify-between items-center hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
                             <span class="font-mono font-black text-xs uppercase">LIVE ↗</span>
                         </a>
-                        <a href="https://github.com/tejuas98/My-research" target="_blank" class="bg-transparent border-[3px] border-[var(--text-primary)] px-4 py-3 flex justify-between items-center text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
+                        <a href="https://github.com/tejuas98/My-research" target="_blank" class="bg-transparent border-[2px] border-[var(--text-primary)] px-4 py-3 flex justify-between items-center text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
                             <span class="font-mono font-black text-xs uppercase">GITHUB ↗</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- JOBS & CAREER ROLES -->
-                <div class="border-[3px] border-[var(--text-primary)] bg-[var(--bg-primary)] p-8 flex flex-col group relative shadow-[8px_8px_0_0_var(--text-primary)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[6px_6px_0_0_var(--text-primary)] transition-all">
+                <div class="network-card border-[2px] border-[var(--card-border)] bg-[var(--bg-primary)] p-8 flex flex-col group relative shadow-[6px_6px_0_0_var(--border-primary)] hover:-translate-y-1 hover:shadow-[10px_10px_0_0_var(--border-primary)] transition-all">
                     <div class="mb-6">
                         <div class="flex items-center justify-between mb-4">
                             <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[var(--text-secondary)] uppercase group-hover:text-[var(--arsenal-text)] transition-colors">[ CAREER INTELLIGENCE ]</span>
@@ -1047,17 +1065,17 @@
                         Career research guide for future-relevant AI, ML, safety, infrastructure, research, and engineering roles.
                     </p>
                     <div class="mt-auto flex flex-col gap-3">
-                        <a href="https://tejuas98.github.io/Jobs/" target="_blank" class="bg-[var(--text-primary)] border-[3px] border-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-3 flex justify-between items-center hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
+                        <a href="https://tejuas98.github.io/Jobs/" target="_blank" class="bg-[var(--text-primary)] border-[2px] border-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-3 flex justify-between items-center hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
                             <span class="font-mono font-black text-xs uppercase">LIVE ↗</span>
                         </a>
-                        <a href="https://github.com/tejuas98/Jobs" target="_blank" class="bg-transparent border-[3px] border-[var(--text-primary)] px-4 py-3 flex justify-between items-center text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
+                        <a href="https://github.com/tejuas98/Jobs" target="_blank" class="bg-transparent border-[2px] border-[var(--text-primary)] px-4 py-3 flex justify-between items-center text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
                             <span class="font-mono font-black text-xs uppercase">GITHUB ↗</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- VISUAL RESEARCH LAB -->
-                <div class="border-[3px] border-[var(--text-primary)] bg-[var(--bg-primary)] p-8 flex flex-col group relative shadow-[8px_8px_0_0_var(--text-primary)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[6px_6px_0_0_var(--text-primary)] transition-all">
+                <div class="network-card border-[2px] border-[var(--card-border)] bg-[var(--bg-primary)] p-8 flex flex-col group relative shadow-[6px_6px_0_0_var(--border-primary)] hover:-translate-y-1 hover:shadow-[10px_10px_0_0_var(--border-primary)] transition-all">
                     <div class="mb-6">
                         <div class="flex items-center justify-between mb-4">
                             <span class="font-mono text-[10px] font-bold tracking-[0.2em] text-[var(--text-secondary)] uppercase group-hover:text-[var(--arsenal-text)] transition-colors">[ DESIGN ARCHIVE ]</span>
@@ -1069,15 +1087,14 @@
                         A curated archive of designs, diagrams, interfaces, and visual inspiration.
                     </p>
                     <div class="mt-auto flex flex-col gap-3">
-                        <a href="https://tejuas98.github.io/my-collections-of-design-/" target="_blank" class="bg-[var(--text-primary)] border-[3px] border-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-3 flex justify-between items-center hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
+                        <a href="https://tejuas98.github.io/my-collections-of-design-/" target="_blank" class="bg-[var(--text-primary)] border-[2px] border-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-3 flex justify-between items-center hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
                             <span class="font-mono font-black text-xs uppercase">LIVE ↗</span>
                         </a>
-                        <a href="https://github.com/tejuas98/my-collections-of-design-" target="_blank" class="bg-transparent border-[3px] border-[var(--text-primary)] px-4 py-3 flex justify-between items-center text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
+                        <a href="https://github.com/tejuas98/my-collections-of-design-/" target="_blank" class="bg-transparent border-[2px] border-[var(--text-primary)] px-4 py-3 flex justify-between items-center text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
                             <span class="font-mono font-black text-xs uppercase">GITHUB ↗</span>
                         </a>
                     </div>
                 </div>
-
             </div>
 
 
@@ -1110,7 +1127,7 @@
                     <div class="absolute left-[75px] md:left-[115px] top-1 w-3.5 h-3.5 rounded-full bg-[var(--bg-primary)] border-2 border-[var(--border-primary)] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
                     <span class="absolute left-0 top-[2px] w-[65px] md:w-[100px] text-right font-mono text-[10px] md:text-xs font-bold tracking-widest uppercase text-[var(--text-primary)]">DEC 2025</span>
                     
-                    <div class="bg-[var(--card-bg)] border-[3px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--card-border)] transition-all duration-300 mt-6">
+                    <div class="bg-[var(--card-bg)] border-[2px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--border-primary)] transition-all duration-300 mt-6 field-work-card">
                         <div class="flex justify-between items-start mb-4">
                             <span class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[var(--card-border)]">Software Edition</span>
                             <a href="https://www.linkedin.com/posts/tejus98_sih2025-smartindiahackathon-reactnative-activity-7412184654000234496-hKTA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" class="w-10 h-10 bg-[var(--bg-primary)] flex justify-center items-center rounded-full hover:scale-110 transition-transform">
@@ -1139,7 +1156,7 @@
                     <div class="absolute left-[75px] md:left-[115px] top-1 w-3.5 h-3.5 rounded-full bg-[var(--bg-primary)] border-2 border-[var(--border-primary)] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
                     <span class="absolute left-0 top-[2px] w-[65px] md:w-[100px] text-right font-mono text-[10px] md:text-xs font-bold tracking-widest uppercase text-[var(--text-primary)]">MAY 2025</span>
                     
-                    <div class="bg-[var(--card-bg)] border-[3px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--card-border)] transition-all duration-300 mt-6">
+                    <div class="bg-[var(--card-bg)] border-[2px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--border-primary)] transition-all duration-300 mt-6 field-work-card">
                         <div class="flex justify-between items-start mb-4">
                             <span class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[var(--card-border)]">By AICTE</span>
                             <a href="https://www.linkedin.com/posts/tejus98_idebootcamp-moeinnovationcell-wadhwanifoundation-activity-7450046618025836544-xQKm?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD25-UQBwa1hvN8ZOXbs1CqzgI1au9lqCao" target="_blank" class="w-10 h-10 bg-[var(--bg-primary)] flex justify-center items-center rounded-full hover:scale-110 transition-transform">
@@ -1168,7 +1185,7 @@
                     <div class="absolute left-[75px] md:left-[115px] top-1 w-3.5 h-3.5 rounded-full bg-[var(--bg-primary)] border-2 border-[var(--border-primary)] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
                     <span class="absolute left-0 top-[2px] w-[65px] md:w-[100px] text-right font-mono text-[10px] md:text-xs font-bold tracking-widest uppercase text-[var(--text-primary)]">FEB 2025</span>
                     
-                    <div class="bg-[var(--card-bg)] border-[3px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--card-border)] transition-all duration-300 mt-6">
+                    <div class="bg-[var(--card-bg)] border-[2px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--border-primary)] transition-all duration-300 mt-6 field-work-card">
                         <div class="flex justify-between items-start mb-4">
                             <span class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[var(--card-border)]">By Google for Developers</span>
                         </div>
@@ -1197,7 +1214,7 @@
                     <div class="absolute left-[75px] md:left-[115px] top-1 w-3.5 h-3.5 rounded-full bg-[var(--bg-primary)] border-2 border-[var(--border-primary)] shadow-[0_0_8px_#e4dfd6] group-hover:bg-[var(--text-primary)] transition-colors duration-300"></div>
                     <span class="absolute left-0 top-[2px] w-[65px] md:w-[100px] text-right font-mono text-[10px] md:text-xs font-bold tracking-widest uppercase text-[var(--text-primary)]">MAY 2026 &ndash; PRESENT</span>
                     
-                    <div class="bg-[var(--card-bg)] border-[3px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--card-border)] transition-all duration-300 relative overflow-hidden mt-6">
+                    <div class="bg-[var(--card-bg)] border-[2px] border-[var(--card-border)] shadow-[6px_6px_0_var(--card-border)] p-6 lg:p-8 flex flex-col hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--border-primary)] transition-all duration-300 relative overflow-hidden mt-6 field-work-card">
                         <div class="flex justify-between items-start mb-4">
                             <span class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-mono text-xs font-bold px-3 py-1 uppercase border-2 border-[var(--card-border)]">GSA Program 2026</span>
                             <span class="font-mono text-[11px] font-bold text-green-700 border border-green-700 bg-green-100 px-2 py-1">STATUS: ACTIVE</span>
@@ -1769,12 +1786,10 @@
         function openOverlay(id) {
             document.getElementById('overlay-' + id).classList.add('active');
             document.body.classList.add('overlay-open');
-            if (typeof lenis !== 'undefined') lenis.stop();
         }
         function closeOverlay(id) {
             document.getElementById('overlay-' + id).classList.remove('active');
             document.body.classList.remove('overlay-open');
-            if (typeof lenis !== 'undefined') lenis.start();
         }
 
         function updateActiveNav(id) {
@@ -2334,18 +2349,28 @@
 
     <!-- Palette Modal -->
     <div id="palette-modal" class="fixed inset-0 z-[100] hidden flex justify-end">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="palette-modal-overlay"></div>
-        <div class="relative w-full max-w-md bg-[var(--bg-primary)] h-full overflow-y-auto border-l border-[var(--border-primary)] flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out" id="palette-modal-content">
-            <div class="p-6 border-b border-[var(--border-primary)] flex justify-between items-center sticky top-0 bg-[var(--bg-primary)] z-10">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm overscroll-none" id="palette-modal-overlay" data-lenis-prevent="true"></div>
+        <div class="relative w-full max-w-md bg-[var(--bg-primary)] h-full overflow-y-auto overscroll-contain border-l border-[var(--border-primary)] flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out" id="palette-modal-content" data-lenis-prevent="true">
+            <div class="p-6 border-b border-[var(--border-primary)] flex justify-between items-center sticky top-0 bg-[var(--bg-primary)] z-50">
                 <h3 class="font-styrene font-black text-2xl uppercase tracking-tighter text-[var(--text-primary)]">Color Palettes</h3>
                 <button id="close-palette-modal" class="text-[var(--text-primary)] hover:text-red-500 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
             
+            <div class="p-6 border-b border-[var(--border-primary)] flex justify-between items-center bg-[var(--bg-primary)]">
+                <span class="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">Card Style</span>
+                <button id="style-toggle-btn" class="border-[2px] border-[var(--text-primary)] px-4 py-2 font-mono text-xs font-bold uppercase text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-colors">
+                    Style: Rounded
+                </button>
+            </div>
+
             <div class="p-6 flex flex-col gap-4" id="palette-list">
                 <!-- Theme buttons injected via JS -->
-                <button id="reset-theme" class="w-full py-4 px-6 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-styrene font-black uppercase tracking-tight text-lg transition-colors mt-4">
+                <button id="random-theme" class="w-full py-4 px-6 border-2 border-[var(--text-primary)] text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] font-styrene font-black uppercase tracking-tight text-lg transition-colors mt-4">
+                    Surprise Me (Random)
+                </button>
+                <button id="reset-theme" class="w-full py-4 px-6 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-styrene font-black uppercase tracking-tight text-lg transition-colors mt-2">
                     Reset to Default Portfolio
                 </button>
             </div>
@@ -2363,6 +2388,7 @@
         const paletteModalContent = document.getElementById('palette-modal-content');
         const closePaletteBtn = document.getElementById('close-palette-modal');
         const paletteList = document.getElementById('palette-list');
+        const randomThemeBtn = document.getElementById('random-theme');
         const resetThemeBtn = document.getElementById('reset-theme');
         const desktopPaletteToggle = document.getElementById('palette-toggle');
         const mobilePaletteToggle = document.getElementById('mobile-palette-toggle');
@@ -2373,6 +2399,7 @@
         function openPaletteModal(e) {
             e.preventDefault();
             paletteModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
             // Small delay for transition
             setTimeout(() => {
                 paletteModalContent.classList.remove('translate-x-full');
@@ -2388,6 +2415,7 @@
         // Close Modal
         function closePaletteModal() {
             paletteModalContent.classList.add('translate-x-full');
+            document.body.style.overflow = ''; // Restore background scrolling
             setTimeout(() => {
                 paletteModal.classList.add('hidden');
             }, 300);
@@ -2418,7 +2446,7 @@
             `;
             
             btn.addEventListener('click', () => applyTheme(theme.id));
-            paletteList.insertBefore(btn, resetThemeBtn);
+            paletteList.insertBefore(btn, randomThemeBtn);
         });
 
         function applyTheme(themeId) {
@@ -2475,6 +2503,16 @@
                 body.light-theme .text-red-700 {
                     color: var(--brand-accent, ${theme.light.primaryBrand}) !important;
                 }
+                
+                /* Force Neubrutalist borders on cards when JS theme is active */
+                .selected-work-card, .network-card {
+                    --card-border: var(--text-secondary) !important;
+                    --border-primary: var(--text-secondary) !important;
+                }
+                .field-work-card {
+                    --card-border: var(--text-primary) !important;
+                    --border-primary: var(--text-primary) !important;
+                }
             `;
             
             // Optional: Auto-close modal after selection to see the effect
@@ -2483,11 +2521,33 @@
             }
         }
 
+        randomThemeBtn.addEventListener('click', () => {
+            if(THEMES_DATA.length === 0) return;
+            const availableThemes = THEMES_DATA.filter(t => t.id !== currentThemeId);
+            const pool = availableThemes.length > 0 ? availableThemes : THEMES_DATA;
+            const randomTheme = pool[Math.floor(Math.random() * pool.length)];
+            applyTheme(randomTheme.id);
+        });
+
         resetThemeBtn.addEventListener('click', () => {
             const styleTag = document.getElementById('dynamic-palette-overrides');
             if(styleTag) styleTag.remove();
             currentThemeId = null;
+            
+            // Restore default portfolio state (Light Mode, Rounded)
+            document.body.classList.add('light-theme');
+            document.body.classList.add('theme-rounded');
+            const styleToggleBtn = document.getElementById('style-toggle-btn');
+            if (styleToggleBtn) styleToggleBtn.textContent = 'Style: Rounded';
         });
+
+        const styleToggleBtn = document.getElementById('style-toggle-btn');
+        if (styleToggleBtn) {
+            styleToggleBtn.addEventListener('click', () => {
+                const isRounded = document.body.classList.toggle('theme-rounded');
+                styleToggleBtn.textContent = isRounded ? 'Style: Rounded' : 'Style: Box';
+            });
+        }
 
     </script>
 
