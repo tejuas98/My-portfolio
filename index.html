@@ -321,49 +321,49 @@
 
     
                         :root {
-            --arsenal-card-bg: #151515;
-            --arsenal-border: #333333;
-            --arsenal-shadow: #333333;
+            --arsenal-card-bg: transparent;
+            --arsenal-border: var(--text-primary);
+            --arsenal-shadow: var(--text-primary);
             --arsenal-title: #e4dfd6;
             --arsenal-text: #cccccc;
-            --card-bg: #151515;
+            --card-bg: transparent;
             --card-text: #e4dfd6;
-            --card-border: #333333;
+            --card-border: var(--text-primary);
             --bg-primary: #1a1a1a;
             --bg-secondary: #151515;
             --text-primary: #e4dfd6;
             --text-secondary: #cccccc;
             --text-muted: #888888;
-            --border-primary: #333333;
+            --border-primary: var(--text-primary);
             --border-dark: #1a1a1a;
         }
 
         
                         .force-dark {
-            --arsenal-card-bg: #151515 !important;
-            --arsenal-border: #333333 !important;
-            --arsenal-shadow: #333333 !important;
+            --arsenal-card-bg: transparent !important;
+            --arsenal-border: var(--text-primary) !important;
+            --arsenal-shadow: var(--text-primary) !important;
             --arsenal-title: #e4dfd6 !important;
             --arsenal-text: #cccccc !important;
-            --card-bg: #151515 !important;
+            --card-bg: transparent !important;
             --card-text: #e4dfd6 !important;
-            --card-border: #333333 !important;
+            --card-border: var(--text-primary) !important;
             --bg-primary: #1a1a1a !important;
             --bg-secondary: #151515 !important;
             --text-primary: #e4dfd6 !important;
             --text-secondary: #cccccc !important;
             --text-muted: #888888 !important;
-            --border-primary: #333333 !important;
+            --border-primary: var(--text-primary) !important;
             --border-dark: #1a1a1a !important;
         }
 
                         body.light-theme {
-            --arsenal-card-bg: #fcfbf9;
-            --arsenal-border: #635640;
-            --arsenal-shadow: #635640;
+            --arsenal-card-bg: transparent;
+            --arsenal-border: #1a1a1a;
+            --arsenal-shadow: #1a1a1a;
             --arsenal-title: #1a1a1a;
             --arsenal-text: #1a1a1a;
-            --card-bg: #E6E1D6;
+            --card-bg: transparent;
             --card-text: #1a1a1a;
             --card-border: #1a1a1a;
             --bg-primary: #F4F0EB;
@@ -2503,6 +2503,7 @@
                 
                 /* Force Neubrutalist borders on cards when JS theme is active */
                 .selected-work-card, .network-card, .field-work-card {
+                    --card-bg: transparent !important;
                     --card-border: var(--text-primary) !important;
                     --border-primary: var(--text-primary) !important;
                 }
